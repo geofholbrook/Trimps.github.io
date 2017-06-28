@@ -36,7 +36,7 @@
     background-color: rgb(28, 5, 51) !important;
 }
 
-.trimpBadge{
+.trumpBadge{
     background-color:#574800;
 }
 
@@ -48,7 +48,7 @@
     margin-right: 0px;
 }
 
-.battleCell.TrimpmasSnow, .badge.TrimpmasSnow, .badge.CorruptSnow, .badge.HotSnow, .badNameMutation.TrimpmasSnow, .badNameMutation.CorruptSnow, .badNameMutation.HotSnow{
+.battleCell.trumpmasSnow, .badge.trumpmasSnow, .badge.CorruptSnow, .badge.HotSnow, .badNameMutation.trumpmasSnow, .badNameMutation.CorruptSnow, .badNameMutation.HotSnow{
     color: #003a54;
     background: linear-gradient(45deg, rgba(255, 255, 255, 0.6), rgba(189, 255, 255, 0.6));
 }
@@ -614,7 +614,7 @@ input, button, select, textarea{
 #boneWrapper,
 #tooltipDiv,
 input, button, select, textarea,
-#trimpsTimeToFill,
+#trumpsTimeToFill,
 #foodTimeToFill,
 #woodTimeToFill,
 #metalTimeToFill,
@@ -829,11 +829,11 @@ color:#8F8F00
 	background-color: #194A19 !important;
 }
 
-#trimpsTimeToFill,
+#trumpsTimeToFill,
 #foodTimeToFill,
 #woodTimeToFill,
 #metalTimeToFill,
-#trimpsTimeToFill,
+#trumpsTimeToFill,
 .innerFightBar,
 #portalTitle,
 #portalHelium,

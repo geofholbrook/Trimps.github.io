@@ -1,8 +1,8 @@
-//Contact me via Kongregate as GreenSatellite, reddit on /r/Trimps, or Email at trimpsgame@gmail.com
+//Contact me via Kongregate as GreenSatellite, reddit on /r/trumps, or Email at trumpsgame@gmail.com
 //This UI layout was made possible by bootstrap http://www.getbootstrap.com, and the icons are from Glyphicons http://www.glyphicons.com and Icomoon https://icomoon.io
 //If you want to learn how to make javascript games, this is the short tutorial that got me started: http://dhmholley.co.uk/incrementals.html
 
-/*		Trimps
+/*		trumps
 		Copyright (C) 2016 Zach Hood
 
 		This program is free software: you can redistribute it and/or modify
@@ -18,7 +18,7 @@
 		You should have received a copy of the GNU General Public License
 		along with this program (if you are reading this on the original
 		author's website, you can find a copy at
-		<trimps.github.io/license.txt>). If not, see
+		<trumps.github.io/license.txt>). If not, see
 		<http://www.gnu.org/licenses/>. */
 "use strict";
 if (typeof kongregate === 'undefined' && document.getElementById("boneBtn") !== null) {
@@ -47,7 +47,7 @@ function save(exportThis, fromManual) {
     delete saveGame.mapConfig;
 	delete saveGame.global.prestige;
 	delete saveGame.worldText;
-	delete saveGame.trimpDeathTexts;
+	delete saveGame.trumpDeathTexts;
 	delete saveGame.badGuyDeathTexts;
 	delete saveGame.tierValues;
 	delete saveGame.colorsList;
@@ -163,8 +163,8 @@ function save(exportThis, fromManual) {
     saveString = LZString.compressToBase64(JSON.stringify(saveGame));
     if (exportThis) return saveString;
 	try{
-		localStorage.setItem("trimpSave1",saveString);
-		if (localStorage.getItem("trimpSave1") == saveString){
+		localStorage.setItem("trumpSave1",saveString);
+		if (localStorage.getItem("trumpSave1") == saveString){
 			message("Game Saved!", "Notices");
 		}
 		else {
@@ -200,7 +200,7 @@ function load(saveString, autoLoad, fromPf) {
         savegame = JSON.parse(LZString.decompressFromBase64(((fromImport) ? document.getElementById("importBox").value.replace(/(\r\n|\n|\r|\s)/gm,"") : saveString)));
         tooltip('hide');
 		if (!savegame) {
-			message("It looks like your import code isn't working properly. Please make sure that your export code is saved in a text file compatible with all of the characters. If you believe this code should be working, you can Email it to Trimpsgame@gmail.com and I will do my best to restore it for you!", "Notices");
+			message("It looks like your import code isn't working properly. Please make sure that your export code is saved in a text file compatible with all of the characters. If you believe this code should be working, you can Email it to trumpsgame@gmail.com and I will do my best to restore it for you!", "Notices");
 			return false;
 		}
 		else if (fromImport){
@@ -211,10 +211,10 @@ function load(saveString, autoLoad, fromPf) {
     } else  {
 		var unparsedSave;
 		try {
-			unparsedSave = localStorage.getItem("trimpSave1");
+			unparsedSave = localStorage.getItem("trumpSave1");
 		}
 		catch (e) {
-			message("Your browser is preventing Trimps from accessing localStorage, and you will not be able to save or load your progress. Please check your browser settings to ensure that 3rd party cookies are not disabled, and that you're not using any addons that might interrupt storage! <br/><br/> AutoSave has been disabled to prevent damage to your save. If you previously had a save file, it should still be waiting for you once you fix your browser settings.", "Notices");
+			message("Your browser is preventing trumps from accessing localStorage, and you will not be able to save or load your progress. Please check your browser settings to ensure that 3rd party cookies are not disabled, and that you're not using any addons that might interrupt storage! <br/><br/> AutoSave has been disabled to prevent damage to your save. If you previously had a save file, it should still be waiting for you once you fix your browser settings.", "Notices");
 			game.options.menu.autoSave.enabled = 0;
 			game.options.menu.autoSave.onToggle();
 			return false;
@@ -235,7 +235,7 @@ function load(saveString, autoLoad, fromPf) {
 		return false;
 	}
 	if (oldVersion > game.global.version) {
-		message("Your save file is from a newer version of Trimps (v" + oldVersion + ") than what your computer is running (v" + game.global.version + "). Refresh or restart your browser!", "Notices");
+		message("Your save file is from a newer version of trumps (v" + oldVersion + ") than what your computer is running (v" + game.global.version + "). Refresh or restart your browser!", "Notices");
 		return false;
 	}
 	resetGame();
@@ -292,7 +292,7 @@ function load(saveString, autoLoad, fromPf) {
 			continue;
 		}
 		if (a == "unlocks" && savegame.unlocks) {
-			game.unlocks.quickTrimps = savegame.unlocks.quickTrimps;
+			game.unlocks.quicktrumps = savegame.unlocks.quicktrumps;
 			game.unlocks.goldMaps = savegame.unlocks.goldMaps;
 		}
         var topSave = savegame[a];
@@ -357,12 +357,12 @@ function load(saveString, autoLoad, fromPf) {
 		}
 	}
 	if (oldVersion <= 1.06){
-		game.resources.trimps.max += (game.buildings.Mansion.owned * 2);
+		game.resources.trumps.max += (game.buildings.Mansion.owned * 2);
 		game.buildings.Mansion.increase.by = 10;
 	}
 	if (oldVersion <= 1.07){
 		game.global.highestLevelCleared = game.global.world;
-		game.resources.trimps.max += (game.buildings.Wormhole.owned * 500);
+		game.resources.trumps.max += (game.buildings.Wormhole.owned * 500);
 		game.buildings.Wormhole.increase.by = "1000";
 		if (game.global.world >= 33) game.worldUnlocks.Doom.fire();
 	}
@@ -493,10 +493,10 @@ function load(saveString, autoLoad, fromPf) {
 		if (game.global.world >= 230) game.global.canMagma = false;
 		else if (game.global.highestLevelCleared > 229){
 			game.global.highestLevelCleared = 229;
-			if (game.global.roboTrimpLevel > 8)
-				game.global.roboTrimpLevel = 8;
+			if (game.global.robotrumpLevel > 8)
+				game.global.robotrumpLevel = 8;
 		}
-		game.resources.trimps.potency = 0.0085;
+		game.resources.trumps.potency = 0.0085;
 		if (game.global.spentEssence > 0){
 			for (var item in game.talents){
 				game.talents[item].purchased = false;
@@ -514,9 +514,9 @@ function load(saveString, autoLoad, fromPf) {
 	}
 	if (oldVersion < 4.01){
 		game.global.messages.Loot.events = true;
-		if (game.stats.trimpsGenerated.value > 0){
-			game.global.trimpsGenerated = game.stats.trimpsGenerated.value;
-			game.stats.trimpsGenerated.value = scaleNumberForBonusHousing(game.stats.trimpsGenerated.value);
+		if (game.stats.trumpsGenerated.value > 0){
+			game.global.trumpsGenerated = game.stats.trumpsGenerated.value;
+			game.stats.trumpsGenerated.value = scaleNumberForBonusHousing(game.stats.trumpsGenerated.value);
 		}
 		if (game.stats.highestVoidMap.valueTotal > 230)
 			game.stats.highestVoidMap.valueTotal = 230;
@@ -577,7 +577,7 @@ function load(saveString, autoLoad, fromPf) {
             swapClass("cellColor", "cellColorBeaten", document.getElementById("mapCell" + y));
         }
     } else if (game.global.mapGridArray.length === 0 && game.global.mapsActive) game.global.mapsActive = false;
-    if (game.resources.trimps.owned > 0 || game.buildings.Trap.owned > 0) game.buildings.Trap.first();
+    if (game.resources.trumps.owned > 0 || game.buildings.Trap.owned > 0) game.buildings.Trap.first();
     if (game.global.autoBattle) {
         fadeIn("pauseFight", 1);
         pauseFight(true);
@@ -644,7 +644,7 @@ function load(saveString, autoLoad, fromPf) {
 	if (game.global.challengeActive != "Scientist") document.getElementById("scienceCollectBtn").style.display = "block";
 	if (game.global.brokenPlanet) {
 		document.getElementById("wrapper").style.background = "url(css/bg2_vert.png) center repeat-y";
-		if (game.global.roboTrimpLevel > 0) displayRoboTrimp();
+		if (game.global.robotrumpLevel > 0) displayRobotrump();
 	}
 	if (game.global.challengeActive == "Balance"){
 		updateBalanceStacks();
@@ -717,10 +717,10 @@ function load(saveString, autoLoad, fromPf) {
 		swapClass("fireBtn", "fireBtnFiring", document.getElementById("fireBtn"));
 	else
 		swapClass("fireBtn", "fireBtnNotFiring", document.getElementById("fireBtn"));
-	if(game.unlocks.quickTrimps)
-		swapClass("psColor", "psColorOrange", document.getElementById("trimpsPs"));
+	if(game.unlocks.quicktrumps)
+		swapClass("psColor", "psColorOrange", document.getElementById("trumpsPs"));
 	else
-		swapClass("psColor", "psColorWhite", document.getElementById("trimpsPs"));
+		swapClass("psColor", "psColorWhite", document.getElementById("trumpsPs"));
 	handlePoisonDebuff();
 	handleIceDebuff();
 	handleWindDebuff();
@@ -734,16 +734,16 @@ function loadGigastations() {
 	game.buildings.Warpstation.cost.metal[0] *= modifier;
 }
 
-var trimpStatsDisplayed = false;
+var trumpStatsDisplayed = false;
 function toggleStats(toggleMode){
 	if (toggleMode) {
 		game.global.statsMode = toggleMode;
-		trimpStatsDisplayed = !trimpStatsDisplayed;
+		trumpStatsDisplayed = !trumpStatsDisplayed;
 	}
 	if (game.global.totalPortals == 0) document.getElementById("statsBtnRow").style.display = "none";
-	document.getElementById("statsWrapper").style.display = (trimpStatsDisplayed) ? "none" : "block";
-	document.getElementById("wrapper").style.display = (trimpStatsDisplayed) ? "block" : "none";
-	trimpStatsDisplayed = !trimpStatsDisplayed;
+	document.getElementById("statsWrapper").style.display = (trumpStatsDisplayed) ? "none" : "block";
+	document.getElementById("wrapper").style.display = (trumpStatsDisplayed) ? "block" : "none";
+	trumpStatsDisplayed = !trumpStatsDisplayed;
 	var mode = game.global.statsMode;
 	if (mode == "current") {
 		document.getElementById("currentSelectBtn").style.border = "5px solid yellow";
@@ -753,33 +753,33 @@ function toggleStats(toggleMode){
 		document.getElementById("totalSelectBtn").style.border = "5px solid yellow";
 		document.getElementById("currentSelectBtn").style.border = "5px solid black";
 	}
-	if (trimpStatsDisplayed){
+	if (trumpStatsDisplayed){
 		displayAllStats(true);
 	}
 }
 
-function displayRoboTrimp() {
-	if (game.global.roboTrimpLevel <= 0) return;
+function displayRobotrump() {
+	if (game.global.robotrumpLevel <= 0) return;
 	var elem = document.getElementById("chainHolder");
 	elem.style.visibility = "visible";
-	if (game.global.roboTrimpCooldown > 0){
+	if (game.global.robotrumpCooldown > 0){
 		swapClass("shriekState", "shriekStateCooldown", elem);
-		document.getElementById('roboTrimpTurnsLeft').innerHTML = game.global.roboTrimpCooldown;
+		document.getElementById('robotrumpTurnsLeft').innerHTML = game.global.robotrumpCooldown;
 	}
 	else {
-		document.getElementById('roboTrimpTurnsLeft').innerHTML = "";
+		document.getElementById('robotrumpTurnsLeft').innerHTML = "";
 		var swapIn = (game.global.useShriek) ? 'shriekStateEnabled' : 'shriekStateDisabled';
 		swapClass("shriekState", swapIn, elem);
 	}
 }
 
 function magnetoShriek() {
-	if (game.global.roboTrimpCooldown > 0 || !game.global.roboTrimpLevel || game.global.world < 60) return;
+	if (game.global.robotrumpCooldown > 0 || !game.global.robotrumpLevel || game.global.world < 60) return;
 	game.global.useShriek = !game.global.useShriek;
-	displayRoboTrimp();
+	displayRobotrump();
 	if (game.global.useShriek && !game.global.mapsActive){
         var cell = game.global.gridArray[game.global.lastClearedCell + 1];
-		if (cell.name == "Improbability" || cell.name  == "Omnipotrimp"){
+		if (cell.name == "Improbability" || cell.name  == "Omnipotrump"){
 			activateShriek();
 		}
 	}
@@ -788,8 +788,8 @@ function magnetoShriek() {
 function activateShriek() {
 	game.global.usingShriek = true;
 	game.global.useShriek = false;
-	game.global.roboTrimpCooldown = 5;
-	displayRoboTrimp();
+	game.global.robotrumpCooldown = 5;
+	displayRobotrump();
 	updateAllBattleNumbers();
 }
 
@@ -1045,7 +1045,7 @@ function getScientistInfo(number, reward){
 			return (reward) ? "start with 5 Barns, 5 Sheds, 5 Forges, and T2 Equipment unlocked" : 8000;
 		}
 		case 3: {
-			return (reward) ? "start with full Trimps and 200% player efficiency" : 1500;
+			return (reward) ? "start with full trumps and 200% player efficiency" : 1500;
 		}
 		case 4: {
 			return (reward) ? "earn two levels of each prestige upgrade per map, unlock AutoPrestiges, and your Warpstations will build instantly, skipping the queue" : 70;
@@ -1323,7 +1323,7 @@ function activateKongBonus(oldWorld){
 	portalWrapper.style.backgroundColor = "black";
 	portalWrapper.style.color = "white";
 	document.getElementById("portalTitle").innerHTML = "Beta Bonus";
-	document.getElementById("portalStory").innerHTML = "Thank you so much for helping test the beta version of Trimps. All of the support and feedback was amazing! This version still needs some feedback and tweaks before it will be perfect, but saves will not be purposely reset again. Enjoy! " + addText;
+	document.getElementById("portalStory").innerHTML = "Thank you so much for helping test the beta version of trumps. All of the support and feedback was amazing! This version still needs some feedback and tweaks before it will be perfect, but saves will not be purposely reset again. Enjoy! " + addText;
 	document.getElementById("portalHelium").innerHTML = '<span id="portalHeliumOwned">' + helium + '</span> Bonus Points';
 	document.getElementById("cancelPortalBtn").innerHTML = "No Thanks";
 	document.getElementById("activatePortalBtn").innerHTML = "Finished";
@@ -1451,7 +1451,7 @@ function checkOfflineProgress(noTip){
 		}
 	}
 	if (textArray.length === 0) return;
-	textString = "While you were away, your Trimps were able to produce ";
+	textString = "While you were away, your trumps were able to produce ";
 	for (var y = 0; y < textArray.length; y++){
 		textString += textArray[y];
 		if (y == textArray.length -2) textString += "and ";
@@ -1466,7 +1466,7 @@ function checkOfflineProgress(noTip){
 		textString = textString.slice(0, -2);
 	}
 	textString += ".";
-	if (!noTip) tooltip("Trustworthy Trimps", null, "update", textString);
+	if (!noTip) tooltip("Trustworthy trumps", null, "update", textString);
 	else savedOfflineText = textString;
 }
 
@@ -1810,19 +1810,19 @@ function commitPortalUpgrades(usingPortal){
 }
 
 function canCommitCarpentry(){ //Uh, and Coordinated. This checks coordinated too.
-	var newMax = game.resources.trimps.max * game.resources.trimps.maxMod;
+	var newMax = game.resources.trumps.max * game.resources.trumps.maxMod;
 	newMax = Math.floor(newMax * (Math.pow(1 + game.portal.Carpentry.modifier, game.portal.Carpentry.level + game.portal.Carpentry.levelTemp)));
 	if (typeof game.portal.Carpentry_II.levelTemp !== 'undefined') newMax = Math.floor(newMax * (1 + (game.portal.Carpentry_II.modifier * (game.portal.Carpentry_II.level + game.portal.Carpentry_II.levelTemp))));
 	var error = document.getElementById("portalError");
 	error.innerHTML = "";
 	var good = true;
-	var soldiers = (game.portal.Coordinated.level || game.portal.Coordinated.levelTemp) ? game.portal.Coordinated.onChange(true) : game.resources.trimps.maxSoldiers;
+	var soldiers = (game.portal.Coordinated.level || game.portal.Coordinated.levelTemp) ? game.portal.Coordinated.onChange(true) : game.resources.trumps.maxSoldiers;
     if (newMax < (soldiers * 2.4)) {
-        error.innerHTML += "You do not have enough max Trimps with this Perk setup to sustain your Coordination. ";
+        error.innerHTML += "You do not have enough max trumps with this Perk setup to sustain your Coordination. ";
 		error.style.display = "block";
 		good = false;
     }
-	if (Math.ceil(newMax / 2) < game.resources.trimps.employed){
+	if (Math.ceil(newMax / 2) < game.resources.trumps.employed){
 		error.innerHTML += "You have too many workers assigned for this Perk setup.";
 		error.style.display = "block";
 		good = false;
@@ -2006,7 +2006,7 @@ function rewardResource(what, baseAmt, level, checkMapLootScale, givePercentage)
 		if (game.unlocks.impCount.Whipimp) tempModifier *= Math.pow(1.003, game.unlocks.impCount.Whipimp);
 		if (game.global.turkimpTimer > 0 && (game.global.playerGathering == "food" || game.global.playerGathering == "metal" || game.global.playerGathering == "wood")) tempModifier *= (game.talents.turkimp3.purchased) ? 1.249 : 1.166;
 		//Half of max can work, a little less than third on average are applied to one of these 3 jobs. 0.16 is pretty average.
-		var avgSec = tempModifier * (game.resources.trimps.realMax() * 0.16);
+		var avgSec = tempModifier * (game.resources.trumps.realMax() * 0.16);
 		//Base is 7 seconds at 1 baseAmt
 		if (game.global.world < 100)
 			amt = avgSec * 7 * baseAmt;
@@ -2185,7 +2185,7 @@ function fireMode(noChange) {
         elem.className = elem.className.replace("fireBtnFiring", "fireBtnNotFiring");
         elem.innerHTML = "Fire";
     }
-    if (!noChange) tooltip("Fire Trimps", null, "update");
+    if (!noChange) tooltip("Fire trumps", null, "update");
 }
 
 function setGather(what, updateOnly) {
@@ -2221,7 +2221,7 @@ function updateBuildSpeed(){
 
 function setGatherTextAs(what, on) {
 	if (what == "science") game.global.researched = true;
-    var trimpTrapText = '(<span id="trimpTrapText">' + prettify(game.buildings.Trap.owned) + '</span>)';
+    var trumpTrapText = '(<span id="trumpTrapText">' + prettify(game.buildings.Trap.owned) + '</span>)';
     switch (what) {
     case "food":
         return (on) ? "Gathering" : "Gather";
@@ -2233,8 +2233,8 @@ function setGatherTextAs(what, on) {
         return (on) ? "Researching" : "Research";
     case "buildings":
         return (on) ? "Building" : "Build";
-    case "trimps":
-        return (on) ? ("Trapping " + trimpTrapText) : ("Check Traps " + trimpTrapText);
+    case "trumps":
+        return (on) ? ("Trapping " + trumpTrapText) : ("Check Traps " + trumpTrapText);
     }
 }
 
@@ -2295,7 +2295,7 @@ function gather() {
 		addResCheckMax(increase, amount, null, true);
     }
     if (what === "" || what == "buildings") return;
-    if (what == "trimps") {
+    if (what == "trumps") {
         trapThings();
         return;
     }
@@ -2621,12 +2621,12 @@ function calculatePercentageBuildingCost(what, resourceToCheck, costModifier, re
 
 function trapThings() {
     var trap = game.buildings.Trap;
-    var trimps = game.resources.trimps;
-	var trimpsMax = trimps.realMax();
+    var trumps = game.resources.trumps;
+	var trumpsMax = trumps.realMax();
 	var TrapOwned = document.getElementById("TrapOwned");
     if (game.global.timeLeftOnTrap == -1) {
-        if (trimps.owned < trimpsMax && trap.owned >= 1)
-            game.global.timeLeftOnTrap = trimps.speed;
+        if (trumps.owned < trumpsMax && trap.owned >= 1)
+            game.global.timeLeftOnTrap = trumps.speed;
         else {
             document.getElementById("trappingBar").style.width = "0%";
             if (TrapOwned) TrapOwned.innerHTML = trap.owned;
@@ -2634,16 +2634,16 @@ function trapThings() {
         }
     }
     game.global.timeLeftOnTrap -= ((1 / game.settings.speed) * getPlayerModifier());
-    if (game.global.timeLeftOnTrap <= 0 && trimps.owned < trimpsMax && trap.owned >= 1) {
+    if (game.global.timeLeftOnTrap <= 0 && trumps.owned < trumpsMax && trap.owned >= 1) {
         trap.owned--;
-        trimps.owned++;
+        trumps.owned++;
 		//portal Bait
-		if (game.portal.Bait.level > 0) trimps.owned += (game.portal.Bait.level * game.portal.Bait.modifier);
-		if (trimps.owned > trimpsMax) trimps.owned = trimpsMax;
+		if (game.portal.Bait.level > 0) trumps.owned += (game.portal.Bait.level * game.portal.Bait.modifier);
+		if (trumps.owned > trumpsMax) trumps.owned = trumpsMax;
         game.global.timeLeftOnTrap = -1;
         if (TrapOwned) TrapOwned.innerHTML = trap.owned;
     }
-    if (game.options.menu.progressBars.enabled) document.getElementById("trappingBar").style.width = (100 - ((game.global.timeLeftOnTrap / trimps.speed) * 100)) + "%";
+    if (game.options.menu.progressBars.enabled) document.getElementById("trappingBar").style.width = (100 - ((game.global.timeLeftOnTrap / trumps.speed) * 100)) + "%";
 }
 
 function buyJob(what, confirmed, noTip) {
@@ -2656,20 +2656,20 @@ function buyJob(what, confirmed, noTip) {
 	if (game.global.firing){
 		if (game.jobs[what].owned < 1) return;
 		purchaseAmt = (game.global.buyAmt == "Max") ? calculateMaxAfford(game.jobs[what], false, false, true) : game.global.buyAmt;
-		game.resources.trimps.employed -= (game.jobs[what].owned < purchaseAmt) ? game.jobs[what].owned : purchaseAmt;
+		game.resources.trumps.employed -= (game.jobs[what].owned < purchaseAmt) ? game.jobs[what].owned : purchaseAmt;
 		game.jobs[what].owned -= purchaseAmt;
-		game.stats.trimpsFired.value += purchaseAmt;
+		game.stats.trumpsFired.value += purchaseAmt;
 		if (game.jobs[what].owned < 0) game.jobs[what].owned = 0;
-		if (game.resources.trimps.employed < 0) game.resources.trimps.employed = 0;
+		if (game.resources.trumps.employed < 0) game.resources.trumps.employed = 0;
 		return;
 	}
-	var workspaces = Math.ceil(game.resources.trimps.realMax() / 2) - game.resources.trimps.employed;
+	var workspaces = Math.ceil(game.resources.trumps.realMax() / 2) - game.resources.trumps.employed;
 	var firingForJobs = false;
 	var fireAmt;
 	if (game.options.menu.fireForJobs.enabled && game.jobs[what].allowAutoFire){
 		purchaseAmt = (game.global.buyAmt == "Max") ? calculateMaxAfford(game.jobs[what], false, false, true) : game.global.buyAmt;
 		if (workspaces < purchaseAmt) {
-			workspaces = Math.ceil(game.resources.trimps.realMax() / 2) - game.resources.trimps.employed;
+			workspaces = Math.ceil(game.resources.trumps.realMax() / 2) - game.resources.trumps.employed;
 			fireAmt = purchaseAmt - workspaces;
 			// Check to see if there are enough workers to fire
 			if (!((game.jobs.Miner.owned + game.jobs.Farmer.owned + game.jobs.Lumberjack.owned) < fireAmt)) {
@@ -2701,12 +2701,12 @@ function buyJob(what, confirmed, noTip) {
 	}
 	var added = canAffordJob(what, true, workspaces);
 	game.jobs[what].owned += added;
-	game.resources.trimps.employed += added;
+	game.resources.trumps.employed += added;
 
 
 	if (!noTip) tooltip(what, "jobs", "update");
 	if (checkAndFix){
-		workspaces = Math.ceil(game.resources.trimps.realMax() / 2) - game.resources.trimps.employed;
+		workspaces = Math.ceil(game.resources.trumps.realMax() / 2) - game.resources.trumps.employed;
 		if (workspaces < 0)
 			freeWorkspace(Math.abs(workspaces));
 	}
@@ -2714,8 +2714,8 @@ function buyJob(what, confirmed, noTip) {
 
 function addGeneticist(amount){
 	if (game.global.challengeActive == "Corrupted") game.challenges.Corrupted.hiredGenes = true;
-	var workspaces = Math.ceil(game.resources.trimps.realMax() / 2) - game.resources.trimps.employed;
-	var owned = game.resources.trimps.owned - game.resources.trimps.employed;
+	var workspaces = Math.ceil(game.resources.trumps.realMax() / 2) - game.resources.trumps.employed;
+	var owned = game.resources.trumps.owned - game.resources.trumps.employed;
 	if (owned < 1) return;
 	if (owned < amount)
 		amount = owned;
@@ -2735,13 +2735,13 @@ function addGeneticist(amount){
 		amount = 1;
 	}
 	game.resources.food.owned -= price;
-	game.resources.trimps.employed += amount;
+	game.resources.trumps.employed += amount;
 	game.jobs.Geneticist.owned += amount;
 }
 
 function removeGeneticist(amount){
 	if (game.jobs.Geneticist.owned < amount) return;
-	game.resources.trimps.employed -= amount;
+	game.resources.trumps.employed -= amount;
 	game.jobs.Geneticist.owned -= amount;
 }
 
@@ -2759,7 +2759,7 @@ function freeWorkspace(amount, getAmtFreed){
 	if (toCheck.length == 0) return false;
 	var selected = toCheck[Math.floor(Math.random() * toCheck.length)];
 	game.jobs[selected].owned -= amount;
-	game.resources.trimps.employed -= amount;
+	game.resources.trumps.employed -= amount;
 	return true;
 }
 
@@ -2829,7 +2829,7 @@ function getTooltipJobText(what, toBuy) {
 function canAffordJob(what, take, workspaces, updatingLabel) {
 	var ignoreWorkspaces = (game.jobs[what].allowAutoFire && game.options.menu.fireForJobs.enabled && updatingLabel);
 	if (workspaces <= 0 && !ignoreWorkspaces) return false;
-    var trimps = game.resources.trimps;
+    var trumps = game.resources.trumps;
 	var toBuy = 1;
 	if (game.global.buyAmt == "Max"){
 		workspaces = Math.floor(workspaces * game.global.maxSplit);
@@ -2838,7 +2838,7 @@ function canAffordJob(what, take, workspaces, updatingLabel) {
 	}
 	else toBuy = game.global.buyAmt;
     if (!ignoreWorkspaces && workspaces >= 0 && workspaces < toBuy) toBuy = workspaces;
-    if (!ignoreWorkspaces && (trimps.owned - trimps.employed - toBuy < 0)) return false;
+    if (!ignoreWorkspaces && (trumps.owned - trumps.employed - toBuy < 0)) return false;
     var job = game.jobs[what];
     for (var costItem in job.cost) {
         if (checkJobItem(what, take, costItem, null, toBuy) !== true) return false;
@@ -2886,16 +2886,16 @@ function checkJobItem(what, take, costItem, amtOnly, toBuy) {
     return true;
 }
 
-function canAffordCoordinationTrimps(){
-	var compare = (game.portal.Coordinated.level) ? game.portal.Coordinated.currentSend : game.resources.trimps.maxSoldiers ;
-	return (game.resources.trimps.realMax() >= (compare * 3))
+function canAffordCoordinationtrumps(){
+	var compare = (game.portal.Coordinated.level) ? game.portal.Coordinated.currentSend : game.resources.trumps.maxSoldiers ;
+	return (game.resources.trumps.realMax() >= (compare * 3))
 }
 
 function buyUpgrade(what, confirmed, noTip, heldCtrl) {
 	if (game.options.menu.pauseGame.enabled) return;
 	if (!confirmed && !noTip && game.options.menu.lockOnUnlock.enabled == 1 && (new Date().getTime() - 1000 <= game.global.lastUnlock)) return;
     if (what == "Coordination") {
-       if (!canAffordCoordinationTrimps()) return false;
+       if (!canAffordCoordinationtrumps()) return false;
     }
     var upgrade = game.upgrades[what];
 	if (upgrade.locked == 1) return;
@@ -2935,16 +2935,16 @@ function buyUpgrade(what, confirmed, noTip, heldCtrl) {
 }
 
 function breed() {
-    var trimps = game.resources.trimps;
-	checkAchieve("trimps", trimps.owned);
-    var breeding = trimps.owned - trimps.employed;
-	var trimpsMax = trimps.realMax();
+    var trumps = game.resources.trumps;
+	checkAchieve("trumps", trumps.owned);
+    var breeding = trumps.owned - trumps.employed;
+	var trumpsMax = trumps.realMax();
     if (breeding < 2 || game.global.challengeActive == "Trapper") {
         updatePs(0, true);
-		document.getElementById("trimpsTimeToFill").innerHTML = "";
+		document.getElementById("trumpsTimeToFill").innerHTML = "";
         return;
     }
-    var potencyMod = trimps.potency;
+    var potencyMod = trumps.potency;
 	//Add potency (book)
 	if (game.upgrades.Potency.done > 0) potencyMod *= Math.pow(1.1, game.upgrades.Potency.done);
 	//Add Nurseries
@@ -2957,8 +2957,8 @@ function breed() {
 	potencyMod *= 1+ (game.portal.Pheromones.level * game.portal.Pheromones.modifier);
 	//Geneticist
 	if (game.jobs.Geneticist.owned > 0) potencyMod *= Math.pow(.98, game.jobs.Geneticist.owned);
-	//Quick Trimps
-	if (game.unlocks.quickTrimps) potencyMod *= 2;
+	//Quick trumps
+	if (game.unlocks.quicktrumps) potencyMod *= 2;
 	if (game.global.challengeActive == "Daily"){
 		if (typeof game.global.dailyChallenge.dysfunctional !== 'undefined'){
 			potencyMod *= dailyModifiers.dysfunctional.getMult(game.global.dailyChallenge.dysfunctional.strength);
@@ -2978,14 +2978,14 @@ function breed() {
     updatePs(breeding, true);
 
 	potencyMod = (1 + (potencyMod / 10));
-	var timeRemaining = log10((trimpsMax - trimps.employed) / (trimps.owned - trimps.employed)) / log10(potencyMod);
+	var timeRemaining = log10((trumpsMax - trumps.employed) / (trumps.owned - trumps.employed)) / log10(potencyMod);
 	timeRemaining /= 10;
 
 
 	//Calculate full breed time
 	var fullBreed = 0;
-	var adjustedMax = (game.portal.Coordinated.level) ? game.portal.Coordinated.currentSend : trimps.maxSoldiers;
-	var totalTime = log10((trimpsMax - trimps.employed) / (trimpsMax - adjustedMax - trimps.employed)) / log10(potencyMod);
+	var adjustedMax = (game.portal.Coordinated.level) ? game.portal.Coordinated.currentSend : trumps.maxSoldiers;
+	var totalTime = log10((trumpsMax - trumps.employed) / (trumpsMax - adjustedMax - trumps.employed)) / log10(potencyMod);
 	totalTime /= 10;
 	game.global.breedTime = adjustedMax / breeding;
 	if (game.jobs.Geneticist.locked == false && game.global.Geneticistassist && game.global.GeneticistassistSetting > 0){
@@ -3046,17 +3046,17 @@ function breed() {
 		timeRemaining += " / " + fullBreed;
 	}
 
-	if (trimps.owned >= trimpsMax) {
-        trimps.owned = trimpsMax;
-		document.getElementById("trimpsTimeToFill").innerHTML = (fullBreed) ? fullBreed : "";
+	if (trumps.owned >= trumpsMax) {
+        trumps.owned = trumpsMax;
+		document.getElementById("trumpsTimeToFill").innerHTML = (fullBreed) ? fullBreed : "";
 		if (!game.global.fighting && totalTimeText == "0.0"){
 			updateStoredGenInfo(breeding);
 		}
         return;
     }
-	document.getElementById("trimpsTimeToFill").innerHTML = timeRemaining;
-    trimps.owned += breeding / game.settings.speed;
-	if (trimps.owned >= trimpsMax) trimps.owned = trimpsMax;
+	document.getElementById("trumpsTimeToFill").innerHTML = timeRemaining;
+    trumps.owned += breeding / game.settings.speed;
+	if (trumps.owned >= trumpsMax) trumps.owned = trumpsMax;
 	if (game.portal.Anticipation.level) game.global.lastBreedTime += (1000 / game.settings.speed);
 	updateStoredGenInfo(breeding);
 }
@@ -3414,7 +3414,7 @@ var voidBuffConfig = {
 		},
 		slowBreed: {
 			icon: 'icomoon icon-cloudy2',
-			text: 'This map is reducing the repopulation speed of your Trimps by 80%.',
+			text: 'This map is reducing the repopulation speed of your trumps by 80%.',
 			title: 'Void Gas',
 		},
 		getCrit: {
@@ -4175,8 +4175,8 @@ function getEmpowerment(adjust, getNaming){
 	return activeEmpowerments[adjWorld];
 }
 
-function stackPoison(trimpAttack){
-	game.empowerments.Poison.currentDebuffPower += Math.ceil(game.empowerments.Poison.getModifier() * trimpAttack);
+function stackPoison(trumpAttack){
+	game.empowerments.Poison.currentDebuffPower += Math.ceil(game.empowerments.Poison.getModifier() * trumpAttack);
 	handlePoisonDebuff();
 }
 
@@ -4459,30 +4459,30 @@ var mutations = {
         discardMaxThreshold: 20,
 		multiplier: -1,
 		lastCalculatedMultiplier: -1,
-		getTrimpDecay: function (demandRecount){
+		gettrumpDecay: function (demandRecount){
 			if (!this.active) return;
 			if (this.multiplier == -1 || demandRecount) {
 				var start = this.start();
 				var zones = game.global.world - this.start() + 1;
 				this.multiplier = 1;
 				for (var x = 0; x < zones; x++){
-					this.multiplier *= this.getTrimpDecayMult(x + start);
+					this.multiplier *= this.gettrumpDecayMult(x + start);
 				}
 				this.lastCalculatedMultiplier = game.global.world;
 			}
 			return this.multiplier;
 		},
-		increaseTrimpDecay: function () {
+		increasetrumpDecay: function () {
 			if (this.lastCalculatedMultiplier >= game.global.world) return;
 			if (this.multiplier == -1) {
-				this.getTrimpDecay(true);
+				this.gettrumpDecay(true);
 				return;
 			}
-			var newMult = this.getTrimpDecayMult();
+			var newMult = this.gettrumpDecayMult();
 			this.multiplier *= newMult;
 			this.lastCalculatedMultiplier = game.global.world;
 		},
-		getTrimpDecayMult: function (world){
+		gettrumpDecayMult: function (world){
 			return 0.8;
 		},
         getEligibleOrigin: function(currentArray, riversPrior) {
@@ -4827,7 +4827,7 @@ var mutations = {
 		effects: ['none'],
 		namePrefix: 'Hallowed'
 	},
-	TrimpmasSnow: {
+	trumpmasSnow: {
 		active: function() {
 			return false;
 		},
@@ -4853,7 +4853,7 @@ var mutations = {
 					else if (winner == "Corruption")
 						winner = "CorruptSnow";
 					else winner = "";
-					currentArray[i] = (winner) ? winner : "TrimpmasSnow";
+					currentArray[i] = (winner) ? winner : "trumpmasSnow";
 				}
 			}
 			return currentArray;
@@ -4910,7 +4910,7 @@ var mutationEffects = {
 	},
 	magmaAttack: {
 		icon: 'icomoon icon-pushpin',
-		text: 'this bad guy has additional attack. On death, it will bestow 1 stack of magma attack on your Trimps',
+		text: 'this bad guy has additional attack. On death, it will bestow 1 stack of magma attack on your trumps',
 		title: 'Magma Attack',
 		onDeath: function (){
 			game.magma.buffs.attack++;
@@ -4977,8 +4977,8 @@ function getGeneratorFuelCap(includeStorage, checkingHybrid){
 }
 
 function increaseTheHeat(){
-	if (game.resources.trimps.soldiers > 0) {
-		var newMult = mutations.Magma.getTrimpDecayMult(game.global.world);
+	if (game.resources.trumps.soldiers > 0) {
+		var newMult = mutations.Magma.gettrumpDecayMult(game.global.world);
 		game.global.soldierCurrentAttack *= newMult;
 		game.global.soldierHealthMax *= newMult;
 		if (game.global.soldierHealth > game.global.soldierHealthMax)
@@ -5000,13 +5000,13 @@ function updateGeneratorInfo(){
 	state = state[game.global.generatorMode];
 
 	if (elem == null){
-		var html = "<div class='thing generatorState' id='generatorWindow'><div id='genTitleContainer'> <div id='generatorTitle'>Dimensional Generator</div><div><span id='generatorActiveBtn' onclick='changeGeneratorState(1)' class='workBtn pointer noselect colorDanger hoverColor'>Gain Fuel</span> <span onclick='changeGeneratorState(0)' id='generatorPassiveBtn' class='workBtn pointer noselect colorPrimary hoverColor'>Gain Mi</span> <span onclick='changeGeneratorState(2)' id='generatorHybridBtn' class='workBtn pointer noselect colorTeal hoverColor' style='display: none'>Hybrid</span></div> <div id='generatorUpgradeBtn' onclick='tooltip(\"Upgrade Generator\", null, \"update\")'class='workBtn pointer noselect colorDark hoverColor'>Upgrade (<span id='upgradeMagmiteTotal'></span>)</div></div><div id='genGaugeContainer'><div class='row'><div class='col-xs-4'><div id='fuelContainer'><div id='fuelBar'></div><div id='fuelStorageBar'></div><div id='fuelGlass'></div><div id='fuelOwnedText'>Fuel<br/><span id='generatorFuelOwned'>0</span> / <span id='generatorFuelMax'>0</span></div></div></div><div class='col-xs-4'><div id='generatorProducingContainer'>Producing<br/><span id='generatorTrimpsPs'>0</span><br/>Housing/Tick</div></div><div class='col-xs-4'><div id='generatorTickContainer'> <div id='generatorRadialContainer' class='radial-progress'> <div class='radial-progress-circle'> <div class='radial-progress-arrow static''></div></div><div id='generatorRadial' class='radial-progress-circle'> <div class='radial-progress-arrow mobile'></div> </div> <div id='clockKnob' class='radial-progress-knob generatorState'></div></div><span id='generatorNextTick'>0</span></div></div></div></div></div>";
+		var html = "<div class='thing generatorState' id='generatorWindow'><div id='genTitleContainer'> <div id='generatorTitle'>Dimensional Generator</div><div><span id='generatorActiveBtn' onclick='changeGeneratorState(1)' class='workBtn pointer noselect colorDanger hoverColor'>Gain Fuel</span> <span onclick='changeGeneratorState(0)' id='generatorPassiveBtn' class='workBtn pointer noselect colorPrimary hoverColor'>Gain Mi</span> <span onclick='changeGeneratorState(2)' id='generatorHybridBtn' class='workBtn pointer noselect colorTeal hoverColor' style='display: none'>Hybrid</span></div> <div id='generatorUpgradeBtn' onclick='tooltip(\"Upgrade Generator\", null, \"update\")'class='workBtn pointer noselect colorDark hoverColor'>Upgrade (<span id='upgradeMagmiteTotal'></span>)</div></div><div id='genGaugeContainer'><div class='row'><div class='col-xs-4'><div id='fuelContainer'><div id='fuelBar'></div><div id='fuelStorageBar'></div><div id='fuelGlass'></div><div id='fuelOwnedText'>Fuel<br/><span id='generatorFuelOwned'>0</span> / <span id='generatorFuelMax'>0</span></div></div></div><div class='col-xs-4'><div id='generatorProducingContainer'>Producing<br/><span id='generatortrumpsPs'>0</span><br/>Housing/Tick</div></div><div class='col-xs-4'><div id='generatorTickContainer'> <div id='generatorRadialContainer' class='radial-progress'> <div class='radial-progress-circle'> <div class='radial-progress-arrow static''></div></div><div id='generatorRadial' class='radial-progress-circle'> <div class='radial-progress-arrow mobile'></div> </div> <div id='clockKnob' class='radial-progress-knob generatorState'></div></div><span id='generatorNextTick'>0</span></div></div></div></div></div>";
 		document.getElementById('buildingsHere').innerHTML += html;
 	}
 	changeGeneratorState(null, true);
 	if (game.permanentGeneratorUpgrades.Hybridization.owned) document.getElementById('generatorHybridBtn').style.display = 'inline';
 	updateGeneratorFuel();
-	document.getElementById('generatorTrimpsPs').innerHTML = prettify(scaleNumberForBonusHousing(nextTickAmount));
+	document.getElementById('generatortrumpsPs').innerHTML = prettify(scaleNumberForBonusHousing(nextTickAmount));
 	document.getElementById('upgradeMagmiteTotal').innerHTML = prettify(game.global.magmite) + " Mi";
 }
 
@@ -5229,9 +5229,9 @@ function generatorTick(fromOverclock){
 	checkAchieve("housing", "Generator");
 	var tickAmt = getGeneratorTickAmount();
 	if (fromOverclock) tickAmt *= (1 - game.generatorUpgrades.Overclocker.modifier);
-	game.stats.trimpsGenerated.value += scaleNumberForBonusHousing(tickAmt);
-	game.global.trimpsGenerated += tickAmt;
-	game.resources.trimps.max += tickAmt;
+	game.stats.trumpsGenerated.value += scaleNumberForBonusHousing(tickAmt);
+	game.global.trumpsGenerated += tickAmt;
+	game.resources.trumps.max += tickAmt;
 	game.global.magmaFuel = Math.round((game.global.magmaFuel - fuelRate) * 100) / 100;
 	if (!fromOverclock){
 		if (game.global.magmaFuel >= fuelRate)
@@ -5378,7 +5378,7 @@ function getRandomBadGuy(mapSuffix, level, totalCells, world, imports, mutation)
 			if (item == "Blimp" && (world != 5 && world  != 10 && world < 15)) continue;
 			if (!mapSuffix && (game.global.brokenPlanet || game.global.world == 59) && item == "Blimp"){
 				if (mutations.Magma.active())
-					item = "Omnipotrimp";
+					item = "Omnipotrump";
 				else
 					item = "Improbability";
 			}
@@ -5682,8 +5682,8 @@ function easterEggClicked(){
 	gridLoc.text = "";
 	var startText;
 	if (game.global.lastClearedCell == game.global.eggLoc - 1) startText = ["Oh, there seems to be an egg on the ground. You throw it really hard to break it, and find "];
-	else if (game.global.lastClearedCell > game.global.eggLoc) startText = ["You use your amazing sense of hindsight, and send a Trimp to check behind you for eggs. It found one containing ", "You just remembered you wanted to look for treasure. You send a Trimp backwards to check and it found an egg containing "];
-	else startText = ["You see a brightly colored egg off in the distance and send a Trimp to retrieve it for you. Inside is ", "You send a Trimp to sneak forward checking for eggs. After getting turned around multiple times, it found an egg that had ", "Hey there's an egg up there! You send a few Trimps to retrieve it and they bring back "];
+	else if (game.global.lastClearedCell > game.global.eggLoc) startText = ["You use your amazing sense of hindsight, and send a trump to check behind you for eggs. It found one containing ", "You just remembered you wanted to look for treasure. You send a trump backwards to check and it found an egg containing "];
+	else startText = ["You see a brightly colored egg off in the distance and send a trump to retrieve it for you. Inside is ", "You send a trump to sneak forward checking for eggs. After getting turned around multiple times, it found an egg that had ", "Hey there's an egg up there! You send a few trumps to retrieve it and they bring back "];
 	startText = startText[Math.floor(Math.random() * startText.length)];
 	var roll = seededRandom(game.global.eggSeed - 1);
 	if (game.global.totalPortals < 5){ //Give metal if player doesn't have 5 total portals and VM/Heirloom/Nu was rolled
@@ -5826,11 +5826,11 @@ function mapsClicked(confirmed) {
 		if (!game.global.preMapsActive){
 			if (game.global.spireActive && !game.global.mapsActive && game.global.fighting) deadInSpire();
 			game.global.switchToMaps = true;
-			if (game.resources.trimps.soldiers > 0){
+			if (game.resources.trumps.soldiers > 0){
 				game.global.soldierHealth = 0;
-				game.stats.trimpsKilled.value += game.resources.trimps.soldiers;
+				game.stats.trumpsKilled.value += game.resources.trumps.soldiers;
 				game.stats.battlesLost.value++;
-				game.resources.trimps.soldiers = 0;
+				game.resources.trumps.soldiers = 0;
 			}
 
 			var bar = document.getElementById("goodGuyBar");
@@ -6091,10 +6091,10 @@ function battleCoordinator(makeUp) {
 }
 
 function battle(force) {
-	var trimps = game.resources.trimps;
-	var trimpsMax = trimps.realMax();
+	var trumps = game.resources.trumps;
+	var trumpsMax = trumps.realMax();
     if (game.global.fighting) return;
-    if ((game.global.switchToMaps || game.global.switchToWorld) && trimps.soldiers === 0) {
+    if ((game.global.switchToMaps || game.global.switchToWorld) && trumps.soldiers === 0) {
         mapsSwitch();
         return;
     }
@@ -6102,28 +6102,28 @@ function battle(force) {
     var pause = (force) ? false : game.global.pauseFight;
     if (!game.global.autoBattle && !force) return;
     if (pause) return;
-    if (trimps.soldiers > 0) {
+    if (trumps.soldiers > 0) {
         startFight();
         return;
     }
-    var breeding = (trimps.owned - trimps.employed);
-	var adjustedMax = (game.portal.Coordinated.level) ? game.portal.Coordinated.currentSend : trimps.maxSoldiers;
+    var breeding = (trumps.owned - trumps.employed);
+	var adjustedMax = (game.portal.Coordinated.level) ? game.portal.Coordinated.currentSend : trumps.maxSoldiers;
     if (breeding < adjustedMax) return;
 	if (game.options.menu.geneSend.enabled && game.global.GeneticistassistSetting > 0 && game.jobs.Geneticist.owned > 0){
 		if (game.global.lastBreedTime / 1000 > game.global.GeneticistassistSetting)
 			force = true;
 	}
     if (force) {
-        trimps.soldiers = adjustedMax;
-        trimps.owned -= adjustedMax;
+        trumps.soldiers = adjustedMax;
+        trumps.owned -= adjustedMax;
     } else {
-        //var max = Math.ceil((trimpsMax - trimps.employed) * 0.05);
-        if (trimps.owned >= trimpsMax || game.global.breedTime <= 0.1) {
-            trimps.soldiers = adjustedMax;
-            trimps.owned -= adjustedMax;
+        //var max = Math.ceil((trumpsMax - trumps.employed) * 0.05);
+        if (trumps.owned >= trumpsMax || game.global.breedTime <= 0.1) {
+            trumps.soldiers = adjustedMax;
+            trumps.owned -= adjustedMax;
         }
     }
-    if (game.resources.trimps.soldiers < adjustedMax) {
+    if (game.resources.trumps.soldiers < adjustedMax) {
         return;
     }
     startFight();
@@ -6204,8 +6204,8 @@ function startFight() {
 		badCoord = getBadCoordLevel();
 		badName += " (" + prettify(badCoord) + ")";
 	}
-	if (cell.name == "Omnipotrimp" && game.global.world % 5 == 0){
-		badName += ' <span class="badge badBadge Magma" onmouseover="tooltip(\'Superheated\', \'customText\', event, \'This Omnipotrimp is Superheated, and will explode on death.\')" onmouseout="tooltip(\'hide\')"><span class="icomoon icon-fire2"></span></span>';
+	if (cell.name == "Omnipotrump" && game.global.world % 5 == 0){
+		badName += ' <span class="badge badBadge Magma" onmouseover="tooltip(\'Superheated\', \'customText\', event, \'This Omnipotrump is Superheated, and will explode on death.\')" onmouseout="tooltip(\'hide\')"><span class="icomoon icon-fire2"></span></span>';
 	}
 	if (game.global.brokenPlanet && !game.global.mapsActive){
 		badName += ' <span class="badge badBadge" onmouseover="tooltip(\'Pierce\', \'customText\', event, \'' + prettify(getPierceAmt() * 100) + '% of the damage from this Bad Guy pierces through block\')" onmouseout="tooltip(\'hide\')"><span class="glyphicon glyphicon-tint"></span></span>';
@@ -6213,7 +6213,7 @@ function startFight() {
 	if (game.global.challengeActive == "Slow" || ((game.badGuys[cell.name].fast || cell.mutation == "Corruption") && game.global.challengeActive != "Coordinate" && game.global.challengeActive != "Nom"))
 		badName += ' <span class="badge badBadge" onmouseover="tooltip(\'Fast\', \'customText\', event, \'This Bad Guy is fast and attacks first\')" onmouseout="tooltip(\'hide\')"><span class="glyphicon glyphicon-forward"></span></span>';
 	if ((game.global.challengeActive == "Electricity" || game.global.challengeActive == "Mapocalypse")){
-		badName += ' <span class="badge badBadge" onmouseover="tooltip(\'Electric\', \'customText\', event, \'This Bad Guy is electric and stacks a debuff on your Trimps\')" onmouseout="tooltip(\'hide\')"><span class="icomoon icon-power-cord"></span></span>';
+		badName += ' <span class="badge badBadge" onmouseover="tooltip(\'Electric\', \'customText\', event, \'This Bad Guy is electric and stacks a debuff on your trumps\')" onmouseout="tooltip(\'hide\')"><span class="icomoon icon-power-cord"></span></span>';
 	}
 	document.getElementById("badGuyName").innerHTML = badName;
 	var corruptionStart = mutations.Corruption.start(true);
@@ -6297,8 +6297,8 @@ function startFight() {
 			cell.health *= 2;
 		}
 		else if (game.global.challengeActive == "Lead" && (game.challenges.Lead.stacks > 0)) cell.health *= (1 + (Math.min(game.challenges.Lead.stacks, 200) * 0.04));
-		if (cell.name == 'Improbability' || cell.name == "Omnipotrimp"){
-			if (game.global.roboTrimpLevel && game.global.useShriek) activateShriek();
+		if (cell.name == 'Improbability' || cell.name == "Omnipotrump"){
+			if (game.global.robotrumpLevel && game.global.useShriek) activateShriek();
 			if (game.global.world >= corruptionStart) {
 				if (game.global.spireActive) {
 					cell.origHealth *= mutations.Corruption.statScale(10);
@@ -6325,8 +6325,8 @@ function startFight() {
 	else if (game.global.challengeActive == "Nom" && cell.nomStacks){
 		updateNomStacks(cell.nomStacks);
 	}
-    var trimpsFighting = game.resources.trimps.maxSoldiers;
-	var soldType = (game.portal.Coordinated.level) ? game.portal.Coordinated.currentSend: game.resources.trimps.maxSoldiers;
+    var trumpsFighting = game.resources.trumps.maxSoldiers;
+	var soldType = (game.portal.Coordinated.level) ? game.portal.Coordinated.currentSend: game.resources.trumps.maxSoldiers;
     if (game.global.soldierHealth <= 0) {
 				lastSoldierSentAt = new Date().getTime();
 		game.global.battleCounter = 0;
@@ -6372,17 +6372,17 @@ function startFight() {
 		game.global.difs.block = 0;
 		game.global.difs.trainers = game.jobs.Trainer.owned;
         game.global.soldierHealthMax = game.global.health;
-		game.global.maxSoldiersAtStart = game.resources.trimps.maxSoldiers;
+		game.global.maxSoldiersAtStart = game.resources.trumps.maxSoldiers;
         game.global.soldierCurrentAttack = game.global.attack;
 		//Magma;
 		if (mutations.Magma.active()){
-			var magMult = mutations.Magma.getTrimpDecay();
+			var magMult = mutations.Magma.gettrumpDecay();
 			game.global.soldierHealthMax *= magMult;
 			game.global.soldierCurrentAttack *= magMult;
 		}
 		//Soldiers
-		game.global.soldierHealthMax *= trimpsFighting;
-		game.global.soldierCurrentAttack *= trimpsFighting;
+		game.global.soldierHealthMax *= trumpsFighting;
+		game.global.soldierCurrentAttack *= trumpsFighting;
 		//Toughness
 		if (game.portal.Toughness.level > 0) game.global.soldierHealthMax += (game.global.soldierHealthMax * game.portal.Toughness.level * game.portal.Toughness.modifier);
 		if (game.portal.Toughness_II.level > 0) game.global.soldierHealthMax *= (1 + (game.portal.Toughness_II.modifier * game.portal.Toughness_II.level));
@@ -6403,10 +6403,10 @@ function startFight() {
 		//Power
 		if (game.portal.Power.level > 0) game.global.soldierCurrentAttack += (game.global.soldierCurrentAttack * game.portal.Power.level * game.portal.Power.modifier);
         if (game.portal.Power_II.level > 0) game.global.soldierCurrentAttack *= (1 + (game.portal.Power_II.modifier * game.portal.Power_II.level));
-		game.global.soldierCurrentBlock = Math.floor((game.global.block * (game.jobs.Trainer.owned * (calcHeirloomBonus("Shield", "trainerEfficiency", game.jobs.Trainer.modifier) / 100)) + game.global.block) * trimpsFighting);
-		game.global.soldierHealthMax = calcHeirloomBonus("Shield", "trimpHealth", game.global.soldierHealthMax);
-		game.global.soldierCurrentAttack = calcHeirloomBonus("Shield", "trimpAttack", game.global.soldierCurrentAttack);
-		game.global.soldierCurrentBlock = calcHeirloomBonus("Shield", "trimpBlock", game.global.soldierCurrentBlock);
+		game.global.soldierCurrentBlock = Math.floor((game.global.block * (game.jobs.Trainer.owned * (calcHeirloomBonus("Shield", "trainerEfficiency", game.jobs.Trainer.modifier) / 100)) + game.global.block) * trumpsFighting);
+		game.global.soldierHealthMax = calcHeirloomBonus("Shield", "trumpHealth", game.global.soldierHealthMax);
+		game.global.soldierCurrentAttack = calcHeirloomBonus("Shield", "trumpAttack", game.global.soldierCurrentAttack);
+		game.global.soldierCurrentBlock = calcHeirloomBonus("Shield", "trumpBlock", game.global.soldierCurrentBlock);
 		if (game.global.challengeActive == "Daily" && typeof game.global.dailyChallenge.pressure !== 'undefined') game.global.soldierHealthMax *= dailyModifiers.pressure.getMult(game.global.dailyChallenge.pressure.strength, game.global.dailyChallenge.pressure.stacks);
 		if (game.global.formation !== 0){
 			game.global.soldierHealthMax *= (game.global.formation == 1) ? 4 : 0.5;
@@ -6435,9 +6435,9 @@ function startFight() {
 
 		//Check differences in equipment, apply perks, bonuses, and formation
 		if (game.global.difs.health !== 0) {
-			var healthTemp = trimpsFighting * game.global.difs.health * ((game.portal.Toughness.modifier * game.portal.Toughness.level) + 1);
+			var healthTemp = trumpsFighting * game.global.difs.health * ((game.portal.Toughness.modifier * game.portal.Toughness.level) + 1);
 			if (mutations.Magma.active()){
-				healthTemp *= mutations.Magma.getTrimpDecay();
+				healthTemp *= mutations.Magma.gettrumpDecay();
 			}
 			if (game.portal.Toughness_II.level) healthTemp *= (1 + (game.portal.Toughness_II.modifier * game.portal.Toughness_II.level));
 			if (game.jobs.Geneticist.owned > 0) healthTemp *= Math.pow(1.01, game.global.lastLowGen);
@@ -6452,52 +6452,52 @@ function startFight() {
 			if (game.global.challengeActive == "Balance"){
 				healthTemp *= game.challenges.Balance.getHealthMult();
 			}
-			healthTemp = calcHeirloomBonus("Shield", "trimpHealth", healthTemp);
+			healthTemp = calcHeirloomBonus("Shield", "trumpHealth", healthTemp);
 			game.global.soldierHealthMax += healthTemp;
 			game.global.soldierHealth += healthTemp;
 			game.global.difs.health = 0;
 			if (game.global.soldierHealth <= 0) game.global.soldierHealth = 0;
 		}
 		if (game.global.difs.attack !== 0) {
-			var attackTemp = trimpsFighting * game.global.difs.attack * ((game.portal.Power.modifier * game.portal.Power.level) + 1);
+			var attackTemp = trumpsFighting * game.global.difs.attack * ((game.portal.Power.modifier * game.portal.Power.level) + 1);
 			if (mutations.Magma.active()){
-				attackTemp *= mutations.Magma.getTrimpDecay();
+				attackTemp *= mutations.Magma.gettrumpDecay();
 			}
 			if (game.portal.Power_II.level) attackTemp *= (1 + (game.portal.Power_II.modifier * game.portal.Power_II.level));
 			if (game.global.formation !== 0){
 				attackTemp *= (game.global.formation == 2) ? 4 : 0.5;
 			}
-			attackTemp = calcHeirloomBonus("Shield", "trimpAttack", attackTemp);
+			attackTemp = calcHeirloomBonus("Shield", "trumpAttack", attackTemp);
 			game.global.soldierCurrentAttack += attackTemp;
 			game.global.difs.attack = 0;
 		}
 		if (game.global.difs.block !== 0) {
-			var blockTemp = (trimpsFighting * game.global.difs.block * ((game.global.difs.trainers * (calcHeirloomBonus("Shield", "trainerEfficiency", game.jobs.Trainer.modifier) / 100)) + 1));
+			var blockTemp = (trumpsFighting * game.global.difs.block * ((game.global.difs.trainers * (calcHeirloomBonus("Shield", "trainerEfficiency", game.jobs.Trainer.modifier) / 100)) + 1));
 			if (game.global.formation !== 0){
 				blockTemp *= (game.global.formation == 3) ? 4 : 0.5;
 			}
-			blockTemp = calcHeirloomBonus("Shield", "trimpBlock", blockTemp);
+			blockTemp = calcHeirloomBonus("Shield", "trumpBlock", blockTemp);
 			game.global.soldierCurrentBlock += blockTemp;
 			game.global.difs.block = 0;
 		}
-		if (game.resources.trimps.soldiers != soldType && game.global.maxSoldiersAtStart > 0){
-			var freeTrimps = (game.resources.trimps.owned - game.resources.trimps.employed);
-			var newTrimps = ((game.resources.trimps.maxSoldiers - game.global.maxSoldiersAtStart)  / game.global.maxSoldiersAtStart) + 1;
-			var requiredTrimps = (soldType - game.resources.trimps.soldiers);
-			if (freeTrimps >= requiredTrimps) {
-				game.resources.trimps.owned -= requiredTrimps;
+		if (game.resources.trumps.soldiers != soldType && game.global.maxSoldiersAtStart > 0){
+			var freetrumps = (game.resources.trumps.owned - game.resources.trumps.employed);
+			var newtrumps = ((game.resources.trumps.maxSoldiers - game.global.maxSoldiersAtStart)  / game.global.maxSoldiersAtStart) + 1;
+			var requiredtrumps = (soldType - game.resources.trumps.soldiers);
+			if (freetrumps >= requiredtrumps) {
+				game.resources.trumps.owned -= requiredtrumps;
 				var oldHealth = game.global.soldierHealthMax;
-				game.global.soldierHealthMax *= newTrimps;
+				game.global.soldierHealthMax *= newtrumps;
 				game.global.soldierHealth += (game.global.soldierHealthMax - oldHealth);
-				game.global.soldierCurrentAttack *= newTrimps;
-				game.global.soldierCurrentBlock *= newTrimps;
-				game.resources.trimps.soldiers = soldType;
-				game.global.maxSoldiersAtStart = game.resources.trimps.maxSoldiers;
+				game.global.soldierCurrentAttack *= newtrumps;
+				game.global.soldierCurrentBlock *= newtrumps;
+				game.resources.trumps.soldiers = soldType;
+				game.global.maxSoldiersAtStart = game.resources.trumps.maxSoldiers;
 			}
 		}
 	}
 
-	updateAllBattleNumbers(game.resources.trimps.soldiers < soldType);
+	updateAllBattleNumbers(game.resources.trumps.soldiers < soldType);
     game.global.fighting = true;
     game.global.lastFightUpdate = new Date();
 	if (instaFight) fight();
@@ -6522,7 +6522,7 @@ function updateAllBattleNumbers (skipNum) {
 	updateGoodBar();
 	updateBadBar(cell);
 	document.getElementById("badGuyHealthMax").innerHTML = prettify(cell.maxHealth);
-	if (!skipNum) document.getElementById("trimpsFighting").innerHTML = (game.portal.Coordinated.level) ? prettify(game.portal.Coordinated.currentSend) : prettify(game.resources.trimps.maxSoldiers);
+	if (!skipNum) document.getElementById("trumpsFighting").innerHTML = (game.portal.Coordinated.level) ? prettify(game.portal.Coordinated.currentSend) : prettify(game.resources.trumps.maxSoldiers);
 	document.getElementById("goodGuyBlock").innerHTML = prettify(game.global.soldierCurrentBlock);
 	document.getElementById("goodGuyAttack").innerHTML = calculateDamage(game.global.soldierCurrentAttack, true, true);
 	var badAttackElem = document.getElementById("badGuyAttack");
@@ -6551,12 +6551,12 @@ function updateBadBar(cell) {
 	swapClass("percentColor", getBarColorClass(percent), barElem);
 }
 
-function calculateDamage(number, buildString, isTrimp, noCheckAchieve, cell) { //number = base attack
+function calculateDamage(number, buildString, istrump, noCheckAchieve, cell) { //number = base attack
     var fluctuation = .2; //%fluctuation
 	var maxFluct = -1;
 	var minFluct = -1;
-	if (isTrimp){
-		//Situational Trimp damage increases
+	if (istrump){
+		//Situational trump damage increases
 		if (game.global.radioStacks > 0) {
 			number *= (1 - (game.global.radioStacks * 0.1));
 		}
@@ -6583,8 +6583,8 @@ function calculateDamage(number, buildString, isTrimp, noCheckAchieve, cell) { /
 			number *= 5;
 			number *= Math.pow(0.995, game.challenges.Decay.stacks);
 		}
-		if (game.global.roboTrimpLevel > 0){
-			number *= ((0.2 * game.global.roboTrimpLevel) + 1);
+		if (game.global.robotrumpLevel > 0){
+			number *= ((0.2 * game.global.robotrumpLevel) + 1);
 		}
 		if (game.global.challengeActive == "Lead" && ((game.global.world % 2) == 1)){
 			number *= 1.5;
@@ -6614,11 +6614,11 @@ function calculateDamage(number, buildString, isTrimp, noCheckAchieve, cell) { /
 			if (typeof game.global.dailyChallenge.weakness !== 'undefined'){
 				number *= dailyModifiers.weakness.getMult(game.global.dailyChallenge.weakness.strength, game.global.dailyChallenge.weakness.stacks);
 			}
-			if (typeof game.global.dailyChallenge.oddTrimpNerf !== 'undefined' && ((game.global.world % 2) == 1)){
-					number *= dailyModifiers.oddTrimpNerf.getMult(game.global.dailyChallenge.oddTrimpNerf.strength);
+			if (typeof game.global.dailyChallenge.oddtrumpNerf !== 'undefined' && ((game.global.world % 2) == 1)){
+					number *= dailyModifiers.oddtrumpNerf.getMult(game.global.dailyChallenge.oddtrumpNerf.strength);
 			}
-			if (typeof game.global.dailyChallenge.evenTrimpBuff !== 'undefined' && ((game.global.world % 2) == 0)){
-					number *= dailyModifiers.evenTrimpBuff.getMult(game.global.dailyChallenge.evenTrimpBuff.strength);
+			if (typeof game.global.dailyChallenge.eventrumpBuff !== 'undefined' && ((game.global.world % 2) == 0)){
+					number *= dailyModifiers.eventrumpBuff.getMult(game.global.dailyChallenge.eventrumpBuff.strength);
 			}
 			if (typeof game.global.dailyChallenge.rampage !== 'undefined'){
 				number *= dailyModifiers.rampage.getMult(game.global.dailyChallenge.rampage.strength, game.global.dailyChallenge.rampage.stacks);
@@ -6671,7 +6671,7 @@ function calculateDamage(number, buildString, isTrimp, noCheckAchieve, cell) { /
 			number *= game.empowerments.Ice.getCombatModifier();
 		}
 		if (game.global.usingShriek) {
-			number *= game.mapUnlocks.roboTrimp.getShriekValue();
+			number *= game.mapUnlocks.robotrump.getShriekValue();
 		}
 	}
 	if (minFluct > 1) minFluct = 1;
@@ -6680,7 +6680,7 @@ function calculateDamage(number, buildString, isTrimp, noCheckAchieve, cell) { /
 	var min = Math.floor(number * (1 - minFluct));
     var max = Math.ceil(number + (number * maxFluct));
     if (buildString) {
-		if (isTrimp) {
+		if (istrump) {
 			if (!noCheckAchieve) checkAchieve("damage", max);
 			else return max;
 		}
@@ -6874,9 +6874,9 @@ function nextWorld() {
 		game.challenges.Mapology.credits++;
 		updateMapCredits();
 	}
-	if (game.global.roboTrimpLevel && game.global.brokenPlanet) {
-		if (game.global.roboTrimpCooldown > 0) game.global.roboTrimpCooldown--;
-		displayRoboTrimp();
+	if (game.global.robotrumpLevel && game.global.brokenPlanet) {
+		if (game.global.robotrumpCooldown > 0) game.global.robotrumpCooldown--;
+		displayRobotrump();
 	}
 	if (game.global.challengeActive == "Toxicity") {
 		game.challenges.Toxicity.stacks = 0;
@@ -6922,8 +6922,8 @@ function nextWorld() {
 	if (game.talents.bionic.purchased){
 		var bTier = ((game.global.world - 126) / 15);
 		if (game.global.world >= 126) game.mapUnlocks.BionicWonderland.canRunOnce = false;
-		if (bTier % 1 === 0 && bTier == game.global.bionicOwned && game.global.roboTrimpLevel >= bTier) {
-			game.mapUnlocks.roboTrimp.createMap(bTier);
+		if (bTier % 1 === 0 && bTier == game.global.bionicOwned && game.global.robotrumpLevel >= bTier) {
+			game.mapUnlocks.robotrump.createMap(bTier);
 			refreshMaps();
 		}
 	}
@@ -6947,20 +6947,20 @@ function nextWorld() {
 		if (game.global.world == mutations.Magma.start()){
 			startTheMagma();
 		}
-		mutations.Magma.increaseTrimpDecay();
+		mutations.Magma.increasetrumpDecay();
 		increaseTheHeat();
 		decayNurseries();
 	}
 	if (game.global.world == 30 && game.global.canRespecPerks && !game.global.bonePortalThisRun && countHeliumSpent() <= 60) giveSingleAchieve(0);
-	else if (game.global.world == 10 && game.stats.trimpsKilled.value <= 5) giveSingleAchieve(3);
+	else if (game.global.world == 10 && game.stats.trumpsKilled.value <= 5) giveSingleAchieve(3);
 	else if (game.global.world == 60){
-		if (game.stats.trimpsKilled.value <= 1000) giveSingleAchieve(6);
+		if (game.stats.trumpsKilled.value <= 1000) giveSingleAchieve(6);
 		if (game.stats.cellsOverkilled.value == 2950) giveSingleAchieve(19);
 		if (getHighestPrestige() <= 3) giveSingleAchieve(11);
 		//Without Hiring Anything
 		var jobCount = 0;
 		for (var job in game.jobs) jobCount += game.jobs[job].owned; //Dragimp adds 1
-		if (jobCount - game.jobs.Dragimp.owned == 0 && game.stats.trimpsFired.value == 0) giveSingleAchieve(16);
+		if (jobCount - game.jobs.Dragimp.owned == 0 && game.stats.trumpsFired.value == 0) giveSingleAchieve(16);
 	}
 	else if (game.global.world == 65) checkChallengeSquaredAllowed();
 	else if (game.global.world == 75 && checkHousing(true) == 0) giveSingleAchieve(8);
@@ -7068,7 +7068,7 @@ function deadInSpire(){
 		return;
 	}
 	var s = (game.global.spireDeaths > 1) ? "s" : "";
-	message(game.global.spireDeaths + " group" + s + " of Trimps have perished in the Spire.", "Notices");
+	message(game.global.spireDeaths + " group" + s + " of trumps have perished in the Spire.", "Notices");
 }
 
 function endSpire(cancelEarly){
@@ -7140,7 +7140,7 @@ function giveSpireReward(level){
 			message("<span class='spirePoem'>I pumped Corruption up from my spires,<br/>I watched as it spread outward like wildfires.<br/>They now bowed to me, their brains freshly rewired,<br/>I had almost all that I desired.</span><br/>You feel like anyone willing to pump something called 'Corruption' into a planet's atmosphere probably qualifies as a supervillian. You feel no remorse taking another vial filled with <b>60 Nullifium</b>!", "Story");
 			break;
 		case 70:
-			message("<span class='spirePoem'>But Trimps, who in numbers are tough as stone,<br/>weren't changed and I couldn't control them alone.<br/>So I got in my ship and I went to our home,<br/>I brought you here to the native Trimp Zones.</span><br/>You don't remember that, but are pretty sure you weren't OK with it. Kidnapping definitely justifies taking this research <b>Heirloom</b> you just found. ", "Story");
+			message("<span class='spirePoem'>But trumps, who in numbers are tough as stone,<br/>weren't changed and I couldn't control them alone.<br/>So I got in my ship and I went to our home,<br/>I brought you here to the native trump Zones.</span><br/>You don't remember that, but are pretty sure you weren't OK with it. Kidnapping definitely justifies taking this research <b>Heirloom</b> you just found. ", "Story");
 			createHeirloom(201);
 			break;
 		case 80:
@@ -7150,7 +7150,7 @@ function giveSpireReward(level){
 			game.portal.Carpentry_II.locked = false;
 			break;
 		case 90:
-			message("<span class='spirePoem'>Your Trimps grew strong while I watched and waited,<br/>Their loyalty can not be debated.<br/>You knew not of my plan, yet participated,<br/>Now bow to me or be terminated.</span>Yeah you don't really feel too much like bowing and probably won't be doing that. You did find <b>5 Skeletimp Bones</b> which you feel no qualms about keeping for yourself.", "Story");
+			message("<span class='spirePoem'>Your trumps grew strong while I watched and waited,<br/>Their loyalty can not be debated.<br/>You knew not of my plan, yet participated,<br/>Now bow to me or be terminated.</span>Yeah you don't really feel too much like bowing and probably won't be doing that. You did find <b>5 Skeletimp Bones</b> which you feel no qualms about keeping for yourself.", "Story");
 			game.global.b += 5;
 			updateSkeleBtn();
 			break;
@@ -7163,7 +7163,7 @@ function giveSpireReward(level){
 				text += "You also find a massive stockpile of <b>" + prettify(amt) + " Helium</b>.";
 			}
 			if (game.portal.Looting_II.locked) text += " Your skills at salvaging things from this Spire have helped you <b>unlock Looting II</b>.";
-			text += " You've helped the Trimps establish a legendary population and economy, and have brought down the man responsible for the chaos in this world. You could leave now and the Universe will forever be better because you existed. Trimps will erect statues of you as long as their civilization survives. But you know there are still other spires out there, pumping Corruption in to the planet. Maybe the statues would be bigger if you stayed and helped out?";
+			text += " You've helped the trumps establish a legendary population and economy, and have brought down the man responsible for the chaos in this world. You could leave now and the Universe will forever be better because you existed. trumps will erect statues of you as long as their civilization survives. But you know there are still other spires out there, pumping Corruption in to the planet. Maybe the statues would be bigger if you stayed and helped out?";
 			message(text, "Story");
 			game.portal.Looting_II.locked = false;
 			checkAchieve("spireTimed");
@@ -7260,7 +7260,7 @@ function checkHousing(getHighest){
 	var count = -1;
 	for (var item in game.buildings){
 		var building = game.buildings[item];
-		if (building.increase && building.increase.what == "trimps.max") {
+		if (building.increase && building.increase.what == "trumps.max") {
 			if (count == -1) count = building.owned;
 			else if (getHighest){
 				if (count < building.owned) count = building.owned;
@@ -7274,11 +7274,11 @@ function checkHousing(getHighest){
 }
 
 function assignExtraWorkers(){
-	var workspaces = Math.ceil(game.resources.trimps.realMax() / 2) - game.resources.trimps.employed;
-	var freeTrimps = (game.resources.trimps.owned - game.resources.trimps.employed);
+	var workspaces = Math.ceil(game.resources.trumps.realMax() / 2) - game.resources.trumps.employed;
+	var freetrumps = (game.resources.trumps.owned - game.resources.trumps.employed);
 	//Won't leave you with less than 15% of your max as breeders
-	if (freeTrimps - workspaces < Math.floor(game.resources.trimps.realMax() * 0.15)) return;
-	if (freeTrimps < workspaces) workspaces = freeTrimps;
+	if (freetrumps - workspaces < Math.floor(game.resources.trumps.realMax() * 0.15)) return;
+	if (freetrumps < workspaces) workspaces = freetrumps;
 	if (workspaces <= 0) return;
 	var jobs = ["Farmer", "Lumberjack", "Miner"];
 	var split = Math.floor(workspaces / 3);
@@ -7286,7 +7286,7 @@ function assignExtraWorkers(){
 	for (var x = 0; x < jobs.length; x++){
 		game.jobs[jobs[x]].owned += split;
 	}
-	game.resources.trimps.employed += Math.round(split * 3);
+	game.resources.trumps.employed += Math.round(split * 3);
 	game.resources.food.owned -= (split * 30);
 }
 
@@ -7301,7 +7301,7 @@ function distributeToChallenges(amt) {
 var dailyModifiers = {
 	minDamage: {
             description: function (str) {
-                return "Trimp min damage reduced by " + prettify(this.getMult(str) * 100) + "% (additive).";
+                return "trump min damage reduced by " + prettify(this.getMult(str) * 100) + "% (additive).";
             },
             getMult: function (str) {
                 return 0.1 + ((str - 1) * 0.01);
@@ -7314,7 +7314,7 @@ var dailyModifiers = {
         },
         maxDamage: {
             description: function (str) {
-                return "Trimp max damage increased by " + prettify(this.getMult(str) * 100) + "% (additive).";
+                return "trump max damage increased by " + prettify(this.getMult(str) * 100) + "% (additive).";
             },
             getMult: function (str) {
                 return str;
@@ -7327,7 +7327,7 @@ var dailyModifiers = {
         },
 		plague: { //Half of electricity
 			description: function (str) {
-                return "Enemies stack a debuff with each attack, damaging Trimps for " + prettify(this.getMult(str, 1) * 100) + "% of total health per turn per stack, resets on Trimp death."
+                return "Enemies stack a debuff with each attack, damaging trumps for " + prettify(this.getMult(str, 1) * 100) + "% of total health per turn per stack, resets on trump death."
             },
             getMult: function (str, stacks) {
                 return 0.01 * str * stacks;
@@ -7340,12 +7340,12 @@ var dailyModifiers = {
 			chance: 0.6,
 			icon: "*bug2",
 			stackDesc: function (str, stacks) {
-				return "Your Trimps are taking " + prettify(this.getMult(str, stacks) * 100) + "% damage after each attack.";
+				return "Your trumps are taking " + prettify(this.getMult(str, stacks) * 100) + "% damage after each attack.";
 			}
         },
 		weakness: {
 			description: function (str) {
-				return "Enemies stack a debuff with each attack, reducing Trimp attack by " + prettify(100 - this.getMult(str, 1) * 100) + "% per stack. Stacks cap at 9 and reset on Trimp death.";
+				return "Enemies stack a debuff with each attack, reducing trump attack by " + prettify(100 - this.getMult(str, 1) * 100) + "% per stack. Stacks cap at 9 and reset on trump death.";
 			},
 			getMult: function (str, stacks) {
 				return 1 - (0.01 * str * stacks);
@@ -7357,12 +7357,12 @@ var dailyModifiers = {
 			chance: 0.6,
 			icon: "fire",
 			stackDesc: function (str, stacks) {
-				return "Your Trimps have " + prettify(100 - this.getMult(str, stacks) * 100) + "% less attack.";
+				return "Your trumps have " + prettify(100 - this.getMult(str, stacks) * 100) + "% less attack.";
 			}
 		},
 		large: {
             description: function (str) {
-                return "All housing can store " + prettify(100 - this.getMult(str) * 100) + "% fewer Trimps";
+                return "All housing can store " + prettify(100 - this.getMult(str) * 100) + "% fewer trumps";
             },
             getMult: function(str) {
                 return 1 - (0.01 * str);
@@ -7371,10 +7371,10 @@ var dailyModifiers = {
                 return (1 / this.getMult(str) - 1) * 2;
             },
             start: function (str) {
-                game.resources.trimps.maxMod = this.getMult(str);
+                game.resources.trumps.maxMod = this.getMult(str);
             },
             abandon: function (str) {
-                game.resources.trimps.maxMod = 1;
+                game.resources.trumps.maxMod = 1;
             },
             minMaxStep: [10, 60, 1],
             chance: 1
@@ -7472,7 +7472,7 @@ var dailyModifiers = {
         },
         bogged: {
             description: function (str) {
-                return "Your Trimps lose " + prettify(this.getMult(str) * 100) + "% of their max health after each attack.";
+                return "Your trumps lose " + prettify(this.getMult(str) * 100) + "% of their max health after each attack.";
             },
             getMult: function (str) {
                 return 0.01 * str;
@@ -7486,7 +7486,7 @@ var dailyModifiers = {
         },
 		dysfunctional: {
             description: function (str) {
-                return "Your Trimps breed " + prettify(100 - (this.getMult(str) * 100)) + "% slower";
+                return "Your trumps breed " + prettify(100 - (this.getMult(str) * 100)) + "% slower";
             },
             getMult: function (str) {
                 return 1 - (str * 0.05);
@@ -7497,9 +7497,9 @@ var dailyModifiers = {
             minMaxStep: [10, 18, 1],
             chance: 1
         },
-		oddTrimpNerf: {
+		oddtrumpNerf: {
             description: function (str) {
-                return "Trimps have " + prettify(100 - (this.getMult(str) * 100)) + "% less attack on odd numbered zones";
+                return "trumps have " + prettify(100 - (this.getMult(str) * 100)) + "% less attack on odd numbered zones";
             },
             getMult: function (str) {
                 return 1 - (str * 0.02);
@@ -7510,9 +7510,9 @@ var dailyModifiers = {
             minMaxStep: [15, 40, 1],
             chance: 1
         },
-        evenTrimpBuff: {
+        eventrumpBuff: {
             description: function (str) {
-                return "Trimps have " + prettify((this.getMult(str) * 100) - 100) + "% more attack on even numbered zones";
+                return "trumps have " + prettify((this.getMult(str) * 100) - 100) + "% more attack on even numbered zones";
             },
             getMult: function (str) {
                 return 1 + (str * 0.2);
@@ -7528,7 +7528,7 @@ var dailyModifiers = {
 				return 'Gain a stack after killing an enemy, increasing all non Helium loot by ' + prettify((this.getMult(str, 1) * 100) - 100) + '%. Stacks cap at ' + this.getMaxStacks(str) + ', and reset after clearing a zone.';
 			},
 			stackDesc: function (str, stacks){
-				return "Your Trimps are finding " + prettify((this.getMult(str, stacks) * 100) - 100) + "% more loot!";
+				return "Your trumps are finding " + prettify((this.getMult(str, stacks) * 100) - 100) + "% more loot!";
 			},
 			getMaxStacks: function (str) {
 				return Math.floor((str % 9) * 25) + 300;
@@ -7549,7 +7549,7 @@ var dailyModifiers = {
 				return "Gain a stack after killing an enemy, reducing breed speed by " + prettify(100 - (this.getMult(str, 1) * 100)) + '% (compounding). Stacks cap at ' + this.getMaxStacks(str) + ', and reset after clearing a zone.';
 			},
 			stackDesc: function (str, stacks){
-				return "Your Trimps are breeding " + prettify(100 - (this.getMult(str, stacks) * 100)) + "% slower.";
+				return "Your trumps are breeding " + prettify(100 - (this.getMult(str, stacks) * 100)) + "% slower.";
 			},
 			getMaxStacks: function (str) {
 				return Math.floor((str % 9) * 25) + 300;
@@ -7567,7 +7567,7 @@ var dailyModifiers = {
 		},
 		bloodthirst: {
 			description: function (str) {
-				return "Enemies gain a stack of Bloodthirst whenever Trimps die. Every " + this.getFreq(str) + " stacks, enemies will heal to full and gain an additive 50% attack. Stacks cap at " + this.getMaxStacks(str) + " and reset after killing an enemy.";
+				return "Enemies gain a stack of Bloodthirst whenever trumps die. Every " + this.getFreq(str) + " stacks, enemies will heal to full and gain an additive 50% attack. Stacks cap at " + this.getMaxStacks(str) + " and reset after killing an enemy.";
 			},
 			stackDesc: function (str, stacks) {
 				var freq = this.getFreq(str);
@@ -7575,7 +7575,7 @@ var dailyModifiers = {
 				var text = "This bad guy";
 				if (stacks < max) {
 					var next = (freq - (stacks % freq));
-					text += " will heal to full and gain attack in " + next + " stack" + ((next == 1) ? "" : "s") + ", " + ((stacks >= freq) ? "" : " and") + " gains 1 stack whenever Trimps die";
+					text += " will heal to full and gain attack in " + next + " stack" + ((next == 1) ? "" : "s") + ", " + ((stacks >= freq) ? "" : " and") + " gains 1 stack whenever trumps die";
 				}
 				if (stacks >= freq){
 					if (stacks < max) text += ", and";
@@ -7642,10 +7642,10 @@ var dailyModifiers = {
 		},
 		rampage: {
 			description: function (str) {
-				return "Gain a stack after killing an enemy, increasing Trimp attack by " + prettify((this.getMult(str, 1) * 100) - 100) + '% (additive). Stacks cap at ' + this.getMaxStacks(str) + ', and reset when your Trimps die.';
+				return "Gain a stack after killing an enemy, increasing trump attack by " + prettify((this.getMult(str, 1) * 100) - 100) + '% (additive). Stacks cap at ' + this.getMaxStacks(str) + ', and reset when your trumps die.';
 			},
 			stackDesc: function (str, stacks){
-				return "Your Trimps are dealing " + prettify((this.getMult(str, stacks) * 100) - 100) + "% more damage.";
+				return "Your trumps are dealing " + prettify((this.getMult(str, stacks) * 100) - 100) + "% more damage.";
 			},
 			getMaxStacks: function (str) {
 				return Math.floor((str % 10 + 1) * 10);
@@ -7684,7 +7684,7 @@ var dailyModifiers = {
 		},
 		empower: {
 			description: function (str) {
-				return "All enemies gain " + str + " stacks of Empower whenever your Trimps die in the World. Empower increases the attack and health of bad guys in the World by 0.2% per stack, can stack to 9999, and never resets.";
+				return "All enemies gain " + str + " stacks of Empower whenever your trumps die in the World. Empower increases the attack and health of bad guys in the World by 0.2% per stack, can stack to 9999, and never resets.";
 			},
 			getWeight: function (str) {
 				return (str / 6) * 2;
@@ -7709,7 +7709,7 @@ var dailyModifiers = {
 		},
 		pressure: {
 			description: function (str) {
-				return "Trimps gain a stack of Pressure every " + Math.round(this.timePerStack(str)) + " seconds. Each stack of pressure reduces Trimp health by 1%. Max of " + Math.round(this.getMaxStacks(str)) + " stacks, stacks reset after clearing a zone.";
+				return "trumps gain a stack of Pressure every " + Math.round(this.timePerStack(str)) + " seconds. Each stack of pressure reduces trump health by 1%. Max of " + Math.round(this.getMaxStacks(str)) + " stacks, stacks reset after clearing a zone.";
 			},
 			getWeight: function(str){
 				var time = (105 - this.timePerStack(str));
@@ -7754,7 +7754,7 @@ var dailyModifiers = {
 				updateDailyStacks('pressure');
 			},
 			stackDesc: function(str, stacks){
-				return "Your Trimps are under a lot of pressure. Maximum health is reduced by " + prettify((1 - this.getMult(str, stacks)) * 100) + "%.";
+				return "Your trumps are under a lot of pressure. Maximum health is reduced by " + prettify((1 - this.getMult(str, stacks)) * 100) + "%.";
 			},
 			getMaxStacks: function(str){
 				var thisStr = Math.floor(str % 4);
@@ -7766,7 +7766,7 @@ var dailyModifiers = {
 		},
 		mirrored: {
 			description: function (str) {
-				return "Enemies have a" + (str.toString()[0] == '8' ? 'n' : '') + " " + prettify(this.getReflectChance(str)) + "% chance to reflect an attack, dealing " + prettify(this.getMult(str) * 100) + "% of damage taken back to your Trimps.";
+				return "Enemies have a" + (str.toString()[0] == '8' ? 'n' : '') + " " + prettify(this.getReflectChance(str)) + "% chance to reflect an attack, dealing " + prettify(this.getMult(str) * 100) + "% of damage taken back to your trumps.";
 			},
 			getReflectChance: function(str){
 				return (Math.ceil(str / 10)) * 10;
@@ -8144,7 +8144,7 @@ function fight(makeUp) {
     }
     if (game.global.soldierHealth <= 0) {
 		if (isVoid) game.global.voidDeaths++;
-		game.stats.trimpsKilled.value += game.resources.trimps.soldiers;
+		game.stats.trumpsKilled.value += game.resources.trumps.soldiers;
 		game.stats.battlesLost.value++;
 		if (game.global.challengeActive == "Daily"){
 			if (typeof game.global.dailyChallenge.bloodthirst !== 'undefined'){
@@ -8159,12 +8159,12 @@ function fight(makeUp) {
 				updateDailyStacks('bloodthirst');
 			}
 		}
-        var s = (game.resources.trimps.soldiers > 1) ? "s " : " ";
-		randomText = game.trimpDeathTexts[Math.floor(Math.random() * game.trimpDeathTexts.length)];
-        message(prettify(game.resources.trimps.soldiers) + " Trimp" + s + "just " + randomText + ".", "Combat", null, null, 'trimp');
+        var s = (game.resources.trumps.soldiers > 1) ? "s " : " ";
+		randomText = game.trumpDeathTexts[Math.floor(Math.random() * game.trumpDeathTexts.length)];
+        message(prettify(game.resources.trumps.soldiers) + " trump" + s + "just " + randomText + ".", "Combat", null, null, 'trump');
 		if (game.global.spireActive && !game.global.mapsActive) deadInSpire();
         game.global.fighting = false;
-        game.resources.trimps.soldiers = 0;
+        game.resources.trumps.soldiers = 0;
 		if (game.global.challengeActive == "Nom") {
 			cell.nomStacks = (cell.nomStacks) ? cell.nomStacks + 1 : 1;
 			if (cell.nomStacks > 100) cell.nomStacks = 100;
@@ -8318,7 +8318,7 @@ function fight(makeUp) {
 			else{
 				if (game.global.switchToMaps){
 					game.global.soldierHealth = 0;
-					game.resources.trimps.soldiers = 0;
+					game.resources.trumps.soldiers = 0;
 					updateGoodBar();
 				}
 				game.global.preMapsActive = (game.options.menu.exitTo.enabled) ? false : true;
@@ -8384,7 +8384,7 @@ function fight(makeUp) {
 		if (attackAndBlock < atkPierce) attackAndBlock = atkPierce;
 	}
 	if (attackAndBlock < 0) attackAndBlock = 0;
-	var trimpAttack = calculateDamage(game.global.soldierCurrentAttack, false, true);
+	var trumpAttack = calculateDamage(game.global.soldierCurrentAttack, false, true);
 	if (getEmpowerment() == "Ice"){
 		document.getElementById('goodGuyAttack').innerHTML = calculateDamage(game.global.soldierCurrentAttack, true, true);
 	}
@@ -8394,7 +8394,7 @@ function fight(makeUp) {
 	critSpan.innerHTML = "";
 	if (game.portal.Relentlessness.level > 0 || (game.heirlooms.Shield.critDamage.currentBonus > 0 && game.heirlooms.Shield.critChance.currentBonus > 0)){
 		if (Math.random() < getPlayerCritChance()){
-			trimpAttack *= getPlayerCritDamageMult();
+			trumpAttack *= getPlayerCritDamageMult();
 			gotCrit = true;
 		}
 	}
@@ -8412,7 +8412,7 @@ function fight(makeUp) {
 	}
 	var overkill = 0;
 	var impOverkill = 0;
-	var thisKillsTheTrimp = function() {
+	var thisKillsThetrump = function() {
 		impOverkill -= game.global.soldierHealth;
 		game.global.soldierHealth = 0;
 		gotCrit = false;
@@ -8421,28 +8421,28 @@ function fight(makeUp) {
 		cell.health = 0;
 		//fight(makeUp); return;
 	};
-    if (trimpAttack > 0 && (game.global.challengeActive == "Slow" || ((((game.badGuys[cell.name].fast || cell.mutation == "Corruption") && game.global.challengeActive != "Nom") || game.global.voidBuff == "doubleAttack") && game.global.challengeActive != "Coordinate"))) {
+    if (trumpAttack > 0 && (game.global.challengeActive == "Slow" || ((((game.badGuys[cell.name].fast || cell.mutation == "Corruption") && game.global.challengeActive != "Nom") || game.global.voidBuff == "doubleAttack") && game.global.challengeActive != "Coordinate"))) {
         game.global.soldierHealth -= attackAndBlock;
 		wasAttacked = true;
         if (game.global.soldierHealth > 0) {
 			if (!badDodge){
-				if (trimpAttack >= cell.health) {
-					overkill = trimpAttack - cell.health;
+				if (trumpAttack >= cell.health) {
+					overkill = trumpAttack - cell.health;
 					if (cell.name == "Improbability" && cell.health == cell.maxHealth) giveSingleAchieve(12);
 				}
 				if (getEmpowerment() == "Poison"){
 					cell.health -= game.empowerments.Poison.currentDebuffPower;
-					stackPoison(trimpAttack);
+					stackPoison(trumpAttack);
 				}
-				cell.health -= trimpAttack;
+				cell.health -= trumpAttack;
 				attacked = true;
 				if ((game.global.voidBuff == "doubleAttack" || cell.corrupted == 'corruptDbl') && cell.health > 0){
 					game.global.soldierHealth -= attackAndBlock;
-					if (game.global.soldierHealth < 0) thisKillsTheTrimp();
+					if (game.global.soldierHealth < 0) thisKillsThetrump();
 				}
 			}
 		}
-        else thisKillsTheTrimp();
+        else thisKillsThetrump();
         if (cell.health <= 0) {
 			thisKillsTheBadGuy();
 		}
@@ -8450,15 +8450,15 @@ function fight(makeUp) {
 	else {
 		if (game.global.soldierHealth > 0){
 			if (!badDodge){
-				if (trimpAttack >= cell.health){
-					overkill = trimpAttack - cell.health;
+				if (trumpAttack >= cell.health){
+					overkill = trumpAttack - cell.health;
 					if (cell.name == "Improbability" && cell.health == cell.maxHealth) giveSingleAchieve(12);
 				}
 				if (getEmpowerment() == "Poison"){
 					cell.health -= game.empowerments.Poison.currentDebuffPower;
-					stackPoison(trimpAttack);
+					stackPoison(trumpAttack);
 				}
-				cell.health -= trimpAttack;
+				cell.health -= trumpAttack;
 				attacked = true;
 			}
 			if (cell.health > 0) {
@@ -8469,17 +8469,17 @@ function fight(makeUp) {
 				{
 					thisKillsTheBadGuy();
 				}
-			if (game.global.soldierHealth < 0) thisKillsTheTrimp();
+			if (game.global.soldierHealth < 0) thisKillsThetrump();
 		}
     }
 	if (game.global.challengeActive == "Daily" && typeof game.global.dailyChallenge.mirrored !== 'undefined' && attacked && game.global.soldierHealth > 0){
-		game.global.soldierHealth -= dailyModifiers.mirrored.reflectDamage(game.global.dailyChallenge.mirrored.strength, trimpAttack);
+		game.global.soldierHealth -= dailyModifiers.mirrored.reflectDamage(game.global.dailyChallenge.mirrored.strength, trumpAttack);
 		if (game.global.soldierHealth <= 0)
-			thisKillsTheTrimp();
+			thisKillsThetrump();
 	}
 	if ((game.global.challengeActive == "Electricity" || game.global.challengeActive == "Mapocalypse") && attacked){
 		game.global.soldierHealth -= game.global.soldierHealthMax * (game.global.radioStacks * 0.1);
-		if (game.global.soldierHealth < 0) thisKillsTheTrimp();
+		if (game.global.soldierHealth < 0) thisKillsThetrump();
 	}
 	if ((game.global.challengeActive == "Electricity" || game.global.challengeActive == "Mapocalypse") && wasAttacked){
 		game.global.radioStacks++;
@@ -8498,7 +8498,7 @@ function fight(makeUp) {
 		if (typeof game.global.dailyChallenge.plague !== 'undefined'){
 			if (attacked){
 				game.global.soldierHealth -= game.global.soldierHealthMax * dailyModifiers.plague.getMult(game.global.dailyChallenge.plague.strength, game.global.dailyChallenge.plague.stacks);
-				if (game.global.soldierHealth < 0) thisKillsTheTrimp();
+				if (game.global.soldierHealth < 0) thisKillsThetrump();
 			}
 			if (wasAttacked) {
 				game.global.dailyChallenge.plague.stacks++;
@@ -8508,7 +8508,7 @@ function fight(makeUp) {
 		if (typeof game.global.dailyChallenge.bogged !== 'undefined'){
 			if (attacked){
 				game.global.soldierHealth -= game.global.soldierHealthMax * dailyModifiers.bogged.getMult(game.global.dailyChallenge.bogged.strength);
-				if (game.global.soldierHealth < 0) thisKillsTheTrimp();
+				if (game.global.soldierHealth < 0) thisKillsThetrump();
 			}
 		}
 		if (typeof game.global.dailyChallenge.weakness !== 'undefined'){
@@ -8528,15 +8528,15 @@ function fight(makeUp) {
 	}
 	if ((game.global.challengeActive == "Nom" || game.global.challengeActive == "Toxicity") && attacked){
 		game.global.soldierHealth -= game.global.soldierHealthMax * 0.05;
-		if (game.global.soldierHealth < 0) thisKillsTheTrimp();
+		if (game.global.soldierHealth < 0) thisKillsThetrump();
 	}
 	else if (game.global.challengeActive == "Lead" && attacked && cell.health > 0){
 		game.global.soldierHealth -= (game.global.soldierHealthMax * Math.min(game.challenges.Lead.stacks, 200) * 0.0003);
-		if (game.global.soldierHealth < 0) thisKillsTheTrimp();
+		if (game.global.soldierHealth < 0) thisKillsThetrump();
 	}
 	if ((game.global.voidBuff == "bleed" || cell.corrupted == 'corruptBleed') && wasAttacked) {
 		game.global.soldierHealth -= (game.global.soldierHealth * 0.2);
-		if (game.global.soldierHealth < 1) thisKillsTheTrimp();
+		if (game.global.soldierHealth < 1) thisKillsThetrump();
 	}
 	if (gotCrit) critSpan.innerHTML = "Crit!";
 	var badCritText;
@@ -8562,7 +8562,7 @@ function fight(makeUp) {
 				if (explodeAndBlock < explodePierce) explodeAndBlock = explodePierce;
 			}
 			game.global.soldierHealth -= explodeAndBlock;
-			if (game.global.soldierHealth <= 0) thisKillsTheTrimp();
+			if (game.global.soldierHealth <= 0) thisKillsThetrump();
 		}
 	}
     if (makeUp) return;
@@ -8595,7 +8595,7 @@ function manageLeadStacks(remove){
 	var determinedBuff = document.getElementById("determinedBuff");
 	if ((game.global.world % 2) == 1){
 		if (determinedBuff == null) {
-			document.getElementById("goodGuyName").innerHTML += '&nbsp<span class="badge antiBadge" id="determinedBuff" onmouseover="tooltip(\'Determined\', \'customText\', event, \'Your Trimps are determined to succeed. They gain 50% attack and earn double resources from all sources.\')" onmouseout="tooltip(\'hide\')"><span class="icomoon icon-sun2"></span></span>';
+			document.getElementById("goodGuyName").innerHTML += '&nbsp<span class="badge antiBadge" id="determinedBuff" onmouseover="tooltip(\'Determined\', \'customText\', event, \'Your trumps are determined to succeed. They gain 50% attack and earn double resources from all sources.\')" onmouseout="tooltip(\'hide\')"><span class="icomoon icon-sun2"></span></span>';
 			determinedBuff = document.getElementById("determinedBuff");
 		}
 		determinedBuff.style.display = "inline";
@@ -8639,8 +8639,8 @@ function updateRadioStacks(tipOnly){
 	var elem = document.getElementById("debuffSpan");
 	if (game.global.radioStacks > 0){
 		var number = game.global.radioStacks * 10;
-		var addText = 'Your Trimps are dealing ' + number + '% less damage and taking ' + number + '% of their total health as damage per attack.';
-		elem.innerHTML = '<span class="badge trimpBadge" onmouseover="tooltip(\'Electrified\', \'customText\', event, \'' + addText + '\'); updateRadioTip()" onmouseout="tooltip(\'hide\')">' + game.global.radioStacks + '<span class="icomoon icon-power"></span></span>';
+		var addText = 'Your trumps are dealing ' + number + '% less damage and taking ' + number + '% of their total health as damage per attack.';
+		elem.innerHTML = '<span class="badge trumpBadge" onmouseover="tooltip(\'Electrified\', \'customText\', event, \'' + addText + '\'); updateRadioTip()" onmouseout="tooltip(\'hide\')">' + game.global.radioStacks + '<span class="icomoon icon-power"></span></span>';
 		if (tipOnly){
 			document.getElementById('tipText').innerHTML = addText;
 			return;
@@ -8661,7 +8661,7 @@ function updateAntiStacks(){
 	if (game.global.antiStacks > 0){
 		var number = ((game.global.antiStacks * game.portal.Anticipation.level * game.portal.Anticipation.modifier));
 		number = Math.floor(number * 100);
-		elem.innerHTML = '<span class="badge antiBadge" onmouseover="tooltip(\'Anticipation\', \'customText\', event, \'Your Trimps are dealing ' + number + '% extra damage for taking ' + game.global.antiStacks + ' seconds to populate.\')" onmouseout="tooltip(\'hide\')">' + game.global.antiStacks + '<span class="icomoon icon-target2"></span></span>';
+		elem.innerHTML = '<span class="badge antiBadge" onmouseover="tooltip(\'Anticipation\', \'customText\', event, \'Your trumps are dealing ' + number + '% extra damage for taking ' + game.global.antiStacks + ' seconds to populate.\')" onmouseout="tooltip(\'hide\')">' + game.global.antiStacks + '<span class="icomoon icon-target2"></span></span>';
 	}
 	else elem.innerHTML = "";
 }
@@ -8673,13 +8673,13 @@ function updateTitimp(){
 		return;
 	}
 		var number = Math.floor(game.global.titimpLeft);
-		elem.innerHTML = '<span class="badge antiBadge" onmouseover="tooltip(\'Titimp\', \'customText\', event, \'Your Trimps are dealing double damage, thanks to the Titimp!\');" onmouseout="tooltip(\'hide\')">' + number + '<span class="icomoon icon-hammer"></span></span>';
+		elem.innerHTML = '<span class="badge antiBadge" onmouseover="tooltip(\'Titimp\', \'customText\', event, \'Your trumps are dealing double damage, thanks to the Titimp!\');" onmouseout="tooltip(\'hide\')">' + number + '<span class="icomoon icon-hammer"></span></span>';
 }
 
 function updateNomStacks(number){
 	var elem = document.getElementById('nomStack');
 	if (elem == null){
-		document.getElementById('badGuyName').innerHTML += ' <span class="badge badBadge" onmouseover="tooltip(\'Nom\', \'customText\', event, \'This Bad Guy is nice and plump from eating Trimps. Increases attack damage by 25% per stack\');" onmouseout="tooltip(\'hide\')"><span id="nomStack">' + number + '</span><span class="glyphicon glyphicon-scale"></span></span>';
+		document.getElementById('badGuyName').innerHTML += ' <span class="badge badBadge" onmouseover="tooltip(\'Nom\', \'customText\', event, \'This Bad Guy is nice and plump from eating trumps. Increases attack damage by 25% per stack\');" onmouseout="tooltip(\'hide\')"><span id="nomStack">' + number + '</span><span class="glyphicon glyphicon-scale"></span></span>';
 	}
 	else elem.innerHTML = number;
 }
@@ -8693,7 +8693,7 @@ function updateBalanceStacks(){
 	var stacks = game.challenges.Balance.balanceStacks;
 	if (stacks > 0) {
 		elem.style.display = "inline-block";
-		elem.innerHTML = ' <span class="badge antiBadge" onmouseover="tooltip(\'Unbalance\', \'customText\', event, \'Your Trimps have ' + game.challenges.Balance.getHealthMult(true) + ' less health, but all Trimps can gather ' + game.challenges.Balance.getGatherMult(true) + ' faster. You will gain one stack from killing Bad Guys in the world, and lose one stack for killing Bad Guys in maps.\');" onmouseout="tooltip(\'hide\')"><span id="balanceStack">' + stacks + '</span><span class="icomoon icon-balance-scale"></span></span>';
+		elem.innerHTML = ' <span class="badge antiBadge" onmouseover="tooltip(\'Unbalance\', \'customText\', event, \'Your trumps have ' + game.challenges.Balance.getHealthMult(true) + ' less health, but all trumps can gather ' + game.challenges.Balance.getGatherMult(true) + ' faster. You will gain one stack from killing Bad Guys in the world, and lose one stack for killing Bad Guys in maps.\');" onmouseout="tooltip(\'hide\')"><span id="balanceStack">' + stacks + '</span><span class="icomoon icon-balance-scale"></span></span>';
 	}
 	else elem.style.display = "none";
 }
@@ -8771,7 +8771,7 @@ function autoTrap() {
 }
 
 function planetBreaker(){
-	if (game.global.roboTrimpLevel > 0) document.getElementById("chainHolder").style.visibility = "visible";
+	if (game.global.robotrumpLevel > 0) document.getElementById("chainHolder").style.visibility = "visible";
 	game.stats.planetsBroken.valueTotal++;
 	game.global.brokenPlanet = true;
 	document.getElementById("wrapper").style.background = "url(css/bg2_vert.png) center repeat-y";
@@ -8917,9 +8917,9 @@ function showBones() {
 		document.getElementById("mapsPurchaseBtn").style.backgroundColor = "grey";
 		document.getElementById("goldMapsDesc").innerHTML = "This bonus is active!";
 	}
-	if (game.unlocks.quickTrimps) {
-		document.getElementById("trimpsPurchaseBtn").style.backgroundColor = "grey";
-		document.getElementById("quickTrimpsDesc").innerHTML = "This bonus is active!";
+	if (game.unlocks.quicktrumps) {
+		document.getElementById("trumpsPurchaseBtn").style.backgroundColor = "grey";
+		document.getElementById("quicktrumpsDesc").innerHTML = "This bonus is active!";
 	}
 	document.getElementById("heliumGainedMisc").innerHTML = prettify(boostHe(true));
 	if (typeof kongregate === 'undefined') return;
@@ -9238,11 +9238,11 @@ function purchaseMisc(what){
 			game.global.b -= 20;
 			buyGoldenMaps();
 			break;
-		case "trimps":
-			if (game.unlocks.quickTrimps) return;
+		case "trumps":
+			if (game.unlocks.quicktrumps) return;
 			if (game.global.b < 20) {showPurchaseBones(); return;}
 			game.global.b -= 20;
-			buyQuickTrimps();
+			buyQuicktrumps();
 			break;
 		case "heirloom":
 			if (game.global.b < 30) return;
@@ -9256,9 +9256,9 @@ function purchaseMisc(what){
 		document.getElementById("mapsPurchaseBtn").style.backgroundColor = "grey";
 		document.getElementById("goldMapsDesc").innerHTML = "This bonus is active!";
 	}
-	if (game.unlocks.quickTrimps) {
-		document.getElementById("trimpsPurchaseBtn").style.backgroundColor = "grey";
-		document.getElementById("quickTrimpsDesc").innerHTML = "This bonus is active!";
+	if (game.unlocks.quicktrumps) {
+		document.getElementById("trumpsPurchaseBtn").style.backgroundColor = "grey";
+		document.getElementById("quicktrumpsDesc").innerHTML = "This bonus is active!";
 	}
 	try{
 		if (typeof ga !== 'undefined') ga('send', 'event', 'MTX', what);
@@ -9274,9 +9274,9 @@ function resetOnePortalRewards() {
 		document.getElementById("mapsPurchaseBtn").style.backgroundColor = "#337ab7";
 		document.getElementById("goldMapsDesc").innerHTML = "All of your current and future maps will gain +100% loot <b>Until your next portal</b>";
 	}
-	if (game.unlocks.quickTrimps) {
-		document.getElementById("trimpsPurchaseBtn").style.backgroundColor = "#337ab7";
-		document.getElementById("quickTrimpsDesc").innerHTML = "All of your Trimps will breed 2x faster <br/><b>Until your next portal</b>";
+	if (game.unlocks.quicktrumps) {
+		document.getElementById("trumpsPurchaseBtn").style.backgroundColor = "#337ab7";
+		document.getElementById("quicktrumpsDesc").innerHTML = "All of your trumps will breed 2x faster <br/><b>Until your next portal</b>";
 	}
 }
 
@@ -9329,9 +9329,9 @@ function buyGoldenMaps() {
 	}
 }
 
-function buyQuickTrimps() {
-	game.unlocks.quickTrimps = true;
-	swapClass("psColor", "psColorOrange", document.getElementById("trimpsPs"));
+function buyQuicktrumps() {
+	game.unlocks.quicktrumps = true;
+	swapClass("psColor", "psColorOrange", document.getElementById("trumpsPs"));
 }
 
 function countUnpurchasedImports(){
@@ -9449,7 +9449,7 @@ function activateTurkimpPowers() {
 	var possibilities = [
 	"Yum, Turkimp! You eat some and put some in your pockets for later.",
 	"You seem very happy to see that this land came with free food too! You gobble up some turkimp.",
-	"You're quite grateful to finally eat some protein! You eat a bunch of Turkimp and find a Trimp to carry the rest back for you.",
+	"You're quite grateful to finally eat some protein! You eat a bunch of Turkimp and find a trump to carry the rest back for you.",
 	"Apparently your scientists are vegetarians. Hurray, more Turkimp for you!",
 	"You hear a loud gobbling sound in the distance, it sounds angry. You disregard it because this Turkimp is delicious!",
 	"Ah, Turkimp. Nature's version of a Chickimp with a weirder head. Sure is tasty! You eat your fill and save some for later."
@@ -10013,7 +10013,7 @@ function switchFormToRecovery(){
 function playFabRegisterPlayFabUser(){
 	var error = document.getElementById("playFabLoginError");
 	if (typeof PlayFab === 'undefined' || typeof PlayFab.ClientApi === 'undefined'){
-		error.innerHTML = "Unable to Initialize the PlayFab API. Please check to make sure third-party scripts are enabled for Trimps, and that PlayFab is not blocked.";
+		error.innerHTML = "Unable to Initialize the PlayFab API. Please check to make sure third-party scripts are enabled for trumps, and that PlayFab is not blocked.";
 		return;
 	}
 	var saveLogin = false;
@@ -10058,7 +10058,7 @@ function playFabRegisterPlayFabUser(){
 function playFabLoginWithPlayFab(username, pass){
 	var error = document.getElementById("playFabLoginError");
 	if (typeof PlayFab === 'undefined' || typeof PlayFab.ClientApi === 'undefined'){
-		error.innerHTML = "Unable to Initialize the PlayFab API. Please check to make sure third-party scripts are enabled for Trimps, and that PlayFab is not blocked.";
+		error.innerHTML = "Unable to Initialize the PlayFab API. Please check to make sure third-party scripts are enabled for trumps, and that PlayFab is not blocked.";
 		return;
 	}
 	var saveLogin = false;
@@ -10103,7 +10103,7 @@ function playFabLoginWithPlayFab(username, pass){
 function playFabLoginWithKongregate(attempt){
 	var error = document.getElementById("playFabLoginError");
 	if (typeof PlayFab === 'undefined' || typeof PlayFab.ClientApi === 'undefined'){
-		error.innerHTML = "Unable to Initialize the PlayFab API. Please check to make sure third-party scripts are enabled for Trimps, and that PlayFab is not blocked.";
+		error.innerHTML = "Unable to Initialize the PlayFab API. Please check to make sure third-party scripts are enabled for trumps, and that PlayFab is not blocked.";
 		return;
 	}
 	if (typeof kongregate === 'undefined'){
@@ -10332,7 +10332,7 @@ function gameLoop(makeUp, now) {
 		if (game.global.challengeActive == "Daily" && typeof game.global.dailyChallenge.pressure !== 'undefined') dailyModifiers.pressure.addSecond();
 		if (game.global.autoUpgradesAvailable) autoUpgrades();
 		if (savedOfflineText && !game.global.lockTooltip) {
-			tooltip("Trustworthy Trimps", null, "update", savedOfflineText);
+			tooltip("Trustworthy trumps", null, "update", savedOfflineText);
 			savedOfflineText = "";
 		}
 	}
@@ -10390,7 +10390,7 @@ function updatePortalTimer(justGetTime) {
 	if (game.options.menu.pauseGame.enabled) timeString = timeString + "&nbsp;(PAUSED)";
 	else {
 		checkAchieve("totalGems");
-		if (trimpStatsDisplayed) displayAllStats();
+		if (trumpStatsDisplayed) displayAllStats();
 		if (game.options.menu.useAverages.enabled && Math.floor(timeSince % 3) == 0) curateAvgs();
 		if (game.resources.helium.owned > 0) game.stats.bestHeliumHourThisRun.evaluate();
 		if (game.global.autoStorage == true) autoStorage();

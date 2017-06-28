@@ -1,4 +1,4 @@
-/*		Trimps
+/*		trumps
 		Copyright (C) 2016 Zach Hood
 
 		This program is free software: you can redistribute it and/or modify
@@ -14,7 +14,7 @@
 		You should have received a copy of the GNU General Public License
 		along with this program (if you are reading this on the original
 		author's website, you can find a copy at
-		<trimps.github.io/license.txt>). If not, see
+		<trumps.github.io/license.txt>). If not, see
 		<http://www.gnu.org/licenses/>. */
 
 
@@ -111,7 +111,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 	}
 	if (what == "Decay"){
 		var decayedAmt = ((1 - Math.pow(0.995, game.challenges.Decay.stacks)) * 100).toFixed(2);
-		tooltipText = "Things are quickly becoming tougher. Gathering, looting, and Trimp attack are reduced by " + decayedAmt + "%.";
+		tooltipText = "Things are quickly becoming tougher. Gathering, looting, and trump attack are reduced by " + decayedAmt + "%.";
 		costText = "";
 	}
 	if (what == "Heirloom"){
@@ -137,13 +137,13 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		costText = "";
 	}
 	if (what == "Welcome"){
-		tooltipText = "Welcome to Trimps! This game saves using Local Storage in your browser. Clearing your cookies or browser settings will cause your save to disappear! Please make sure you regularly back up your save file by either using the 'Export' button in the bar below or the 'Online Saving' option under 'Settings'.<br/><br/><b>Chrome and Firefox are currently the only fully supported browsers.</b><br/><br/><b>Would you like to enable online saving before you start?</b>";
+		tooltipText = "Welcome to trumps! This game saves using Local Storage in your browser. Clearing your cookies or browser settings will cause your save to disappear! Please make sure you regularly back up your save file by either using the 'Export' button in the bar below or the 'Online Saving' option under 'Settings'.<br/><br/><b>Chrome and Firefox are currently the only fully supported browsers.</b><br/><br/><b>Would you like to enable online saving before you start?</b>";
 		game.global.lockTooltip = true;
 		costText = "<div class='maxCenter'><div class='btn btn-info' id='confirmTooltipBtn' onclick='cancelTooltip(); toggleSetting(\"usePlayFab\");'>Enable Online Saving</div><div class='btn btn-danger' onclick='cancelTooltip()'>Don't Enable</div></div>";
 		elem.style.left = "33.75%";
 		elem.style.top = "25%";
 	}
-	if (what == "Trustworthy Trimps"){
+	if (what == "Trustworthy trumps"){
 		tooltipText = textString;
 		game.global.lockTooltip = true;
 		costText = "<div class='maxCenter'><div class='btn btn-info' id='confirmTooltipBtn' onclick='cancelTooltip()'>Sweet, thanks.</div></div>";
@@ -178,11 +178,11 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		costText = "";
 	}
 	if (what == "AutoGolden"){
-		tooltipText = '<p>Thanks to your brilliant Scientists, you can designate Golden Upgrades to be purchased automatically! Toggle between: </p><p><b>AutoGolden Off</b> when you\'re not feeling particularly trusting.</p><p><b>AutoGolden Helium</b> when you\'re looking to boost your Perk game. 4/5 Trimps agree that this will increase your overall Helium earned, though none of the 5 really understood the question.</p><p><b>AutoGolden Battle</b> if your Trimps have a tendency to slack off when you turn your back.</p><p><b>AutoGolden Void</b> if you need some more purple in your life. This is your Trimps\' least favorite choice, but it\'s pretty lucrative so...</p><p>Please allow 4 seconds for Trimp retraining after clicking this button before any Golden Upgrades are automatically purchased, and don\'t forget to frequently thank your scientists! Seriously, they get moody.</p>';
+		tooltipText = '<p>Thanks to your brilliant Scientists, you can designate Golden Upgrades to be purchased automatically! Toggle between: </p><p><b>AutoGolden Off</b> when you\'re not feeling particularly trusting.</p><p><b>AutoGolden Helium</b> when you\'re looking to boost your Perk game. 4/5 trumps agree that this will increase your overall Helium earned, though none of the 5 really understood the question.</p><p><b>AutoGolden Battle</b> if your trumps have a tendency to slack off when you turn your back.</p><p><b>AutoGolden Void</b> if you need some more purple in your life. This is your trumps\' least favorite choice, but it\'s pretty lucrative so...</p><p>Please allow 4 seconds for trump retraining after clicking this button before any Golden Upgrades are automatically purchased, and don\'t forget to frequently thank your scientists! Seriously, they get moody.</p>';
 		costText = "";
 	}
 	if (what == "AutoGolden Unlocked"){
-		tooltipText = "<p>Your Trimps have extracted and processed hundreds of Golden Upgrades by now, and though you're still nervous to leave things completely to them, you figure they can probably handle doing this on their own as well. You find the nearest Trimp and ask if he could handle buying Golden Upgrades on his own, as long as you told him which ones to buy. You can tell by the puddle of drool rapidly gaining mass at his feet that this is going to take either magic or a lot of hard work.</p><p>You can't find any magic anywhere, so you decide to found Trimp University, a school dedicated to teaching Trimps how to extract the might of Golden Upgrades without any assistance. Weeks go by while you and your Trimps work tirelessly to set up the University, choosing only the finest building materials and hiring only the most renowned Foremen to draw the plans. Just as you're finishing up, a Scientist stops by, sees what you're doing, and offers to just handle the Golden Upgrades instead. Probably should have just asked one of them first.</p><p><b>You have unlocked AutoGolden!</b></p>";
+		tooltipText = "<p>Your trumps have extracted and processed hundreds of Golden Upgrades by now, and though you're still nervous to leave things completely to them, you figure they can probably handle doing this on their own as well. You find the nearest trump and ask if he could handle buying Golden Upgrades on his own, as long as you told him which ones to buy. You can tell by the puddle of drool rapidly gaining mass at his feet that this is going to take either magic or a lot of hard work.</p><p>You can't find any magic anywhere, so you decide to found trump University, a school dedicated to teaching trumps how to extract the might of Golden Upgrades without any assistance. Weeks go by while you and your trumps work tirelessly to set up the University, choosing only the finest building materials and hiring only the most renowned Foremen to draw the plans. Just as you're finishing up, a Scientist stops by, sees what you're doing, and offers to just handle the Golden Upgrades instead. Probably should have just asked one of them first.</p><p><b>You have unlocked AutoGolden!</b></p>";
 		costText = "<div class='maxCenter'><div id='confirmTooltipBtn' class='btn btn-info' onclick='cancelTooltip()'>Close</div></div>";
 		game.global.lockTooltip = true;
 		elem.style.left = "33.75%";
@@ -265,7 +265,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		elem.style.top = "25%";
 	}
 	if (what == "Eggs"){
-		tooltipText = '<span class="eggMessage">It seems as if some sort of animal has placed a bunch of brightly colored eggs in the world. If you happen to see one, you can click on it to send a Trimp to pick it up! According to your scientists, they have a rare chance to contain some neat stuff, but they will not last forever...</span>';
+		tooltipText = '<span class="eggMessage">It seems as if some sort of animal has placed a bunch of brightly colored eggs in the world. If you happen to see one, you can click on it to send a trump to pick it up! According to your scientists, they have a rare chance to contain some neat stuff, but they will not last forever...</span>';
 		game.global.lockTooltip = true;
 		costText = "<div class='maxCenter'><div class='btn btn-info' id='confirmTooltipBtn' onclick='cancelTooltip()'>I'll keep an eye out.</div></div>";
 		elem.style.left = "33.75%";
@@ -276,7 +276,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		costText = "";
 	}
 	if (what == "Repeat Map"){
-		tooltipText = "Allow the Trimps to find their way back to square 1 once they finish without your help. They grow up so fast. <br/><br/>If you are <b>not</b> repeating, your current group of Trimps will not be abandoned after the map ends.";
+		tooltipText = "Allow the trumps to find their way back to square 1 once they finish without your help. They grow up so fast. <br/><br/>If you are <b>not</b> repeating, your current group of trumps will not be abandoned after the map ends.";
 		costText = "";
 	}
 	if (what == "Challenge2"){
@@ -284,7 +284,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		tooltipText = "";
 		if (!textString)
 		tooltipText = "<p>Click to toggle a challenge mode for your challenges!</p>";
-		tooltipText += "<p>In Challenge<sup>2</sup> mode, you can re-run some challenges in order to earn a permanent attack, health, and Helium bonus for your Trimps. MOST Challenge<sup>2</sup>s will grant <b>" + squaredConfig.rewardEach + "% attack and health and " + prettify(squaredConfig.rewardEach / 10) + "% increased Helium for every " + squaredConfig.rewardFreq + " zones reached. Every " + squaredConfig.thresh + " zones, the attack and health bonus will increase by an additional 1%, and the Helium bonus will increase by 0.1%</b>. This bonus is additive with all available Challenge<sup>2</sup>s, and your highest zone reached for each challenge is saved and used.</p><p><b>No Challenge<sup>2</sup>s end at any specific zone</b>, they can only be completed by using your portal or abandoning through the 'View Perks' menu. However, <b>no Helium can drop, and no bonus Helium will be earned during or after the run</b>. Void Maps will still drop heirlooms, and all other currency can still be earned.</p><p>You are currently gaining " + prettify(game.global.totalSquaredReward) + "% extra attack and health, and are gaining " + prettify(game.global.totalSquaredReward / 10) + "% extra Helium thanks to your Challenge<sup>2</sup> bonus.</p>";
+		tooltipText += "<p>In Challenge<sup>2</sup> mode, you can re-run some challenges in order to earn a permanent attack, health, and Helium bonus for your trumps. MOST Challenge<sup>2</sup>s will grant <b>" + squaredConfig.rewardEach + "% attack and health and " + prettify(squaredConfig.rewardEach / 10) + "% increased Helium for every " + squaredConfig.rewardFreq + " zones reached. Every " + squaredConfig.thresh + " zones, the attack and health bonus will increase by an additional 1%, and the Helium bonus will increase by 0.1%</b>. This bonus is additive with all available Challenge<sup>2</sup>s, and your highest zone reached for each challenge is saved and used.</p><p><b>No Challenge<sup>2</sup>s end at any specific zone</b>, they can only be completed by using your portal or abandoning through the 'View Perks' menu. However, <b>no Helium can drop, and no bonus Helium will be earned during or after the run</b>. Void Maps will still drop heirlooms, and all other currency can still be earned.</p><p>You are currently gaining " + prettify(game.global.totalSquaredReward) + "% extra attack and health, and are gaining " + prettify(game.global.totalSquaredReward / 10) + "% extra Helium thanks to your Challenge<sup>2</sup> bonus.</p>";
 		if (game.talents.headstart.purchased) tooltipText += "<p><b>Note that your Headstart mastery will be disabled during Challenge<sup>2</sup> runs.</b></p>";
 		costText = "";
 	}
@@ -323,8 +323,8 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 	}
 	if (what == "The Improbability"){
 		tooltipText = "<span class='planetBreakMessage'>That shouldn't have happened. There should have been a Blimp there. Something is growing unstable.</span>";
-		if (!game.global.autoUpgradesAvailable) tooltipText += "<br/><br/><span class='planetBreakMessage'><b>Your Trimps seem to understand that they'll need to help out more, and you realize how to permanently use them to automate upgrades!<b></span><br/>";
-		costText = "<span class='planetBreakDescription'><span class='bad'>Trimp breed speed reduced by a factor of 10. 20% of enemy damage can now penetrate your block.</span><span class='good'> You have unlocked a new upgrade to learn a Formation. Helium harvested per zone is increased by a factor of 5. Equipment cost is dramatically cheaper. You have access to the 'Trimp' challenge!<span></span>";
+		if (!game.global.autoUpgradesAvailable) tooltipText += "<br/><br/><span class='planetBreakMessage'><b>Your trumps seem to understand that they'll need to help out more, and you realize how to permanently use them to automate upgrades!<b></span><br/>";
+		costText = "<span class='planetBreakDescription'><span class='bad'>trump breed speed reduced by a factor of 10. 20% of enemy damage can now penetrate your block.</span><span class='good'> You have unlocked a new upgrade to learn a Formation. Helium harvested per zone is increased by a factor of 5. Equipment cost is dramatically cheaper. You have access to the 'trump' challenge!<span></span>";
 		if (game.global.challengeActive == "Corrupted") costText += "<br/><br/><span class='corruptedBadGuyName'>Looks like the Corruption is starting early...</span>";
 		costText += "<hr/><div class='maxCenter'><div class='btn btn-info' id='confirmTooltipBtn' onclick='cancelTooltip()'>I'll be fine</div><div class='btn btn-danger' onclick='cancelTooltip(); message(\"Sorry\", \"Notices\")'>I'm Scared</div></div>"
 		game.global.lockTooltip = true;
@@ -374,15 +374,15 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 	}
 	if (what == "The Magma"){
 		tooltipText = "<p>You stumble across a large locked chest, unlike anything you've ever seen. The lock looks rusty, you smack it with a rock, and it falls right off. Immediately the ground shakes and cracks beneath your feet, intense heat hits your face, and Magma boils up from the core.</p><p>Where one minute ago there was dirt, grass, and noxious fog, there are now rivers of molten rock (and noxious fog). You'd really like to try and repair the planet somehow, so you decide to keep pushing on. It's been working out well so far, there was some useful stuff in that chest!</p><hr/>";
-		tooltipText += "<span class='planetBreakDescription'><span class='bad'>The heat is tough on your Trimps, causing each zone to reduce their attack and health by 20% more than the last. 10% of your Nurseries will permanently close after each zone to avoid Magma flows, and Corruption has seeped in to both Void and regular Maps, further increasing their difficulty. </span><span class='good'> However, the chest contained plans and materials for the <b>Dimensional Generator</b> building, <b>" + prettify(textString) + " Helium</b>, and <b>100 copies of Coordination</b>! In addition, all zones are now worth <b>3x Helium</b>!<span></span>";
+		tooltipText += "<span class='planetBreakDescription'><span class='bad'>The heat is tough on your trumps, causing each zone to reduce their attack and health by 20% more than the last. 10% of your Nurseries will permanently close after each zone to avoid Magma flows, and Corruption has seeped in to both Void and regular Maps, further increasing their difficulty. </span><span class='good'> However, the chest contained plans and materials for the <b>Dimensional Generator</b> building, <b>" + prettify(textString) + " Helium</b>, and <b>100 copies of Coordination</b>! In addition, all zones are now worth <b>3x Helium</b>!<span></span>";
 		costText += "<div class='maxCenter'><div class='btn btn-info' id='confirmTooltipBtn' onclick='cancelTooltip()'>K</div></div>";
 		game.global.lockTooltip = true;
 		elem.style.left = "33.75%";
 		elem.style.top = "25%";
 	}
 	if (what == "Spire"){
-		tooltipText = "<span class='planetBreakMessage'>The Spire looms menacingly above you, and you take in a deep breath of corruption. You take a look back at your Trimps to help gather some courage, and you push the door open. You slowly walk inside and are greeted by an incredibly loud, deep, human voice.<br/><br/><b>Do you know what you face? If you are defeated ten times in this place, you shall be removed from this space. If you succeed, then you shall see the light of knowledge that you seek.</b><span>";
-		tooltipText += "<br/><hr/><span class='planetBreakDescription'><span class='bad'>This zone is considerably more difficult than the previous and next zones. If 10 groups of Trimps die in combat while in the spire, the world will return to normal.</span> <span class='good'>Each cell gives more and more helium. Every 10th cell gives a larger reward, and increases all loot gained until your next portal by 2% (including helium).</span>";
+		tooltipText = "<span class='planetBreakMessage'>The Spire looms menacingly above you, and you take in a deep breath of corruption. You take a look back at your trumps to help gather some courage, and you push the door open. You slowly walk inside and are greeted by an incredibly loud, deep, human voice.<br/><br/><b>Do you know what you face? If you are defeated ten times in this place, you shall be removed from this space. If you succeed, then you shall see the light of knowledge that you seek.</b><span>";
+		tooltipText += "<br/><hr/><span class='planetBreakDescription'><span class='bad'>This zone is considerably more difficult than the previous and next zones. If 10 groups of trumps die in combat while in the spire, the world will return to normal.</span> <span class='good'>Each cell gives more and more helium. Every 10th cell gives a larger reward, and increases all loot gained until your next portal by 2% (including helium).</span>";
 		if (game.options.menu.mapsOnSpire.enabled) tooltipText += "<br/><hr/>You were moved to Maps to protect your limited chances at the spire. You can disable this in settings!";
 		costText = "<div class='maxCenter'><div class='btn btn-info' onclick='startSpire(true)'>Bring it on</div></div>";
 		game.global.lockTooltip = true;
@@ -411,9 +411,9 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		elem.style.top = "25%";
 	}
 	if (what == "MagnetoShriek"){
-		var shriekValue = ((1 - game.mapUnlocks.roboTrimp.getShriekValue()) * 100).toFixed(1);
-		tooltipText = "Your pet RoboTrimp seems to be gifted at distorting the magnetic field around certain bad guys, especially Improbabilities. You can activate this ability once every 5 zones in order to tell your RoboTrimp to reduce the attack damage of the next Improbability by " + shriekValue + "%. This must be reactivated each time it comes off cooldown.";
-		tooltipText += "<span id='roboTrimpTooltipActive' style='font-weight: bold'><br/><br/>";
+		var shriekValue = ((1 - game.mapUnlocks.robotrump.getShriekValue()) * 100).toFixed(1);
+		tooltipText = "Your pet Robotrump seems to be gifted at distorting the magnetic field around certain bad guys, especially Improbabilities. You can activate this ability once every 5 zones in order to tell your Robotrump to reduce the attack damage of the next Improbability by " + shriekValue + "%. This must be reactivated each time it comes off cooldown.";
+		tooltipText += "<span id='robotrumpTooltipActive' style='font-weight: bold'><br/><br/>";
 		tooltipText += (game.global.useShriek) ? "MagnetoShriek is currently active and will fire on the next Improbability." : "MagnetoShriek is NOT active and will not fire.";
 		tooltipText += "</span>";
 		costText = "";
@@ -427,13 +427,13 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		elem.style.top = "25%";
 	}
 	if (what == "Fight"){
-		tooltipText = "Send your poor Trimps to certain doom in the battlefield. You'll get cool stuff though, they'll understand.";
-		var soldiers = (game.portal.Coordinated.level) ? game.portal.Coordinated.currentSend : game.resources.trimps.maxSoldiers;
+		tooltipText = "Send your poor trumps to certain doom in the battlefield. You'll get cool stuff though, they'll understand.";
+		var soldiers = (game.portal.Coordinated.level) ? game.portal.Coordinated.currentSend : game.resources.trumps.maxSoldiers;
 		costText = (soldiers > 1) ? "s" : "";
-		costText = prettify(soldiers) + " Trimp" + costText;
+		costText = prettify(soldiers) + " trump" + costText;
 	}
 	if (what == "AutoFight"){
-		tooltipText = "Allow the Trimps to start fighting on their own whenever their town gets overcrowded";
+		tooltipText = "Allow the trumps to start fighting on their own whenever their town gets overcrowded";
 		costText = "";
 	}
 	if (what == "New Achievements"){
@@ -459,12 +459,12 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		costText = "";
 	}
 	if (what == "Toxic" && isItIn != "dailyStack"){
-		tooltipText = "This bad guy is toxic. You will find " + (game.challenges.Toxicity.lootMult * game.challenges.Toxicity.stacks).toFixed(1) + "% more loot! Oh, also, this bad guy has 5x attack, 2x health, your Trimps will lose 5% health each time they attack, and the toxic air is causing your Trimps to breed " + (100 - (Math.pow(game.challenges.Toxicity.stackMult, game.challenges.Toxicity.stacks) * 100)).toFixed(2) + "% slower. These stacks will reset after clearing the zone.";
+		tooltipText = "This bad guy is toxic. You will find " + (game.challenges.Toxicity.lootMult * game.challenges.Toxicity.stacks).toFixed(1) + "% more loot! Oh, also, this bad guy has 5x attack, 2x health, your trumps will lose 5% health each time they attack, and the toxic air is causing your trumps to breed " + (100 - (Math.pow(game.challenges.Toxicity.stackMult, game.challenges.Toxicity.stacks) * 100)).toFixed(2) + "% slower. These stacks will reset after clearing the zone.";
 		costText = "";
 	}
 	if (what == "Momentum"){
 		var stacks = game.challenges.Lead.stacks;
-		tooltipText = "This bad guy has " + prettify(stacks * 4) + "% more damage and health, pierces an additional " + (stacks * 0.1).toFixed(1) + "% block, and each attack that does not kill it will cause your Trimps to lose " + (stacks * 0.03).toFixed(2) + "% of their health.";
+		tooltipText = "This bad guy has " + prettify(stacks * 4) + "% more damage and health, pierces an additional " + (stacks * 0.1).toFixed(1) + "% block, and each attack that does not kill it will cause your trumps to lose " + (stacks * 0.03).toFixed(2) + "% of their health.";
 		costText = "";
 	}
 	if (what == "Custom"){
@@ -558,9 +558,9 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		elem.style.left = "33.75%";
 		elem.style.top = "25%";
 	}
-	if (what == "Fire Trimps"){
+	if (what == "Fire trumps"){
 		if (!game.global.firing)
-		tooltipText = "Activate firing mode, turning the job buttons red, and forcing them to fire trimps rather than hire them. The newly unemployed Trimps will start breeding instead of working, but you will not receive a refund on resources.";
+		tooltipText = "Activate firing mode, turning the job buttons red, and forcing them to fire trumps rather than hire them. The newly unemployed trumps will start breeding instead of working, but you will not receive a refund on resources.";
 		else
 		tooltipText = "Disable firing mode";
 		costText = "";
@@ -578,11 +578,11 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		if (game.global.firing){
 			var firstChar = what.charAt(0);
 			var aAn = (firstChar == "A" || firstChar == "E" || firstChar == "I" || firstChar == "O" || firstChar == "U") ? " an " : " a ";
-			tooltipText = "Fire " + aAn + " " + what + ". Refunds no resources, but frees up some workspace for your Trimps.";
+			tooltipText = "Fire " + aAn + " " + what + ". Refunds no resources, but frees up some workspace for your trumps.";
 			costText = "";
 		}
 		else{
-			var workspaces = Math.ceil(game.resources.trimps.realMax() / 2) - game.resources.trimps.employed;
+			var workspaces = Math.ceil(game.resources.trumps.realMax() / 2) - game.resources.trumps.employed;
 			var ignoreWorkspaces = (game.jobs[what].allowAutoFire && game.options.menu.fireForJobs.enabled);
 			if (workspaces < buyAmt && !ignoreWorkspaces) buyAmt = workspaces;
 			costText = getTooltipJobText(what, buyAmt);
@@ -643,10 +643,10 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		if (what == "Coordination"){
 			var coordReplace = (game.portal.Coordinated.level) ? (25 * Math.pow(game.portal.Coordinated.modifier, game.portal.Coordinated.level)).toFixed(3) : 25;
 			tooltipText = tooltipText.replace('<coord>', coordReplace);
-			if (!canAffordCoordinationTrimps()){
-				var nextCount = (game.portal.Coordinated.level) ? game.portal.Coordinated.currentSend : game.resources.trimps.maxSoldiers;
-				var amtToGo = ((nextCount * 3) - game.resources.trimps.realMax());
-				tooltipText += "<b>You need enough room for " + prettify(nextCount * 3) + " max Trimps. You are short " + prettify(Math.floor(amtToGo)) + " Trimps.</b>";
+			if (!canAffordCoordinationtrumps()){
+				var nextCount = (game.portal.Coordinated.level) ? game.portal.Coordinated.currentSend : game.resources.trumps.maxSoldiers;
+				var amtToGo = ((nextCount * 3) - game.resources.trumps.realMax());
+				tooltipText += "<b>You need enough room for " + prettify(nextCount * 3) + " max trumps. You are short " + prettify(Math.floor(amtToGo)) + " trumps.</b>";
 			}
 		}
 	}
@@ -678,8 +678,8 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		if (typeof tipSplit[1] !== 'undefined'){
 			if (tipSplit[1] == 'incby'){
 				var increase = toTip.increase.by;
-				if (game.portal.Carpentry.level && toTip.increase.what == "trimps.max") increase *= Math.pow(1.1, game.portal.Carpentry.level);
-				if (game.portal.Carpentry_II.level && toTip.increase.what == "trimps.max") increase *= (1 + (game.portal.Carpentry_II.modifier * game.portal.Carpentry_II.level));
+				if (game.portal.Carpentry.level && toTip.increase.what == "trumps.max") increase *= Math.pow(1.1, game.portal.Carpentry.level);
+				if (game.portal.Carpentry_II.level && toTip.increase.what == "trumps.max") increase *= (1 + (game.portal.Carpentry_II.modifier * game.portal.Carpentry_II.level));
 				tooltipText = tipSplit[0] + prettify(increase) + tipSplit[2];
 			}
 			else if (isItIn == "jobs" && toTip.increase != "custom"){
@@ -874,9 +874,9 @@ function messageConfigHover(what, event){
 			text = "Log all unlocks that only drop once per portal, such as Gyms or Miners.";
 			title = "Unique";
 			break;
-		case 'Combattrimp':
-			text = "Log all combat messages involving your Trimps.";
-			title = "Trimp";
+		case 'Combattrump':
+			text = "Log all combat messages involving your trumps.";
+			title = "trump";
 			break;
 		case 'Combatenemy':
 			text = "Log all combat messages involving the enemy.";
@@ -1099,15 +1099,15 @@ function getZoneStats(event, update) {
 
 }
 
-function getTrimpPs() {
+function gettrumpPs() {
 	if (game.global.challengeActive == "Trapper") return;
-	var trimps = game.resources.trimps;
+	var trumps = game.resources.trumps;
 	var base = 0.0085;
 	var textString =  "<table class='bdTable table table-striped'><tbody>";
 	//Add base
 	textString += "<tr><td class='bdTitle'>Base</td><td class='bdPercent'></td><td class='bdNumber'>" + base + "</td></tr>";
 	//Add job count
-	var breeding = trimps.owned - trimps.employed;
+	var breeding = trumps.owned - trumps.employed;
 	var currentCalc = breeding * base;
 	textString += "<tr><td class='bdTitle'>Breeding</td><td class='bdPercent'>" + prettify(breeding) + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
 	//Add Potency
@@ -1150,10 +1150,10 @@ function getTrimpPs() {
 		var display = (mult > 0.0001) ? mult.toFixed(4) : mult.toExponential(3);
 		textString += "<tr style='color: red'><td class='bdTitle'>Geneticist</td><td class='bdPercent'>X  " + display + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
 	}
-	//Add quick trimps
-	if (game.unlocks.quickTrimps){
+	//Add quick trumps
+	if (game.unlocks.quicktrumps){
 		currentCalc *= 2;
-		textString += "<tr><td class='bdTitle'>Quick Trimps</td><td class='bdPercent'>+ 100%</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
+		textString += "<tr><td class='bdTitle'>Quick trumps</td><td class='bdPercent'>+ 100%</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
 	}
 	if (game.global.challengeActive == "Daily"){
 		var mult = 0;
@@ -1185,7 +1185,7 @@ function getTrimpPs() {
 	}
 	textString += "</tbody></table>";
 	game.global.lockTooltip = false;
-	tooltip('confirm', null, 'update', textString, "getTrimpPs()", "Trimps Per Second", "Refresh", true);
+	tooltip('confirm', null, 'update', textString, "gettrumpPs()", "trumps Per Second", "Refresh", true);
 }
 
 function getFluctuation(number, minFluct, maxFluct){
@@ -1268,8 +1268,8 @@ function getBattleStatBd(what) {
 		}
 	}
 	//Add coordination
-	currentCalc  *= game.resources.trimps.maxSoldiers;
-	textString += "<tr><td class='bdTitle'>Soldiers</td><td class='bdPercentSm'></td><td></td><td>x " + prettify(game.resources.trimps.maxSoldiers) + "</td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td>" + ((what == "attack") ? getFluctuation(currentCalc, minFluct, maxFluct) : "") + "</tr>";
+	currentCalc  *= game.resources.trumps.maxSoldiers;
+	textString += "<tr><td class='bdTitle'>Soldiers</td><td class='bdPercentSm'></td><td></td><td>x " + prettify(game.resources.trumps.maxSoldiers) + "</td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td>" + ((what == "attack") ? getFluctuation(currentCalc, minFluct, maxFluct) : "") + "</tr>";
 	//Add achievements
 	if (what == "attack" && game.global.achievementBonus > 0){
 		currentCalc *= 1 + (game.global.achievementBonus / 100);
@@ -1337,12 +1337,12 @@ function getBattleStatBd(what) {
 		mapBonusMult *= 100;
 		textString += "<tr><td class='bdTitle'>Map Bonus</td><td>20%</td><td>" + game.global.mapBonus + "</td><td>+ " + prettify(mapBonusMult) + "%</td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td>" + getFluctuation(currentCalc, minFluct, maxFluct) + "</tr>";
 	}
-	//Add RoboTrimp
-	if (what == "attack" && game.global.roboTrimpLevel > 0){
-		var roboTrimpMod = 0.2 * game.global.roboTrimpLevel;
-		currentCalc *= (1 + roboTrimpMod);
-		roboTrimpMod *= 100;
-		textString += "<tr><td class='bdTitle'><span class='icomoon icon-chain'></span> RoboTrimp <span class='icomoon icon-chain'></span></td><td>20%</td><td>" + game.global.roboTrimpLevel + "</td><td>+ " + prettify(roboTrimpMod) + "%</td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td>" + getFluctuation(currentCalc, minFluct, maxFluct) + "</tr>";
+	//Add Robotrump
+	if (what == "attack" && game.global.robotrumpLevel > 0){
+		var robotrumpMod = 0.2 * game.global.robotrumpLevel;
+		currentCalc *= (1 + robotrumpMod);
+		robotrumpMod *= 100;
+		textString += "<tr><td class='bdTitle'><span class='icomoon icon-chain'></span> Robotrump <span class='icomoon icon-chain'></span></td><td>20%</td><td>" + game.global.robotrumpLevel + "</td><td>+ " + prettify(robotrumpMod) + "%</td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td>" + getFluctuation(currentCalc, minFluct, maxFluct) + "</tr>";
 	}
 	//Add challenges
 	if (what == "health" && game.global.challengeActive == "Balance"){
@@ -1353,7 +1353,7 @@ function getBattleStatBd(what) {
 		currentCalc *= 1.5;
 		textString += "<tr><td class='bdTitle'>Determined (Lead)</td><td></td><td></td><td>+ 50%</td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td>" + getFluctuation(currentCalc, minFluct, maxFluct) + "</tr>";
 	}
-	var heirloomBonus = calcHeirloomBonus("Shield", "trimp" + capitalizeFirstLetter(what), 0, true);
+	var heirloomBonus = calcHeirloomBonus("Shield", "trump" + capitalizeFirstLetter(what), 0, true);
 	if (heirloomBonus > 0){
 		currentCalc *= ((heirloomBonus / 100) + 1);
 		heirloomBonus = prettify(heirloomBonus) + '%';
@@ -1373,13 +1373,13 @@ function getBattleStatBd(what) {
 			currentCalc *= mult;
 			textString += "<tr style='color: red'><td class='bdTitle'>Weakness (Daily)</td><td>x " + dailyModifiers.weakness.getMult(game.global.dailyChallenge.weakness.strength, 1).toFixed(2) + "</td><td>" + game.global.dailyChallenge.weakness.stacks + "</td><td class='bdPercent'>x " + mult.toFixed(2) + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td>" + getFluctuation(currentCalc, minFluct, maxFluct) + "</tr>";
 		}
-		if (typeof game.global.dailyChallenge.oddTrimpNerf !== 'undefined' && what == "attack" && (game.global.world % 2 == 1)){
-			mult = dailyModifiers.oddTrimpNerf.getMult(game.global.dailyChallenge.oddTrimpNerf.strength);
+		if (typeof game.global.dailyChallenge.oddtrumpNerf !== 'undefined' && what == "attack" && (game.global.world % 2 == 1)){
+			mult = dailyModifiers.oddtrumpNerf.getMult(game.global.dailyChallenge.oddtrumpNerf.strength);
 			currentCalc *= mult;
 			textString += "<tr style='color: red'><td class='bdTitle'>Oddly Weak (Daily)</td><td>x " + mult.toFixed(2) + "</td><td></td><td class='bdPercent'>x " + mult.toFixed(2) + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td>" + getFluctuation(currentCalc, minFluct, maxFluct) + "</tr>";
 		}
-		if (typeof game.global.dailyChallenge.evenTrimpBuff !== 'undefined' && what == "attack" && (game.global.world % 2 == 0)){
-			mult = dailyModifiers.evenTrimpBuff.getMult(game.global.dailyChallenge.evenTrimpBuff.strength);
+		if (typeof game.global.dailyChallenge.eventrumpBuff !== 'undefined' && what == "attack" && (game.global.world % 2 == 0)){
+			mult = dailyModifiers.eventrumpBuff.getMult(game.global.dailyChallenge.eventrumpBuff.strength);
 			currentCalc *= mult;
 			textString += "<tr><td class='bdTitle'>Even Stronger (Daily)</td><td>x " + mult.toFixed(2) + "</td><td></td><td class='bdPercent'>+ " + prettify((mult * 100) - 100) + "%</td><td class='bdNumber'>" + prettify(currentCalc) + "</td>" + getFluctuation(currentCalc, minFluct, maxFluct) + "</tr>";
 		}
@@ -1407,7 +1407,7 @@ function getBattleStatBd(what) {
 	}
 	//Magma
 	if (mutations.Magma.active() && (what == "attack" || what == "health")){
-		mult = mutations.Magma.getTrimpDecay();
+		mult = mutations.Magma.gettrumpDecay();
 		var lvls = game.global.world - mutations.Magma.start() + 1;
 		currentCalc *= mult;
 		var display = (mult > 0.0001) ? mult.toFixed(4) : mult.toExponential(3);
@@ -1460,20 +1460,20 @@ function capitalizeFirstLetter(word){
 	return word.charAt(0).toUpperCase() + word.slice(1);
 }
 
-function getMaxTrimps() {
-	var trimps = game.resources.trimps;
+function getMaxtrumps() {
+	var trumps = game.resources.trumps;
 	var base = 10;
 	var textString =  "<table class='bdTable table table-striped'><tbody>";
 	//Add base
 	textString += "<tr><td class='bdTitle'>Base</td><td class='bdPercent'></td><td class='bdNumber'>" + base + "</td></tr>";
 	//Add job count
-	var housing = trimps.max - game.global.totalGifts - game.unlocks.impCount.TauntimpAdded - base - game.global.trimpsGenerated;
+	var housing = trumps.max - game.global.totalGifts - game.unlocks.impCount.TauntimpAdded - base - game.global.trumpsGenerated;
 	var currentCalc = housing + base;
 	textString += "<tr><td class='bdTitle'>Housing</td><td class='bdPercent'>+ " + prettify(housing) + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
 	//Add generatorUpgrades
-	if (game.global.trimpsGenerated > 0){
-		currentCalc += game.global.trimpsGenerated;
-		textString += "<tr><td class='bdTitle'>Generated Housing</td><td class='bdPercent'>+ " + prettify(game.global.trimpsGenerated) + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
+	if (game.global.trumpsGenerated > 0){
+		currentCalc += game.global.trumpsGenerated;
+		textString += "<tr><td class='bdTitle'>Generated Housing</td><td class='bdPercent'>+ " + prettify(game.global.trumpsGenerated) + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
 	}
 	//Add Territory Bonus
 	if (game.global.totalGifts > 0){
@@ -1514,7 +1514,7 @@ function getMaxTrimps() {
 	}
 	textString += "</tbody></table>";
 	game.global.lockTooltip = false;
-	tooltip('confirm', null, 'update', textString, "getMaxTrimps()", "Max Trimps", "Refresh", true);
+	tooltip('confirm', null, 'update', textString, "getMaxtrumps()", "Max trumps", "Refresh", true);
 }
 
 function getMaxResources(what) {
@@ -1606,9 +1606,9 @@ function getLootBd(what) {
 				currentCalc *= (game.talents.turkimp3.purchased) ? 1.249 : 1.166;
 			}
 			textString += "<tr><td class='bdTitle'>Base</td><td></td><td></td><td>" + prettify(amt) + "</td><td>" + prettify(currentCalc) + "</td></tr>";
-			amt = game.resources.trimps.realMax() * 0.16;
+			amt = game.resources.trumps.realMax() * 0.16;
 			currentCalc *= amt;
-			textString += "<tr><td class='bdTitle'>Trimps</td><td>0.16</td><td>x " + prettify(game.resources.trimps.realMax()) + "</td><td>x " + prettify(amt) + "</td><td>" + prettify(currentCalc) + "</td></tr>";
+			textString += "<tr><td class='bdTitle'>trumps</td><td>0.16</td><td>x " + prettify(game.resources.trumps.realMax()) + "</td><td>x " + prettify(amt) + "</td><td>" + prettify(currentCalc) + "</td></tr>";
 			break;
 		case "Gems":
 			level = (level - 400) * 1.35;
@@ -1649,7 +1649,7 @@ function getLootBd(what) {
 			if (baseAmt >= 5){
 				if (mutations.Magma.active()){
 					currentCalc *= 15;
-					textString += "<tr><td class='bdTitle'>Omnipotrimp Bonus</td><td></td><td></td><td>X 15</td><td>" + prettify(currentCalc) + "</td></tr>";
+					textString += "<tr><td class='bdTitle'>Omnipotrump Bonus</td><td></td><td></td><td>X 15</td><td>" + prettify(currentCalc) + "</td></tr>";
 				}
 				else {
 					currentCalc *= 5;
@@ -1934,11 +1934,11 @@ function resetGame(keepPortal) {
 		game.options.menu.pauseGame.enabled = 0;
 		game.options.menu.pauseGame.onToggle();
 	}
-	game.resources.trimps.soldiers = 0;
+	game.resources.trumps.soldiers = 0;
 	game.global.autoBattle = false;
 	document.getElementById("wood").style.visibility = "hidden";
 	document.getElementById("metal").style.visibility = "hidden";
-	document.getElementById("trimps").style.visibility = "hidden";
+	document.getElementById("trumps").style.visibility = "hidden";
 	document.getElementById("gems").style.visibility = "hidden";
 	document.getElementById("fragments").style.visibility = "hidden";
 	document.getElementById("buyCol").style.visibility = "hidden";
@@ -1985,7 +1985,7 @@ function resetGame(keepPortal) {
 	document.getElementById("statsBtnRow").style.display = "block";
 	document.getElementById("mapsBtn").innerHTML = "Maps";
 	document.getElementById("mapBonus").innerHTML = "";
-	document.getElementById("roboTrimpTurnsLeft").innerHTML = "";
+	document.getElementById("robotrumpTurnsLeft").innerHTML = "";
 	swapClass("shriekState", "shriekStateCooldown", document.getElementById("chainHolder"));
 	document.getElementById("chainHolder").style.visibility = "hidden";
 	swapClass("dmgColor", "dmgColorWhite", document.getElementById("badGuyAttack"));
@@ -1997,7 +1997,7 @@ function resetGame(keepPortal) {
 	document.getElementById("voidMapsHere").innerHTML = "";
 	document.getElementById("heirloomWrapper").style.display = "none";
 	document.getElementById("heirloomBtnContainer").style.display = "none";
-	document.getElementById("goodGuyName").innerHTML = 'Trimps (<span id="trimpsFighting">1</span>) <span id="anticipationSpan"></span> <span id="titimpBuff"></span> <span id="debuffSpan"></span>';
+	document.getElementById("goodGuyName").innerHTML = 'trumps (<span id="trumpsFighting">1</span>) <span id="anticipationSpan"></span> <span id="titimpBuff"></span> <span id="debuffSpan"></span>';
 	document.getElementById("autoStorageBtn").style.display = "none";
 	document.getElementById("repeatVoidsContainer").style.display = "none";
 	document.getElementById('corruptionBuff').innerHTML = "";
@@ -2032,7 +2032,7 @@ function resetGame(keepPortal) {
 		if (elem !== null) elem.innerHTML = "+0/sec";
 	}
 	filterTabs("all");
-	var gatherBtns = ["buildings", "food", "wood", "metal", "science", "trimps"];
+	var gatherBtns = ["buildings", "food", "wood", "metal", "science", "trumps"];
 	for (var gatherBtn in gatherBtns){
 		setGather(gatherBtns[gatherBtn], true);
 	}
@@ -2055,7 +2055,7 @@ function resetGame(keepPortal) {
 	var repeat;
 	var achieves;
 	var pres;
-	var roboTrimp;
+	var robotrump;
 	var autoStorage;
 	var heirloomStuff = {};
 	var lastPortal;
@@ -2119,7 +2119,7 @@ function resetGame(keepPortal) {
 		if (game.global.selectedChallenge) challenge = game.global.selectedChallenge;
 		achieves = game.achievements;
 		pres = game.global.presimptStore;
-		roboTrimp = game.global.roboTrimpLevel;
+		robotrump = game.global.robotrumpLevel;
 		lastPortal = game.global.world;
 		recentDailies = game.global.recentDailies;
 		trapBuildToggled = game.global.trapBuildToggled;
@@ -2167,7 +2167,7 @@ function resetGame(keepPortal) {
 		empowerments = game.empowerments;
 		if (!game.global.canMagma) {
 			if (highestLevel > 229) highestLevel = 229;
-			if (roboTrimp > 8) roboTrimp = 8;
+			if (robotrump > 8) robotrump = 8;
 		}
 	}
 	game = null;
@@ -2195,7 +2195,7 @@ function resetGame(keepPortal) {
 		game.global.frugalDone = frugal;
 		game.global.slowDone = slow;
 		game.global.autoStorageAvailable = autoStorage;
-		game.global.roboTrimpLevel = roboTrimp;
+		game.global.robotrumpLevel = robotrump;
 		game.global.lastPortal = lastPortal;
 		game.global.autoStorage = autoStorageActive;
 		game.global.autoPrestiges = autoPrestiges;
@@ -2256,7 +2256,7 @@ function resetGame(keepPortal) {
 			pres = "food";
 		}
 		game.global.presimptStore = pres;
-		swapClass("psColor", "psColorWhite", document.getElementById("trimpsPs"));
+		swapClass("psColor", "psColorWhite", document.getElementById("trumpsPs"));
 		for (var heirItem in heirloomStuff){
 			game.global[heirItem] = heirloomStuff[heirItem];
 		}
@@ -2309,7 +2309,7 @@ function resetGame(keepPortal) {
 	document.getElementById("goodGuyBar").style.width = "0%";
 	document.getElementById("goodGuyHealth").innerHTML = "0";
 	document.getElementById("goodGuyHealthMax").innerHTML = "0";
-	document.getElementById("trimpsFighting").innerHTML = "1";
+	document.getElementById("trumpsFighting").innerHTML = "1";
 	document.getElementById("critSpan").innerHTML = "";
 }
 
@@ -2327,7 +2327,7 @@ function applyS1(){
 	game.resources.wood.owned += 100;
 	game.resources.food.owned += 100;
 	game.buildings.Trap.owned += 10;
-	fadeIn("trimps", 10);
+	fadeIn("trumps", 10);
 	game.global.autoCraftModifier += 0.25;
 	document.getElementById("foremenCount").innerHTML = (game.global.autoCraftModifier * 4) + " Foremen";
 }
@@ -2359,8 +2359,8 @@ function applyS2(){
 
 function applyS3(){
 	game.global.playerModifier = 2;
-	game.resources.trimps.owned = game.resources.trimps.realMax();
-	if (document.getElementById("trimps").style.visibility == "hidden") fadeIn("trimps", 10);
+	game.resources.trumps.owned = game.resources.trumps.realMax();
+	if (document.getElementById("trumps").style.visibility == "hidden") fadeIn("trumps", 10);
 }
 //4.39Qi
 function applyS5(){
@@ -2557,7 +2557,7 @@ function numTab(what, p, fromRestore) {
 				num = num.split('%');
 				num[0] = parseFloat(num[0]);
 				if (num[0] <= 100 && num[0] >= 0){
-					var workspaces = Math.ceil(game.resources.trimps.realMax() / 2) - game.resources.trimps.employed
+					var workspaces = Math.ceil(game.resources.trumps.realMax() / 2) - game.resources.trumps.employed
 					num = Math.floor(workspaces * (num[0] / 100));
 				}
 				else num = 1;
@@ -2566,7 +2566,7 @@ function numTab(what, p, fromRestore) {
 				num = num.split('/');
 				num[0] = parseFloat(num[0]);
 				num[1] = parseFloat(num[1]);
-				var workspaces = Math.ceil(game.resources.trimps.realMax() / 2) - game.resources.trimps.employed;
+				var workspaces = Math.ceil(game.resources.trumps.realMax() / 2) - game.resources.trumps.employed;
 				num = Math.floor(workspaces * (num[0] / num[1]));
 				if (num < 0 || num > workspaces) num = 1;
 			}
@@ -2736,7 +2736,7 @@ function updateSkeleBtn(){
 //Number updates
 function updateLabels() { //Tried just updating as something changes, but seems to be better to do all at once all the time
 	var toUpdate;
-	//Resources (food, wood, metal, trimps, science). Per second will be handled in separate function, and called from job loop.
+	//Resources (food, wood, metal, trumps, science). Per second will be handled in separate function, and called from job loop.
 	for (var item in game.resources){
 		toUpdate = game.resources[item];
 		if (!(toUpdate.owned > 0)){
@@ -2746,9 +2746,9 @@ function updateLabels() { //Tried just updating as something changes, but seems 
 		document.getElementById(item + "Owned").innerHTML = prettify(Math.floor(toUpdate.owned));
 		if (toUpdate.max == -1 || document.getElementById(item + "Max") === null) continue;
 		var newMax = toUpdate.max;
-		if (item != "trimps")
+		if (item != "trumps")
 			newMax = calcHeirloomBonus("Shield", "storageSize", (newMax * (game.portal.Packrat.modifier * game.portal.Packrat.level + 1)));
-		else if (item == "trimps") newMax = toUpdate.realMax();
+		else if (item == "trumps") newMax = toUpdate.realMax();
 		document.getElementById(item + "Max").innerHTML = prettify(newMax);
 		var bar = document.getElementById(item + "Bar");
 		if (game.options.menu.progressBars.enabled){
@@ -2757,8 +2757,8 @@ function updateLabels() { //Tried just updating as something changes, but seems 
 			bar.style.width = percentToMax + "%";
 		}
 	}
-	updateSideTrimps();
-	//Buildings, trap is the only unique building, needs to be displayed in trimp area as well
+	updateSidetrumps();
+	//Buildings, trap is the only unique building, needs to be displayed in trump area as well
 	for (var itemA in game.buildings){
 		toUpdate = game.buildings[itemA];
 		if (toUpdate.locked == 1) continue;
@@ -2769,13 +2769,13 @@ function updateLabels() { //Tried just updating as something changes, but seems 
 		}
 		elem.innerHTML = (game.options.menu.menuFormatting.enabled) ? prettify(toUpdate.owned) : toUpdate.owned;
 		if (itemA == "Trap") {
-			var trap1 = document.getElementById("trimpTrapText")
+			var trap1 = document.getElementById("trumpTrapText")
 			if (trap1) trap1.innerHTML = prettify(toUpdate.owned);
-			var trap2 = document.getElementById("trimpTrapText2")
+			var trap2 = document.getElementById("trumpTrapText2")
 			if (trap2) trap2.innerHTML = prettify(toUpdate.owned);
 		}
 	}
-	//Jobs, check PS here and stuff. Trimps per second is handled by breed() function
+	//Jobs, check PS here and stuff. trumps per second is handled by breed() function
 	for (var itemB in game.jobs){
 		toUpdate = game.jobs[itemB];
 		if (toUpdate.locked == 1 && toUpdate.increase == "custom") continue;
@@ -2809,13 +2809,13 @@ function checkAndDisplayEquipment() {
 	}
 }
 
-function updatePs(jobObj, trimps, jobName){ //trimps is true/false, send PS as first if trimps is true, like (32.4, true)
-		if (jobObj.increase == "custom" || (typeof jobObj.increase === 'undefined' && !trimps)) return;
+function updatePs(jobObj, trumps, jobName){ //trumps is true/false, send PS as first if trumps is true, like (32.4, true)
+		if (jobObj.increase == "custom" || (typeof jobObj.increase === 'undefined' && !trumps)) return;
 		var psText;
 		var elem;
-		if (trimps) {
+		if (trumps) {
 			psText = jobObj.toFixed(3);
-			elem = document.getElementById("trimpsPs");
+			elem = document.getElementById("trumpsPs");
 		}
 		else{
 			var increase = jobObj.increase;
@@ -2868,20 +2868,20 @@ function updatePs(jobObj, trimps, jobName){ //trimps is true/false, send PS as f
 /*		var color = (psText < 0) ? "red" : "green";
 		if (psText == 0) color = "black"; */
 		psText = "+" + psText + "/sec";
-		if (trimps && game.unlocks.quickTrimps) {
+		if (trumps && game.unlocks.quicktrumps) {
 			psText += " (x2!)";
 		}
 		elem.innerHTML = psText;
 		swapClass('sizeSec', ((psText.replace('.','').length >= 11) ? 'sizeSecReduced' : 'sizeSecRegular'), elem);
 }
 
-function updateSideTrimps(){
-	var trimps = game.resources.trimps;
-	document.getElementById("trimpsEmployed").innerHTML = prettify(trimps.employed);
-	var breedCount = (trimps.owned - trimps.employed > 2) ? prettify(Math.floor(trimps.owned - trimps.employed)) : 0;
-	document.getElementById("trimpsUnemployed").innerHTML = breedCount;
-	document.getElementById("maxEmployed").innerHTML = prettify(Math.ceil(trimps.realMax() / 2));
-	var free = (Math.ceil(trimps.realMax() / 2) - trimps.employed);
+function updateSidetrumps(){
+	var trumps = game.resources.trumps;
+	document.getElementById("trumpsEmployed").innerHTML = prettify(trumps.employed);
+	var breedCount = (trumps.owned - trumps.employed > 2) ? prettify(Math.floor(trumps.owned - trumps.employed)) : 0;
+	document.getElementById("trumpsUnemployed").innerHTML = breedCount;
+	document.getElementById("maxEmployed").innerHTML = prettify(Math.ceil(trumps.realMax() / 2));
+	var free = (Math.ceil(trumps.realMax() / 2) - trumps.employed);
 	if (free < 0) free = 0;
 	var s = (free > 1) ? "s" : "";
 	document.getElementById("jobsTitleUnemployed").innerHTML = prettify(free) + " workspace" + s;
@@ -3061,7 +3061,7 @@ function drawUpgrade(what, where){
 function checkButtons(what) {
 	var where = game[what];
 	if (what == "jobs") {
-		var workspaces = Math.ceil(game.resources.trimps.realMax() / 2) - game.resources.trimps.employed;
+		var workspaces = Math.ceil(game.resources.trumps.realMax() / 2) - game.resources.trumps.employed;
 		for (var item in game.jobs){
 			if (game.jobs[item].locked == 1) continue;
 			if (workspaces <= 0 && !(game.jobs[item].allowAutoFire && game.options.menu.fireForJobs.enabled)) updateButtonColor(item, false, true);
@@ -3073,7 +3073,7 @@ function checkButtons(what) {
 		for (var itemA in game.upgrades){
 			if (game.upgrades[itemA].locked == 1) continue;
 			if (itemA == "Coordination")
-				updateButtonColor(itemA, (canAffordTwoLevel(game.upgrades[itemA]) && canAffordCoordinationTrimps()));
+				updateButtonColor(itemA, (canAffordTwoLevel(game.upgrades[itemA]) && canAffordCoordinationtrumps()));
 			else
 				updateButtonColor(itemA, canAffordTwoLevel(game.upgrades[itemA]));
 		}
@@ -3377,7 +3377,7 @@ function toggleSetting(setting, elem, fromPortal, updateOnly){
 	function achievementCompatibilityUnlock() {
 		checkAchieve("zones", null, false, true);
 		checkAchieve("damage", calculateDamage(game.global.soldierCurrentAttack, true, true, true), false, true);
-		checkAchieve("trimps", game.resources.trimps.owned, false, true);
+		checkAchieve("trumps", game.resources.trumps.owned, false, true);
 		checkAchieve("portals", null, false, true);
 		checkAchieve("totalZones", null, false, true);
 		checkAchieve("totalMaps", null, false, true);
@@ -3457,7 +3457,7 @@ function toggleSetting(setting, elem, fromPortal, updateOnly){
 		achievement.finished++;
 		checkAchieve(id, evalProperty, true, noDisplay);
 		if (!doubleChecking) calculateAchievementBonus();
-		if (trimpAchievementsOpen && !doubleChecking) displayAchievements();
+		if (trumpAchievementsOpen && !doubleChecking) displayAchievements();
 	}
 
 	function giveSingleAchieve(index){
@@ -3467,7 +3467,7 @@ function toggleSetting(setting, elem, fromPortal, updateOnly){
 		achievement.newStuff.push(index);
 		achievement.finished[index] = true;
 		calculateAchievementBonus();
-		if (trimpAchievementsOpen) displayAchievements();
+		if (trumpAchievementsOpen) displayAchievements();
 	}
 
 	function calculateAchievementBonus(){
@@ -3525,21 +3525,21 @@ function toggleSetting(setting, elem, fromPortal, updateOnly){
 		document.getElementById("achievementTotalPercent").innerHTML = game.global.achievementBonus;
 	}
 
-	var trimpAchievementsOpen = false;
+	var trumpAchievementsOpen = false;
 	function toggleAchievementWindow(){
 		closeAchievementPopup();
-		document.getElementById("achievementWrapper").style.display = (trimpAchievementsOpen) ? "none" : "block";
-		document.getElementById("wrapper").style.display = (trimpAchievementsOpen) ? "block" : "none";
-		trimpAchievementsOpen = !trimpAchievementsOpen;
-		if (trimpAchievementHelpOn) toggleAchievementHelp();
-		if (!trimpAchievementsOpen) return;
+		document.getElementById("achievementWrapper").style.display = (trumpAchievementsOpen) ? "none" : "block";
+		document.getElementById("wrapper").style.display = (trumpAchievementsOpen) ? "block" : "none";
+		trumpAchievementsOpen = !trumpAchievementsOpen;
+		if (trumpAchievementHelpOn) toggleAchievementHelp();
+		if (!trumpAchievementsOpen) return;
 		displayAchievements();
 		var fluff = [
 			[", better get some more achievements", ", you'd do fine with a few more achievements", " but you wish you had a few more achievements"],
 			[", your achievement game shows promise", " on your path to achievement", ", thanks to your achievements"],
 			[", thanks to your bounty of achievements", ", must be all those achievements", ", you are one with the achievements", " and you water your achievements daily"],
-			[", your Trimps are mighty impressed", ", your achievements are mind blowing", ". You wake up, achieve, then sleep", ", you have achievement in your blood"],
-			[", your achievements are beyond mortal comprehension", ", Trimps far and wide tell stories of your achievement", ", you have achieved achievement", ", everything you touch turns to achievement"],
+			[", your trumps are mighty impressed", ", your achievements are mind blowing", ". You wake up, achieve, then sleep", ", you have achievement in your blood"],
+			[", your achievements are beyond mortal comprehension", ", trumps far and wide tell stories of your achievement", ", you have achieved achievement", ", everything you touch turns to achievement"],
 			[", your achievements have achieved achievement", ", news of your achievement spreads throughout the galaxy", ", achievements bend to your will", ", your achievements transcend reality"],
 			[", word of your achievement spreads throughout the universe", ", everyone else is super jealous", ", the achievements of your achievements have achieved achievement", ", your achievements have gained sentience", ", everyone else just stays home", ", you appear if someone says 'Achievement' 3 times in a mirror"]
 		];
@@ -3557,10 +3557,10 @@ function toggleSetting(setting, elem, fromPortal, updateOnly){
 				return (game.global.world < 30 && game.global.canRespecPerks && !game.global.bonePortalThisRun && countHeliumSpent() <= 60);
 			},
 			f3: function (){
-				return (game.global.world < 10 && game.stats.trimpsKilled.value <= 5);
+				return (game.global.world < 10 && game.stats.trumpsKilled.value <= 5);
 			},
 			f6: function () {
-				return (game.global.world < 60 && game.stats.trimpsKilled.value <= 1000);
+				return (game.global.world < 60 && game.stats.trumpsKilled.value <= 1000);
 			},
 			f7: function () {
 				return (game.global.world < 120 && !game.global.researched);
@@ -3582,7 +3582,7 @@ function toggleSetting(setting, elem, fromPortal, updateOnly){
 				for (var job in game.jobs) {
 					jobCount += game.jobs[job].owned;
 				}
-				return (game.global.world < 60 && jobCount - game.jobs.Dragimp.owned == 0 && game.stats.trimpsFired.value == 0);
+				return (game.global.world < 60 && jobCount - game.jobs.Dragimp.owned == 0 && game.stats.trumpsFired.value == 0);
 			},
 			f17: function () {
 				return (game.global.challengeActive == "Toxicity" && game.challenges.Toxicity.highestStacks <= 400);
@@ -3640,12 +3640,12 @@ function toggleSetting(setting, elem, fromPortal, updateOnly){
 		return 6;
 	}
 
-	var trimpAchievementHelpOn = false;
+	var trumpAchievementHelpOn = false;
 	function toggleAchievementHelp(){
-		document.getElementById("achievementHelp").style.color = (trimpAchievementHelpOn) ? "#202080" : "#6060C0";
-		document.getElementById("achievementHeader").style.display = (trimpAchievementHelpOn) ? "block" : "none";
-		document.getElementById("achievementHelpContainer").style.display = (trimpAchievementHelpOn) ? "none" : "block";
-		trimpAchievementHelpOn = !trimpAchievementHelpOn;
+		document.getElementById("achievementHelp").style.color = (trumpAchievementHelpOn) ? "#202080" : "#6060C0";
+		document.getElementById("achievementHeader").style.display = (trumpAchievementHelpOn) ? "block" : "none";
+		document.getElementById("achievementHelpContainer").style.display = (trumpAchievementHelpOn) ? "none" : "block";
+		trumpAchievementHelpOn = !trumpAchievementHelpOn;
 	}
 
 	function closeAchievementPopup(forHover){

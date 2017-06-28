@@ -1,4 +1,4 @@
-/*		Trimps
+/*		trumps
 		Copyright (C) 2016 Zach Hood
 
 		This program is free software: you can redistribute it and/or modify
@@ -14,7 +14,7 @@
 		You should have received a copy of the GNU General Public License
 		along with this program (if you are reading this on the original
 		author's website, you can find a copy at
-		<trimps.github.io/license.txt>). If not, see
+		<trumps.github.io/license.txt>). If not, see
 		<http://www.gnu.org/licenses/>. */
 		 
 //Spoilers ahead, proceed with caution
@@ -118,8 +118,8 @@ var toReturn = {
 		zoneStarted: new Date().getTime(),
 		mapStarted: new Date().getTime(),
 		bionicOwned: 0,
-		roboTrimpLevel: 0,
-		roboTrimpCooldown: 0,
+		robotrumpLevel: 0,
+		robotrumpCooldown: 0,
 		useShriek: false,
 		usingShriek: false,
 		autoUpgrades: false,
@@ -173,7 +173,7 @@ var toReturn = {
 		magmite: 0,
 		magmaFuel: 0,
 		generatorMode: 1, //0 passive, 1 active, 2 hybrid
-		trimpsGenerated: 0,
+		trumpsGenerated: 0,
 		timeSinceLastGeneratorTick: -1,
 		canMagma: true,
 		lastBonePresimpt: 0,
@@ -233,7 +233,7 @@ var toReturn = {
 			},
 			Combat: {
 				enabled: true,
-				trimp: true,
+				trump: true,
 				enemy: true
 			},
 			Notices: {
@@ -305,7 +305,7 @@ var toReturn = {
 	empowerments: {
 		Poison: {
 			description: function () {
-				return "When this Empowerment is active, each successful attack by your Trimps stacks a debuff on the enemy, causing it to take <b>" + this.formatModifier(this.getModifier()) + "%</b> of the damage you dealt every turn until it dies. Each attack by your Trimps will further add to the poison effect.";
+				return "When this Empowerment is active, each successful attack by your trumps stacks a debuff on the enemy, causing it to take <b>" + this.formatModifier(this.getModifier()) + "%</b> of the damage you dealt every turn until it dies. Each attack by your trumps will further add to the poison effect.";
 			},
 			upgradeDescription: function () {
 				return "Increases the percentage of damage that sticks to enemies as poison during the Empowerment of Poison by <b>" + this.formatModifier(this.baseModifier) + "%</b>. You currently poison for <b>" + this.formatModifier(this.getModifier()) + "%</b>, and next level will cause you to poison for <b>" + this.formatModifier(this.getModifier(1)) + "%</b>.";
@@ -326,7 +326,7 @@ var toReturn = {
 		},
 		Wind: {
 			description: function () {
-				return "When this Empowerment is active, each successful attack by your Trimps stacks a debuff on the enemy, causing winds to swell and knock extra resources in to your reach. Each stack increases Helium gained from all sources by <b>" + this.formatModifier(this.getModifier()) + "%</b> and increases all other resources gained by <b>" + this.formatModifier(this.getModifier() * 10) + "%</b> until that enemy dies (maximum of 200 stacks). The helium bonus does not apply to maps.";
+				return "When this Empowerment is active, each successful attack by your trumps stacks a debuff on the enemy, causing winds to swell and knock extra resources in to your reach. Each stack increases Helium gained from all sources by <b>" + this.formatModifier(this.getModifier()) + "%</b> and increases all other resources gained by <b>" + this.formatModifier(this.getModifier() * 10) + "%</b> until that enemy dies (maximum of 200 stacks). The helium bonus does not apply to maps.";
 			},
 			upgradeDescription: function () {
 				return "Increases the amount of extra Helium you find by <b>" + this.formatModifier(this.baseModifier) + "%</b> and non-Helium resources by <b>" + this.formatModifier(this.baseModifier * 10) + "%</b> per stack when the Empowerment of Wind is active. Your current bonus is <b>" + this.formatModifier(this.getModifier()) + "%</b> Helium, and next level will bring your bonus to <b>" + this.formatModifier(this.getModifier(1)) + "%</b> extra helium. Non-Helium resource gain is always 10x that of Helium, and the Helium bonus does not apply in maps.";
@@ -351,10 +351,10 @@ var toReturn = {
 		},
 		Ice: {
 			description: function () {
-				return "When this Empowerment is active, enemies will be Chilled each time your Trimps attack. The Chill debuff stacks, reduces the damage that enemy deals by <b>" + this.formatModifier(this.getModifier()) + "%</b> (compounding) per stack, and increases the damage your Trimps deal to that enemy by the same amount (with diminishing returns, max of 100%) until it dies.";
+				return "When this Empowerment is active, enemies will be Chilled each time your trumps attack. The Chill debuff stacks, reduces the damage that enemy deals by <b>" + this.formatModifier(this.getModifier()) + "%</b> (compounding) per stack, and increases the damage your trumps deal to that enemy by the same amount (with diminishing returns, max of 100%) until it dies.";
 			},
 			upgradeDescription: function () {
-				return "Reduces the enemy's damage dealt from each stack of Chilled when the Empowerment of Ice is active by <b>" + this.formatModifier(1 - this.baseModifier) + "%</b> (compounding), and increases the damage your Trimps deal to that enemy by the same amount (with diminishing returns, max of 100%). Your current bonus is <b>" + this.formatModifier(this.getModifier()) + "%</b>, and next level will bring your bonus to <b>" + this.formatModifier(this.getModifier(1)) + "%</b>.";
+				return "Reduces the enemy's damage dealt from each stack of Chilled when the Empowerment of Ice is active by <b>" + this.formatModifier(1 - this.baseModifier) + "%</b> (compounding), and increases the damage your trumps deal to that enemy by the same amount (with diminishing returns, max of 100%). Your current bonus is <b>" + this.formatModifier(this.getModifier()) + "%</b>, and next level will bring your bonus to <b>" + this.formatModifier(this.getModifier(1)) + "%</b>.";
 			},
 			baseModifier: 0.01,
 			getModifier: function (change) {
@@ -523,7 +523,7 @@ var toReturn = {
 			darkTheme: {
 				extraTags: "general",
 				enabled: 1,
-				description: "Toggle between the default Trimps theme, a custom dark theme made by u/Grabarz19, and the default theme with a black background.",
+				description: "Toggle between the default trumps theme, a custom dark theme made by u/Grabarz19, and the default theme with a black background.",
 				titles: ["Black Background", "Default Theme", "Dark Theme"],
 				onToggle: function () {
 					var link;
@@ -716,7 +716,7 @@ var toReturn = {
 			fireForJobs: {
 				enabled: 0,
 				extraTags: "other",
-				description: "When enabled, hiring Trimps for jobs with scaling price increases (Trainer, Explorer, etc) while you have no workspaces will attempt to fire Farmers, Lumberjacks and Miners until you have enough room.",
+				description: "When enabled, hiring trumps for jobs with scaling price increases (Trainer, Explorer, etc) while you have no workspaces will attempt to fire Farmers, Lumberjacks and Miners until you have enough room.",
 				titles: ["Not Firing For Jobs", "Firing For Jobs"]
 			},
 			ctrlGigas: {
@@ -731,7 +731,7 @@ var toReturn = {
 			offlineProgress: {
 				enabled: 1,
 				extraTags: "other",
-				description: "Disables or enables earning resources while offline. <b>Warning: If this is toggled off, no resources will be earned from Trustworthy Trimps when coming back to the game after being offline.</b> This can be helpful if you are analysing stats and do not want resources counted when there is no timer running",
+				description: "Disables or enables earning resources while offline. <b>Warning: If this is toggled off, no resources will be earned from Trustworthy trumps when coming back to the game after being offline.</b> This can be helpful if you are analysing stats and do not want resources counted when there is no timer running",
 				titles: ["No Offline Progress", "Offline Progress"]
 			},
 			pauseGame: {
@@ -774,7 +774,7 @@ var toReturn = {
 			deleteSave: {
 				enabled: 0,
 				extraTags: "reset hard wipe clear other",
-				description: "Delete your save and start fresh. Your Trimps will not be happy.",
+				description: "Delete your save and start fresh. Your trumps will not be happy.",
 				titles: ["Delete Save"],
 				onToggle: function () {
 					cancelTooltip();
@@ -788,7 +788,7 @@ var toReturn = {
 	},
 	talents: {
 		bionic: {
-			description: "Automatically pick up each level of Bionic Wonderland as you pass that zone, as long as you have already earned any available ones before that zone and have earned the RoboTrimp from all currently owned maps.",
+			description: "Automatically pick up each level of Bionic Wonderland as you pass that zone, as long as you have already earned any available ones before that zone and have earned the Robotrump from all currently owned maps.",
 			name: "Bionic Magnet",
 			tier: 1,
 			purchased: false,
@@ -823,7 +823,7 @@ var toReturn = {
 			icon: "*spoon-knife"
 		},
 		voidPower: {
-			description: "Your Trimps gain 15% attack and health inside Void Maps.",
+			description: "Your trumps gain 15% attack and health inside Void Maps.",
 			name: "Void Power I",
 			tier: 2,
 			purchased: false,
@@ -867,7 +867,7 @@ var toReturn = {
 			icon: "*spoon-knife"
 		},
 		voidPower2: {
-			description: "Your Trimps gain an additional 20% attack and health inside Void Maps.",
+			description: "Your trumps gain an additional 20% attack and health inside Void Maps.",
 			name: "Void Power II",
 			tier: 3,
 			purchased: false,
@@ -1022,7 +1022,7 @@ var toReturn = {
 			locked: true,
 			priceBase: 50000,
 			heliumSpent: 0,
-			tooltip: "Corruption and impending doom are great motivators to work a bit harder! Increases Trimp gather speed by 1% per level. The price for this perk increases additively, and each level will cost exactly 1000 more than the previous level.",
+			tooltip: "Corruption and impending doom are great motivators to work a bit harder! Increases trump gather speed by 1% per level. The price for this perk increases additively, and each level will cost exactly 1000 more than the previous level.",
 			additive: true,
 			additiveInc: 1000,
 			modifier: 0.01
@@ -1032,7 +1032,7 @@ var toReturn = {
 			locked: true,
 			priceBase: 20000,
 			heliumSpent: 0,
-			tooltip: "You find strength in the desire to some day return home. Anger your Trimps by making them listen to you talk about it all the time, increasing their damage by 1% per level. The price for this perk increases additively, and each level will cost exactly 500 more than the previous level.",
+			tooltip: "You find strength in the desire to some day return home. Anger your trumps by making them listen to you talk about it all the time, increasing their damage by 1% per level. The price for this perk increases additively, and each level will cost exactly 500 more than the previous level.",
 			additive: true,
 			additiveInc: 500,
 			modifier: 0.01
@@ -1042,7 +1042,7 @@ var toReturn = {
 			locked: true,
 			priceBase: 20000,
 			heliumSpent: 0,
-			tooltip: "You feel more grounded as you remember where you came from. Spread your toughness to your Trimps, increasing health by 1% per level. The price for this perk increases additively, and each level will cost exactly 500 more than the previous level.",
+			tooltip: "You feel more grounded as you remember where you came from. Spread your toughness to your trumps, increasing health by 1% per level. The price for this perk increases additively, and each level will cost exactly 500 more than the previous level.",
 			additive: true,
 			additiveInc: 500,
 			modifier: 0.01
@@ -1081,7 +1081,7 @@ var toReturn = {
 				if (overrideLevel) return newValue;
 				this.currentSend = newValue;
 			},
-			tooltip: "Use knowledge gained while studying Coordinated Bad Guys to reduce the amount of Trimps required per level of Coordination by 2% <b>of current amount (compounding)</b>, while keeping the stat bonus the same."
+			tooltip: "Use knowledge gained while studying Coordinated Bad Guys to reduce the amount of trumps required per level of Coordination by 2% <b>of current amount (compounding)</b>, while keeping the stat bonus the same."
 		},
 		Siphonology: {
 			level: 0,
@@ -1104,7 +1104,7 @@ var toReturn = {
 					updateAntiStacks();
 				}
 			},
-			tooltip: "Use your experiences in understanding the attention span of Trimps to increase the damage dealt by all soldiers based on how long it took to get an army together. Increases damage by 2% per level per second up to 30 seconds. Maximum of 10 levels."
+			tooltip: "Use your experiences in understanding the attention span of trumps to increase the damage dealt by all soldiers based on how long it took to get an army together. Increases damage by 2% per level per second up to 30 seconds. Maximum of 10 levels."
 		},
 		Resilience: {
 			level: 0,
@@ -1112,7 +1112,7 @@ var toReturn = {
 			modifier: 0.1,
 			priceBase: 100,
 			heliumSpent: 0,
-			tooltip: "Use your acquired skills in Trimp strengthening to gain a 10% <b>compounding</b> increase to total Trimp health."
+			tooltip: "Use your acquired skills in trump strengthening to gain a 10% <b>compounding</b> increase to total trump health."
 		},
 		Meditation: {
 			level: 0,
@@ -1121,7 +1121,7 @@ var toReturn = {
 			priceBase: 75,
 			heliumSpent: 0,
 			max: 7,
-			tooltip: "Your experiences in the Dimension of Strong Things have taught you the value of taking your time. Every level of Meditation will increase your Trimps' gather speed by 1% for every 10 minutes spent on the same zone, up to 1 hour, even when offline. This bonus is reset after clearing the current zone. Maximum of 7 levels.",
+			tooltip: "Your experiences in the Dimension of Strong Things have taught you the value of taking your time. Every level of Meditation will increase your trumps' gather speed by 1% for every 10 minutes spent on the same zone, up to 1 hour, even when offline. This bonus is reset after clearing the current zone. Maximum of 7 levels.",
 			getBonusPercent: function (justStacks) {
 				var timeOnZone = new Date().getTime() - game.global.zoneStarted;
 				timeOnZone = Math.floor(timeOnZone / 600000);
@@ -1138,7 +1138,7 @@ var toReturn = {
 			otherModifier: 0.3,
 			priceBase: 75,
 			heliumSpent: 0,
-			tooltip: "You've seen too many Trimps fall, it's time for more aggressive training. Bringing back these memories will cause your Trimps to gain a 5% chance to critically strike for +130% damage at level 1, and they will gain an additional 5% crit chance and 30% crit damage per level. Maximum of 10 levels.",
+			tooltip: "You've seen too many trumps fall, it's time for more aggressive training. Bringing back these memories will cause your trumps to gain a 5% chance to critically strike for +130% damage at level 1, and they will gain an additional 5% crit chance and 30% crit damage per level. Maximum of 10 levels.",
 			max: 10
 		},
 		Carpentry: {
@@ -1147,7 +1147,7 @@ var toReturn = {
 			modifier: 0.1,
 			priceBase: 25,
 			heliumSpent: 0,
-			tooltip: "You've built quite a few houses and you're getting pretty good at it. Bringing your expertise in construction back through the portal will allow you to house 10% more Trimps per level <b>than the current amount (compounds)</b>."
+			tooltip: "You've built quite a few houses and you're getting pretty good at it. Bringing your expertise in construction back through the portal will allow you to house 10% more trumps per level <b>than the current amount (compounds)</b>."
 		},
 		Artisanistry: {
 			level: 0,
@@ -1164,14 +1164,14 @@ var toReturn = {
 			max: 10,
 			priceBase: 1,
 			heliumSpent: 0,
-			tooltip: "Use your new-found leadership skills in order to increase the minimum damage your Trimps deal by 2% per level. Stacks up to 10 times, doesn't affect max damage. At 10 levels, you will get a minimum of 100% benefit from all attack damage per strike.",
+			tooltip: "Use your new-found leadership skills in order to increase the minimum damage your trumps deal by 2% per level. Stacks up to 10 times, doesn't affect max damage. At 10 levels, you will get a minimum of 100% benefit from all attack damage per strike.",
 		},
 		Agility: {
 			level: 0, 
 			modifier: 0.05,
 			priceBase: 4,
 			heliumSpent: 0,
-			tooltip: "Crank your portal into overdrive, requiring extra helium but increasing the clock speed of the Universe. Each level reduces the time between Trimp and Bad Guy attacks by 5% <b>of the current time (compounds)</b>. Maximum of 20 levels.",
+			tooltip: "Crank your portal into overdrive, requiring extra helium but increasing the clock speed of the Universe. Each level reduces the time between trump and Bad Guy attacks by 5% <b>of the current time (compounds)</b>. Maximum of 20 levels.",
 			max: 20
 		},
 		Bait: {
@@ -1179,10 +1179,10 @@ var toReturn = {
 			modifier: 1,
 			priceBase: 4,
 			heliumSpent: 0,
-			tooltip: "A few of these in your traps are sure to bring in extra Trimps. Each level allows traps to catch $modifier$ extra Trimp."
+			tooltip: "A few of these in your traps are sure to bring in extra trumps. Each level allows traps to catch $modifier$ extra trump."
 		},
 		Trumps: {
-		//fiveTrimpMax worldUnlock
+		//fivetrumpMax worldUnlock
 			locked: 0,
 			level: 0,
 			modifier: 1,
@@ -1196,13 +1196,13 @@ var toReturn = {
 			modifier: 0.1,
 			priceBase: 3,
 			heliumSpent: 0,
-			tooltip: "Bring some pheromones with you to ensure that your Trimps will permanently breed 10% faster."
+			tooltip: "Bring some pheromones with you to ensure that your trumps will permanently breed 10% faster."
 		},
 		//trapThings main
 		Packrat: {
 			modifier: 0.2,
 			heliumSpent: 0,
-			tooltip: "Study the ancient, secret Trimp methods of hoarding. Each level increases the amount of stuff you can shove in each Barn, Shed, and Forge by 20%.",
+			tooltip: "Study the ancient, secret trump methods of hoarding. Each level increases the amount of stuff you can shove in each Barn, Shed, and Forge by 20%.",
 			priceBase: 3,
 			level: 0
 		},
@@ -1211,7 +1211,7 @@ var toReturn = {
 		Motivation: {
 			modifier: 0.05,
 			heliumSpent: 0,
-			tooltip: "Practice public speaking with your Trimps. Each level increases the amount of resources that workers produce by 5%.",
+			tooltip: "Practice public speaking with your trumps. Each level increases the amount of resources that workers produce by 5%.",
 			priceBase: 2,
 			level: 0
 		},
@@ -1221,14 +1221,14 @@ var toReturn = {
 			modifier: 0.05,
 			priceBase: 1,
 			heliumSpent: 0,
-			tooltip: "Trimps learn through example. Spending some time bench pressing dead Elephimps should inspire any future Trimps to become stronger too. Adds 5% attack permanently to your Trimps."
+			tooltip: "trumps learn through example. Spending some time bench pressing dead Elephimps should inspire any future trumps to become stronger too. Adds 5% attack permanently to your trumps."
 		},
 		//startFight main
 		Toughness: {
 			modifier: 0.05,
 			priceBase: 1,
 			heliumSpent: 0,
-			tooltip: "Pay your Trimps to knock you around a little bit. By learning to not be such a wuss, your Trimps will be less wussy as well. Adds 5% health permanently to your Trimps.",
+			tooltip: "Pay your trumps to knock you around a little bit. By learning to not be such a wuss, your trumps will be less wussy as well. Adds 5% health permanently to your trumps.",
 			level: 0
 		},
 		//rewardResources main
@@ -1260,12 +1260,12 @@ var toReturn = {
 			unlockString: "reach Zone 100"
 		},
 		Discipline: {
-			description: "Tweak the portal to bring you back to a universe where Trimps are less disciplined, in order to teach you how to be a better Trimp trainer. Your Trimps' minimum damage will be drastically lower, but their high end damage will be considerably higher. Completing The Dimension Of Anger will cause Trimp damage to return to normal.",
+			description: "Tweak the portal to bring you back to a universe where trumps are less disciplined, in order to teach you how to be a better trump trainer. Your trumps' minimum damage will be drastically lower, but their high end damage will be considerably higher. Completing The Dimension Of Anger will cause trump damage to return to normal.",
 			filter: function () {
 				return (game.resources.helium.owned >= 30 || game.global.totalHeliumEarned >= 30);
 			},
 			allowSquared: true,
-			squaredDescription: "Tweak the portal to bring you back to a universe where Trimps are less disciplined, in order to teach you how to be a better Trimp trainer. Your Trimps' minimum damage will be drastically lower, but their high end damage will be considerably higher.",
+			squaredDescription: "Tweak the portal to bring you back to a universe where trumps are less disciplined, in order to teach you how to be a better trump trainer. Your trumps' minimum damage will be drastically lower, but their high end damage will be considerably higher.",
 			highestSquared: 0,
 			unlocks: "Range",
 			unlockString: "have 30 total helium"
@@ -1306,7 +1306,7 @@ var toReturn = {
 			unlockString: "reach Zone 25"
 		},
 		Size: {
-			description: "Tweak the portal to bring you to an alternate reality, where Trimps are bigger and stronger, to force yourself to figure out a way to build larger housing. Your Trimps will gather 50% more resources, but your housing will fit 50% fewer Trimps. If you complete The Dimension of Anger without disabling the challenge, your stats will return to normal.",
+			description: "Tweak the portal to bring you to an alternate reality, where trumps are bigger and stronger, to force yourself to figure out a way to build larger housing. Your trumps will gather 50% more resources, but your housing will fit 50% fewer trumps. If you complete The Dimension of Anger without disabling the challenge, your stats will return to normal.",
 			completed: false,
 			filter: function () {
 				return (game.global.world >= 35 || game.global.highestLevelCleared >= 34);
@@ -1315,23 +1315,23 @@ var toReturn = {
 				game.jobs.Farmer.modifier *= (2/3);
 				game.jobs.Lumberjack.modifier *= (2/3);
 				game.jobs.Miner.modifier *= (2/3);
-				game.resources.trimps.maxMod = 1;
+				game.resources.trumps.maxMod = 1;
 			},
 			start: function () {
 				game.jobs.Farmer.modifier *= 1.5;
 				game.jobs.Lumberjack.modifier *= 1.5;
 				game.jobs.Miner.modifier *= 1.5;
-				game.resources.trimps.maxMod = 0.5;
+				game.resources.trumps.maxMod = 0.5;
 			},
 			allowSquared: true,
-			squaredDescription: "Tweak the portal to bring you to an alternate reality, where Trimps are bigger and stronger, to force yourself to figure out a way to build larger housing. Your Trimps will gather 50% more resources, but your housing will fit 50% fewer Trimps.",
+			squaredDescription: "Tweak the portal to bring you to an alternate reality, where trumps are bigger and stronger, to force yourself to figure out a way to build larger housing. Your trumps will gather 50% more resources, but your housing will fit 50% fewer trumps.",
 			highestSquared: 0,
 			fireAbandon: true,
 			unlocks: "Carpentry",
 			unlockString: "reach Zone 35"
 		},
 		Balance: { 
-			description: "Your scientists have discovered a chaotic dimension filled with helium. All enemies have 100% more health, enemies in world deal 17% more damage, and enemies in maps deal 135% more damage. Starting at Zone 6, every time an enemy in the world is slain you will gain a stack of 'Unbalance'. Every time an enemy in a map is slain, you will lose a stack of Unbalance. Each stack of Unbalance reduces your health by 1%, but increases your Trimps' gathering speed by 1%. Unbalance can only stack to 250. Completing <b>Zone 40</b> with this challenge active will grant an additional 100% of all helium earned up to that point. This challenge is repeatable!",
+			description: "Your scientists have discovered a chaotic dimension filled with helium. All enemies have 100% more health, enemies in world deal 17% more damage, and enemies in maps deal 135% more damage. Starting at Zone 6, every time an enemy in the world is slain you will gain a stack of 'Unbalance'. Every time an enemy in a map is slain, you will lose a stack of Unbalance. Each stack of Unbalance reduces your health by 1%, but increases your trumps' gathering speed by 1%. Unbalance can only stack to 250. Completing <b>Zone 40</b> with this challenge active will grant an additional 100% of all helium earned up to that point. This challenge is repeatable!",
 			completed: false,
 			filter: function () {
 				return (game.global.highestLevelCleared >= 39);
@@ -1366,7 +1366,7 @@ var toReturn = {
 				return ((this.balanceStacks * 0.01) + 1);
 			},
 			allowSquared: true,
-			squaredDescription: "Your scientists have discovered a chaotic dimension filled with unharvestable but pretty helium. All enemies have 100% more health, enemies in world deal 17% more damage, and enemies in maps deal 135% more damage. Starting at Zone 6, every time an enemy in the world is slain you will gain a stack of 'Unbalance'. Every time an enemy in a map is slain, you will lose a stack of Unbalance. Each stack of Unbalance reduces your health by 1%, but increases your Trimps' gathering speed by 1%. Unbalance can only stack to 250.",
+			squaredDescription: "Your scientists have discovered a chaotic dimension filled with unharvestable but pretty helium. All enemies have 100% more health, enemies in world deal 17% more damage, and enemies in maps deal 135% more damage. Starting at Zone 6, every time an enemy in the world is slain you will gain a stack of 'Unbalance'. Every time an enemy in a map is slain, you will lose a stack of Unbalance. Each stack of Unbalance reduces your health by 1%, but increases your trumps' gathering speed by 1%. Unbalance can only stack to 250.",
 			highestSquared: 0,
 			fireAbandon: true,
 			heldHelium: 0,
@@ -1428,19 +1428,19 @@ var toReturn = {
 			}
 		},
 		Meditate: {
-			description: "Visit a dimension where everything is stronger, in an attempt to learn how to better train your Trimps. All enemies will have +100% health and +50% attack, but your Trimps will gather 25% faster. Completing <b>'Trimple of Doom' (33)</b> will return the world to normal.",
+			description: "Visit a dimension where everything is stronger, in an attempt to learn how to better train your trumps. All enemies will have +100% health and +50% attack, but your trumps will gather 25% faster. Completing <b>'trumple of Doom' (33)</b> will return the world to normal.",
 			completed: false,
 			filter: function () {
 				return (game.global.highestLevelCleared >= 44);
 			},
 			allowSquared: true,
-			squaredDescription: "Visit a dimension where everything is stronger, in an attempt to learn how to better train your Trimps. All enemies will have +100% health and +50% attack, but your Trimps will gather 25% faster.",
+			squaredDescription: "Visit a dimension where everything is stronger, in an attempt to learn how to better train your trumps. All enemies will have +100% health and +50% attack, but your trumps will gather 25% faster.",
 			highestSquared: 0,
 			unlocks: "Meditation",
 			unlockString: "reach Zone 45"
 		},
 		Decay: {
-			description: "Tweak the portal to bring you to an alternate reality, where added chaos will help you learn to create a peaceful place. You will gain 10x loot (excluding helium), 10x gathering, and 5x Trimp attack, but a stack of Decay will accumulate every second. Each stack of Decay reduces loot, gathering, and Trimp attack by 0.5% of the current amount. These stacks reset each time a Blimp is killed and cap at 999. Completing <b>Zone 55</b> with this challenge active will allow you to select the Gardens biome when creating maps, and all future Gardens maps created will gain +25% loot.",
+			description: "Tweak the portal to bring you to an alternate reality, where added chaos will help you learn to create a peaceful place. You will gain 10x loot (excluding helium), 10x gathering, and 5x trump attack, but a stack of Decay will accumulate every second. Each stack of Decay reduces loot, gathering, and trump attack by 0.5% of the current amount. These stacks reset each time a Blimp is killed and cap at 999. Completing <b>Zone 55</b> with this challenge active will allow you to select the Gardens biome when creating maps, and all future Gardens maps created will gain +25% loot.",
 			completed: false,
 			abandon: function () {
 				updateDecayStacks();
@@ -1452,13 +1452,13 @@ var toReturn = {
 			},
 			unlockString: "reach Zone 55",
 		},
-		Trimp: {
-			description: "Tweak the portal to bring you to a dimension where Trimps explode if more than 1 fights at a time. You will not be able to learn Coordination, but completing <b>'The Block' (11)</b> will teach you how to keep your Trimps alive for much longer.",
+		trump: {
+			description: "Tweak the portal to bring you to a dimension where trumps explode if more than 1 fights at a time. You will not be able to learn Coordination, but completing <b>'The Block' (11)</b> will teach you how to keep your trumps alive for much longer.",
 			completed: false,
 			heldBooks: 0,
 			fireAbandon: true,
 			allowSquared: true,
-			squaredDescription: "Tweak the portal to bring you to a dimension where Trimps explode if more than 1 fights at a time. You will not be able to learn Coordination.",
+			squaredDescription: "Tweak the portal to bring you to a dimension where trumps explode if more than 1 fights at a time. You will not be able to learn Coordination.",
 			highestSquared: 0,
 			replaceSquareThresh: 40,
 			replaceSquareReward: 3,
@@ -1468,20 +1468,20 @@ var toReturn = {
 				return (game.global.world >= 60 || game.global.highestLevelCleared >= 59);
 			},
 			abandon: function () {
-				if (game.challenges.Trimp.heldBooks > 1)
-					game.upgrades.Coordination.allowed += game.challenges.Trimp.heldBooks - 1;
-				if (game.challenges.Trimp.heldBooks > 0)
+				if (game.challenges.trump.heldBooks > 1)
+					game.upgrades.Coordination.allowed += game.challenges.trump.heldBooks - 1;
+				if (game.challenges.trump.heldBooks > 0)
 					unlockUpgrade("Coordination");
 			},
 			unlockString: "reach Zone 60"
 		},
 		Trapper: {
-			description: "Travel to a dimension where Trimps refuse to breed in captivity, teaching yourself new ways to take advantage of situations where breed rate is low. Clearing <b>'Trimple Of Doom' (33)</b> with this challenge active will return your breeding rate to normal.",
+			description: "Travel to a dimension where trumps refuse to breed in captivity, teaching yourself new ways to take advantage of situations where breed rate is low. Clearing <b>'trumple Of Doom' (33)</b> with this challenge active will return your breeding rate to normal.",
 			completed: false,
 			heldBooks: 0,
 			fireAbandon: true,
 			allowSquared: true,
-			squaredDescription: "Travel to a dimension where Trimps refuse to breed in captivity, good luck!",
+			squaredDescription: "Travel to a dimension where trumps refuse to breed in captivity, good luck!",
 			highestSquared: 0,
 			replaceSquareThresh: 50,
 			replaceSquareGrowth: 2,
@@ -1497,7 +1497,7 @@ var toReturn = {
 			unlockString: "reach Zone 70"
 		},
 		Electricity: {
-			description: "Use the keys you found in the Prison to bring your portal to an extremely dangerous dimension. In this dimension enemies will electrocute your Trimps, stacking a debuff with each attack that damages Trimps for 10% of total health per turn per stack, and reduces Trimp attack by 10% per stack. Clearing <b>'The Prison' (80)</b> will reward you with an additional 200% of all helium earned up to but not including Zone 80. This is repeatable!",
+			description: "Use the keys you found in the Prison to bring your portal to an extremely dangerous dimension. In this dimension enemies will electrocute your trumps, stacking a debuff with each attack that damages trumps for 10% of total health per turn per stack, and reduces trump attack by 10% per stack. Clearing <b>'The Prison' (80)</b> will reward you with an additional 200% of all helium earned up to but not including Zone 80. This is repeatable!",
 			completed: false,
 			hasKey: false,
 			filter: function () {
@@ -1511,7 +1511,7 @@ var toReturn = {
 			heldHelium: 0,
 			heliumThrough: 79,
 			allowSquared: true,
-			squaredDescription: "Use the keys you found in the Prison to bring your portal to an extremely dangerous dimension. In this dimension enemies will electrocute your Trimps, stacking a debuff with each attack that damages Trimps for 10% of total health per turn per stack, and reduces Trimp attack by 10% per stack.",
+			squaredDescription: "Use the keys you found in the Prison to bring your portal to an extremely dangerous dimension. In this dimension enemies will electrocute your trumps, stacking a debuff with each attack that damages trumps for 10% of total health per turn per stack, and reduces trump attack by 10% per stack.",
 			highestSquared: 0,
 			unlockString: "clear 'The Prison' at Zone 80"
 		},
@@ -1595,10 +1595,10 @@ var toReturn = {
 			unlockString: "reach Zone 130"
 		},
 		Nom: {
-			description: "Travel to a dimension where bad guys enjoy the taste of Trimp. Whenever a group of Trimps dies, the bad guy will eat them, gaining 25% (compounding) more attack damage and healing for 5% of their maximum health. The methane-rich atmosphere causes your Trimps to lose 5% of their total health after each attack, but the bad guys are too big and slow to attack first. Clearing <b>Zone 145</b> will reward you with an additional 200% of all helium earned up to that point. This is repeatable!",
+			description: "Travel to a dimension where bad guys enjoy the taste of trump. Whenever a group of trumps dies, the bad guy will eat them, gaining 25% (compounding) more attack damage and healing for 5% of their maximum health. The methane-rich atmosphere causes your trumps to lose 5% of their total health after each attack, but the bad guys are too big and slow to attack first. Clearing <b>Zone 145</b> will reward you with an additional 200% of all helium earned up to that point. This is repeatable!",
 			completed: false,
 			allowSquared: true,
-			squaredDescription: "Travel to a dimension where bad guys enjoy the taste of Trimp. Whenever a group of Trimps dies, the bad guy will eat them, gaining 25% (compounding) more attack damage and healing for 5% of their maximum health. The methane-rich atmosphere causes your Trimps to lose 5% of their total health after each attack, but the bad guys are too big and slow to attack first.",
+			squaredDescription: "Travel to a dimension where bad guys enjoy the taste of trump. Whenever a group of trumps dies, the bad guy will eat them, gaining 25% (compounding) more attack damage and healing for 5% of their maximum health. The methane-rich atmosphere causes your trumps to lose 5% of their total health after each attack, but the bad guys are too big and slow to attack first.",
 			highestSquared: 0,
 			filter: function () {
 				return (game.global.highestLevelCleared >= 144);
@@ -1628,7 +1628,7 @@ var toReturn = {
 			unlockString: "reach Zone 150"
 		},
 		Toxicity: {
-			description: "Travel to a dimension rich in helium, but also rich in toxic bad guys. All bad guys have 5x attack and 2x health. Each time you attack a bad guy, your Trimps lose 5% of their health, and toxins are released into the air which reduce the breeding speed of your Trimps by 0.3% (of the current amount), but also increase all loot found by 0.15%, stacking up to 1500 times. These stacks will reset when you clear a zone. Completing <b>Zone 165</b> with this challenge active will reward you with an additional 200% of all helium earned up to that point. This is repeatable!",
+			description: "Travel to a dimension rich in helium, but also rich in toxic bad guys. All bad guys have 5x attack and 2x health. Each time you attack a bad guy, your trumps lose 5% of their health, and toxins are released into the air which reduce the breeding speed of your trumps by 0.3% (of the current amount), but also increase all loot found by 0.15%, stacking up to 1500 times. These stacks will reset when you clear a zone. Completing <b>Zone 165</b> with this challenge active will reward you with an additional 200% of all helium earned up to that point. This is repeatable!",
 			completed: false,
 			filter: function () {
 				return (game.global.highestLevelCleared >= 164);
@@ -1641,12 +1641,12 @@ var toReturn = {
 			stackMult: 0.997,
 			lootMult: 0.15,
 			allowSquared: true,
-			squaredDescription: "Travel to a dimension filled with the glory that comes from killing toxic bad guys. All bad guys have 5x attack and 2x health. Each time you attack a bad guy, your Trimps lose 5% of their health, and toxins are released into the air which reduce the breeding speed of your Trimps by 0.3% (of the current amount), but also increase all loot found by 0.15%, stacking up to 1500 times. These stacks will reset when you clear a zone.",
+			squaredDescription: "Travel to a dimension filled with the glory that comes from killing toxic bad guys. All bad guys have 5x attack and 2x health. Each time you attack a bad guy, your trumps lose 5% of their health, and toxins are released into the air which reduce the breeding speed of your trumps by 0.3% (of the current amount), but also increase all loot found by 0.15%, stacking up to 1500 times. These stacks will reset when you clear a zone.",
 			highestSquared: 0,
 			unlockString: "reach Zone 165"
 		},
 		Devastation: {
-			description: "Travel to a harsh dimension where Trimps are penalized for the mistakes of previous generations. If your army is killed at any point, any overkill damage will be applied 750% to the next group of Trimps to fight. Completing <b>Imploding Star (Zone 170)</b> will return the world to normal.",
+			description: "Travel to a harsh dimension where trumps are penalized for the mistakes of previous generations. If your army is killed at any point, any overkill damage will be applied 750% to the next group of trumps to fight. Completing <b>Imploding Star (Zone 170)</b> will return the world to normal.",
 			completed: false,
 			filter: function () {
 				return (game.global.highestLevelCleared >= 169);
@@ -1656,12 +1656,12 @@ var toReturn = {
 			unlockString: "reach Zone 170"
 		},
 		Watch: {
-			description: "Travel to a strange dimension where life is easier but harder at the same time. At the end of each World Zone any available equipment upgrades will drop, and any unassigned Trimps will be split evenly amongst Farmer, Lumberjack, and Miner. However, resource production and drops from all sources will be halved, and all enemies will deal 25% more damage. Completing <b>Zone 180</b> with this challenge active will reward you with an additional 150% of all helium earned up to that point.",
+			description: "Travel to a strange dimension where life is easier but harder at the same time. At the end of each World Zone any available equipment upgrades will drop, and any unassigned trumps will be split evenly amongst Farmer, Lumberjack, and Miner. However, resource production and drops from all sources will be halved, and all enemies will deal 25% more damage. Completing <b>Zone 180</b> with this challenge active will reward you with an additional 150% of all helium earned up to that point.",
 			filter: function () {
 				return (game.global.highestLevelCleared >= 179);
 			},
 			allowSquared: true,
-			squaredDescription: "Travel to a strange dimension where life is easier but harder at the same time. At the end of each World Zone any available equipment upgrades will drop, and any unassigned Trimps will be split evenly amongst Farmer, Lumberjack, and Miner. However, resource production and drops from all sources will be halved, and all enemies will deal 25% more damage. Relax and let the Trimps figure it out for themselves, you know you want to.",
+			squaredDescription: "Travel to a strange dimension where life is easier but harder at the same time. At the end of each World Zone any available equipment upgrades will drop, and any unassigned trumps will be split evenly amongst Farmer, Lumberjack, and Miner. However, resource production and drops from all sources will be halved, and all enemies will deal 25% more damage. Relax and let the trumps figure it out for themselves, you know you want to.",
 			highestSquared: 0,
 			heliumMultiplier: 1.5,
 			heldHelium: 0,
@@ -1670,7 +1670,7 @@ var toReturn = {
 			enteredMap: false
 		},
 		Lead: {
-			description: "Travel to a dimension where life is easier or harder depending on the time. Odd numbered zones will cause double resources to be earned from all sources, and will give your Trimps 50% extra attack. Starting an even numbered zone will cause all enemies to gain 200 stacks of <b>Momentum</b>. Clearing a World cell will cause 1 stack to be lost, and each stack will increase the enemy's damage and health by 4%, and block pierce by 0.1%. If your Trimps attack without killing their target, they will lose 0.03% of their health per enemy stack. Completing <b>Zone 180</b> with this challenge active will reward you with an additional 250% of all helium earned up to that point.",
+			description: "Travel to a dimension where life is easier or harder depending on the time. Odd numbered zones will cause double resources to be earned from all sources, and will give your trumps 50% extra attack. Starting an even numbered zone will cause all enemies to gain 200 stacks of <b>Momentum</b>. Clearing a World cell will cause 1 stack to be lost, and each stack will increase the enemy's damage and health by 4%, and block pierce by 0.1%. If your trumps attack without killing their target, they will lose 0.03% of their health per enemy stack. Completing <b>Zone 180</b> with this challenge active will reward you with an additional 250% of all helium earned up to that point.",
 			filter: function () {
 				return (game.global.highestLevelCleared >= 179);
 			},
@@ -1678,7 +1678,7 @@ var toReturn = {
 			stacks: 0,
 			heldHelium: 0,
 			allowSquared: true,
-			squaredDescription: "Travel to a dimension where life is easier or harder depending on the time. Odd numbered zones will cause double resources to be earned from all sources, and will give your Trimps 50% extra attack. Starting an even numbered zone will cause all enemies to gain 200 stacks of <b>Momentum</b>. Clearing a World cell will cause 1 stack to be lost, and each stack will increase the enemy's damage and health by 4%, and block pierce by 0.1%. If your Trimps attack without killing their target, they will lose 0.03% of their health per enemy stack.",
+			squaredDescription: "Travel to a dimension where life is easier or harder depending on the time. Odd numbered zones will cause double resources to be earned from all sources, and will give your trumps 50% extra attack. Starting an even numbered zone will cause all enemies to gain 200 stacks of <b>Momentum</b>. Clearing a World cell will cause 1 stack to be lost, and each stack will increase the enemy's damage and health by 4%, and block pierce by 0.1%. If your trumps attack without killing their target, they will lose 0.03% of their health per enemy stack.",
 			highestSquared: 0,
 			heliumThrough: 180,
 			unlockString: "reach Zone 180",
@@ -1700,8 +1700,8 @@ var toReturn = {
 		}
 	},
 	stats:{
-		trimpsKilled: {
-			title: "Dead Trimps",
+		trumpsKilled: {
+			title: "Dead trumps",
 			value: 0,
 			valueTotal: 0
 		},
@@ -1733,8 +1733,8 @@ var toReturn = {
 				return ((this.value + this.valueTotal) > 0)
 			}
 		},
-		trimpsFired: {
-			title: "Trimps Fired",
+		trumpsFired: {
+			title: "trumps Fired",
 			value: 0,
 			valueTotal: 0,
 			//This stat was added in 3.6 and the numbers will look bad for a few months.
@@ -1867,8 +1867,8 @@ var toReturn = {
 			value: 0,
 			valueTotal: 0
 		},
-		trimpsGenerated: {
-			title: "Trimps from Generator",
+		trumpsGenerated: {
+			title: "trumps from Generator",
 			display: function() {
 				return (this.value > 0 || this.valueTotal > 0);
 			},
@@ -1899,7 +1899,7 @@ var toReturn = {
 			},
 			description: function(){
 				var burnRate = getFuelBurnRate();
-				return "Your Generator currently grants " + prettify(scaleNumberForBonusHousing(this.tickAtFuel(burnRate))) + " Max Trimps per tick at " + burnRate + " fuel (the amount of fuel needed to tick). Purchase this to increase the Generator's efficiency by 10% (additive)";
+				return "Your Generator currently grants " + prettify(scaleNumberForBonusHousing(this.tickAtFuel(burnRate))) + " Max trumps per tick at " + burnRate + " fuel (the amount of fuel needed to tick). Purchase this to increase the Generator's efficiency by 10% (additive)";
 			}
 		},
 		Capacity: {
@@ -1965,7 +1965,7 @@ var toReturn = {
 			owned: false
 		},
 		Storage: {
-			description: "Unlock extra fuel storage. This storage will always be equal to your normal fuel cap and will only store extra fuel above your normal cap. Fuel in this extra storage does not increase generator Trimps/tick, but acts as nice padding to help prevent wasted fuel. Hybrid mode will attempt to fill your extra storage halfway.",
+			description: "Unlock extra fuel storage. This storage will always be equal to your normal fuel cap and will only store extra fuel above your normal cap. Fuel in this extra storage does not increase generator trumps/tick, but acts as nice padding to help prevent wasted fuel. Hybrid mode will attempt to fill your extra storage halfway.",
 			cost: 600,
 			owned: false
 		},
@@ -1997,13 +1997,13 @@ var toReturn = {
 			evaluate: function () { return game.global.highestLevelCleared},
 			breakpoints: [2, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200, 210, 220, 230, 240, 250, 260, 270, 280, 290, 300],
 			tiers: [1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6, 6, 7, 7, 7, 7, 7, 7, 7],
-			names: ["This is Easy", "Blimp Slayer", "Groundbreaker", "The Beginning", "Determined", "Professor", "Trimp Aficionado", "Slayer of Planets", "Motivated", "Electric", "Stronk", "Endurance", "Unwavering", "Coordinated", "Resolved", "Steadfast", "Grit", "Perseverance", "Persistence", "Tenacity", "The Instigator", "The Destroyer", "The Eradicator", "The Exterminator", "Heat Maker", "Heat Hater", "Heat Breaker", "Heat Slayer", "Heat Expert", "Heat Bender", "Volcanic", "Magma Master"],
+			names: ["This is Easy", "Blimp Slayer", "Groundbreaker", "The Beginning", "Determined", "Professor", "trump Aficionado", "Slayer of Planets", "Motivated", "Electric", "Stronk", "Endurance", "Unwavering", "Coordinated", "Resolved", "Steadfast", "Grit", "Perseverance", "Persistence", "Tenacity", "The Instigator", "The Destroyer", "The Eradicator", "The Exterminator", "Heat Maker", "Heat Hater", "Heat Breaker", "Heat Slayer", "Heat Expert", "Heat Bender", "Volcanic", "Magma Master"],
 			icon: "icomoon icon-compass2",
 			newStuff: []
 		},
 		damage: {
 			finished: 0,
-			title: "Trimp Damage",
+			title: "trump Damage",
 			description: function (number) {
 				return "Reach " + prettify(this.breakpoints[number]) + " displayed damage";
 			},
@@ -2014,16 +2014,16 @@ var toReturn = {
 			highest: 0,
 			breakpoints: [100, 100000, 1e+11, 1e+17, 1e+23, 1e+29, 1e+35, 1e+41, 1e+47, 1e+53, 1e+60, 1e+67],
 			tiers: [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6],
-			names: ["Lead Trimps", "Silver Trimps", "Golden Trimps", "Copper Trimps", "Platinum Trimps", "Iron Trimps", "Steel Trimps", "Obsidian Trimps", "Cobalt Trimps", "Topaz Trimps", "Diamond Trimps", "Transcendental Trimps"],
+			names: ["Lead trumps", "Silver trumps", "Golden trumps", "Copper trumps", "Platinum trumps", "Iron trumps", "Steel trumps", "Obsidian trumps", "Cobalt trumps", "Topaz trumps", "Diamond trumps", "Transcendental trumps"],
 			icon: "icomoon icon-bomb",
 			newStuff: []
 		},
-		trimps: {
+		trumps: {
 			finished: 0,
 			highest: 0,
-			title: "Trimps Owned",
+			title: "trumps Owned",
 			description: function (number) {
-				return "Have  " + prettify(this.breakpoints[number]) + " total Trimps";
+				return "Have  " + prettify(this.breakpoints[number]) + " total trumps";
 			},
 			progress: function () {
 				if (this.breakpoints.length > this.finished) return prettify(Math.floor(this.highest)) + " / " + prettify(this.breakpoints[this.finished]);
@@ -2031,7 +2031,7 @@ var toReturn = {
 			},
 			breakpoints: [50, 150, 300, 1000, 10000, 100000, 1000000, 10000000, 100000000, 1000000000, 10000000000, 100000000000],
 			tiers: [1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4],
-			names: ["Too Many Trimps", "Overcrowding", "This Is Trimp", "It Takes a Tribe", "It Takes a Town", "It Takes a City", "A Milli Trimpi", "Trimpsponential Growth", "MMMEGATRIMPS", "It Takes a Nation", "It Takes a Planet", "It Takes a Universe"],
+			names: ["Too Many trumps", "Overcrowding", "This Is trump", "It Takes a Tribe", "It Takes a Town", "It Takes a City", "A Milli trumpi", "trumpsponential Growth", "MMMEGAtrumpS", "It Takes a Nation", "It Takes a Planet", "It Takes a Universe"],
 			icon: "icomoon icon-group",
 			newStuff: []
 		},
@@ -2065,7 +2065,7 @@ var toReturn = {
 			evaluate: function () { return game.global.totalPortals},
 			breakpoints: [1, 3, 10, 20, 50, 100, 200, 500],
 			tiers: [1, 2, 2, 2, 3, 3, 4, 4],
-			names: ["A Trimp Through Time", "When The Wild Things Are", "A Time Like No Other", "Venti Timeachino", "Time of Your Life", "Centennial Trimper", "Amnesia", "Dedicated Traveller"],
+			names: ["A trump Through Time", "When The Wild Things Are", "A Time Like No Other", "Venti Timeachino", "Time of Your Life", "Centennial trumper", "Amnesia", "Dedicated Traveller"],
 			icon: "icomoon icon-history",
 			newStuff: []
 		},
@@ -2222,7 +2222,7 @@ var toReturn = {
 			lastZone: -1,
 			breakpoints: [5, 50, 100, 150, 200, 250, 300, 350],
 			tiers: [1, 4, 5, 6, 7, 7, 7, 7],
-			names: ["Sitter", "Watchdog", "Nanny", "Caretaker", "Supervisor", "Advocate", "Savior", "Trimp Lover"],
+			names: ["Sitter", "Watchdog", "Nanny", "Caretaker", "Supervisor", "Advocate", "Savior", "trump Lover"],
 			icon: "glyphicon glyphicon-eye-open",
 			newStuff: [],
 		},
@@ -2430,14 +2430,14 @@ var toReturn = {
 			//Turns out this method of handling the feats does NOT scale well... adding stuff to the middle is a nightmare
 			finished: [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
 			title: "Feats",
-			descriptions: ["Reach Z30 with no respec and 60 or less He spent", "Have over 1M traps at once", "Die 50 times to a single Voidsnimp", "Reach Zone 10 with 5 or fewer dead Trimps", "Reach exactly 1337 he/hr", "Equip a magnificent or better Staff and Shield", "Reach Z60 with 1000 or fewer dead Trimps", "Reach Z120 without using manual research", "Reach Z75 without buying any housing", "Find an uncommon heirloom at Z146 or higher", "Spend over 250k total He on Wormholes", "Reach Z60 with rank III or lower equipment", "Kill an Improbability in one hit", "Beat a Lv 60+ Destructive Void Map with no deaths", "Beat Crushed without being crit past Z5", "Kill an enemy with 100 stacks of Nom", "Reach Z60 without hiring a single Trimp", "Beat Toxicity, never having more than 400 stacks", "Own 100 of all housing buildings", "Overkill every possible world cell before Z60", "Complete Watch without entering maps or buying Nurseries", "Complete Lead with 1 or fewer Gigastations", "Complete Corrupted without Geneticists", "Complete The Spire with 0 deaths"],
+			descriptions: ["Reach Z30 with no respec and 60 or less He spent", "Have over 1M traps at once", "Die 50 times to a single Voidsnimp", "Reach Zone 10 with 5 or fewer dead trumps", "Reach exactly 1337 he/hr", "Equip a magnificent or better Staff and Shield", "Reach Z60 with 1000 or fewer dead trumps", "Reach Z120 without using manual research", "Reach Z75 without buying any housing", "Find an uncommon heirloom at Z146 or higher", "Spend over 250k total He on Wormholes", "Reach Z60 with rank III or lower equipment", "Kill an Improbability in one hit", "Beat a Lv 60+ Destructive Void Map with no deaths", "Beat Crushed without being crit past Z5", "Kill an enemy with 100 stacks of Nom", "Reach Z60 without hiring a single trump", "Beat Toxicity, never having more than 400 stacks", "Own 100 of all housing buildings", "Overkill every possible world cell before Z60", "Complete Watch without entering maps or buying Nurseries", "Complete Lead with 1 or fewer Gigastations", "Complete Corrupted without Geneticists", "Complete The Spire with 0 deaths"],
 			tiers: [3, 3, 3, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 7, 7, 7],
 			description: function (number) {
 				return this.descriptions[number];
 			},
 			filters: [29, 29, -1, 59, -1, 124, 59, 119, 74, -1, -1, 59, 59, 59, 124, 144, 59, 164, 59, -1, 179, 179, 189, 199],
 			icon: "icomoon icon-flag",
-			names: ["Underachiever", "Hoarder", "Needs Block", "Peacekeeper", "Elite Feat", "Swag", "Workplace Safety", "No Time for That", "Tent City", "Consolation Prize", "Holey", "Shaggy", "One-Hit Wonder", "Survivor", "Thick Skinned", "Great Host", "Unemployment", "Trimp is Poison", "Realtor", "Gotta Go Fast", "Grindless", "Unsatisfied Customer", "Organic Trimps", "Invincible"],
+			names: ["Underachiever", "Hoarder", "Needs Block", "Peacekeeper", "Elite Feat", "Swag", "Workplace Safety", "No Time for That", "Tent City", "Consolation Prize", "Holey", "Shaggy", "One-Hit Wonder", "Survivor", "Thick Skinned", "Great Host", "Unemployment", "trump is Poison", "Realtor", "Gotta Go Fast", "Grindless", "Unsatisfied Customer", "Organic trumps", "Invincible"],
 			newStuff: []
 		}
 	},
@@ -2520,18 +2520,18 @@ var toReturn = {
 				currentBonus: 0,
 				steps: [[1,2,1],[2,5,1],[5,10,1],[10,20,1],[70,100,3],[100,130,3],[130,160,3],[160, 190, 3]]
 			},
-			trimpHealth: {
-				name: "Trimp Health",
+			trumpHealth: {
+				name: "trump Health",
 				currentBonus: 0,
 				steps: [[1,2,1],[2,6,1],[6,20,2],[20,40,2],[50,100,5],[100,150,5],[150,200,5],[200, 260, 6]]
 			},
-			trimpAttack: {
-				name: "Trimp Attack",
+			trumpAttack: {
+				name: "trump Attack",
 				currentBonus: 0,
 				steps: [[1,2,1],[2,6,1],[6,20,2],[20,40,2],[50,100,5],[100,150,5],[150,200,5],[200, 260, 6]]
 			},
-			trimpBlock: {
-				name: "Trimp Block",
+			trumpBlock: {
+				name: "trump Block",
 				currentBonus: 0,
 				steps: [[1,2,1],[2,4,1],[4,7,1],[7,10,1],[28,40,1],[48,60,1],[68,80,1],[88, 100, 1]]
 			},
@@ -2567,51 +2567,51 @@ var toReturn = {
 	
 	
 	worldText: {
-		w2: "Your Trimps killed a lot of bad guys back there. It seems like you're getting the hang of this. However, the world is large, and there are many more zones to explore. Chop chop.",
+		w2: "Your trumps killed a lot of bad guys back there. It seems like you're getting the hang of this. However, the world is large, and there are many more zones to explore. Chop chop.",
 		w3: "By your orders, your scientists have begun to try and figure out how large this planet is.",
-		w4: "You order your Trimps to search the area for the keys to your ship, but nobody finds anything. Bummer.",
+		w4: "You order your trumps to search the area for the keys to your ship, but nobody finds anything. Bummer.",
 		w5: "Do you see that thing at the end of this zone? It's huge! It's terrifying! You've never seen anything like it before, but you know that it is a Blimp. How did you know that? Stop knowing things and go kill it.",
-		w6: "You step over the corpse of the Blimp as it rapidly deflates, and one of your Trimps chuckles at the sound produced. You all cross the sulfuric river to the next zone, and can feel the presence of an ancient knowledge. Better explore.",
+		w6: "You step over the corpse of the Blimp as it rapidly deflates, and one of your trumps chuckles at the sound produced. You all cross the sulfuric river to the next zone, and can feel the presence of an ancient knowledge. Better explore.",
 		w7: "Slow and steady wins the race. Unless you're racing someone who is actually trying.",
-		w8: "Your settlement is getting crowded, there's Trimps in the streets, and you're taking heat. You feel a sudden strong desire to create a map, though you're not quite sure how that would help.",
+		w8: "Your settlement is getting crowded, there's trumps in the streets, and you're taking heat. You feel a sudden strong desire to create a map, though you're not quite sure how that would help.",
 		w9: "You can't shake the feeling that you've been here before. Déjà-vu?",
 		w10: "Looks like another Blimp up ahead. Hard to tell from far away, but it looks like it has more heads than the last one.",
 		w11: "You're unstoppable as long as nothing stops you. Unfortunately, it seems like something really wants to stop you.",
 		w12: "Did you see that green light flash by? Weird. Oh well.",
 		w13: "Your scientists have finally concluded their report on the analysis of the size of the world. According to the report, they're pretty sure it's infinitely large, but you're pretty sure they just got bored of checking.",
-		w14: "You were trying to help bring back some of the Equipment your Trimps left on the ground in that last zone, and you got a splinter. This planet is getting dangerous, stay alert.",		
+		w14: "You were trying to help bring back some of the Equipment your trumps left on the ground in that last zone, and you got a splinter. This planet is getting dangerous, stay alert.",		
 		w15: "Another day, another Blimp at the end of the zone",
 		w16: "Seriously? Another Blimp so soon?",
 		w17: "You climb a large cliff and look out over the new zone. Red dirt, scorched ground, and devastation. Is that a Dragimp flying around out there?!",
 		w18: "There seems to be a strange force urging you to keep going. The atmosphere is becoming... angrier. Part of you wants to turn around and go back, but most of you wants to keep going.",
-		w19: "You look behind and see your kingdom. You have gems, a colony, and territory. You wonder if enough Trimps have already fallen in battle. After contemplation, one word falls out of your mouth as you begin to move forward. 'Nah'",
+		w19: "You look behind and see your kingdom. You have gems, a colony, and territory. You wonder if enough trumps have already fallen in battle. After contemplation, one word falls out of your mouth as you begin to move forward. 'Nah'",
 		w20: "You can sense that you're close to your goal.",
-		w22: "Strange, the sky seems to be getting darker. You ask one of your Trimps for the time, but he doesn't know what a clock is.",
+		w22: "Strange, the sky seems to be getting darker. You ask one of your trumps for the time, but he doesn't know what a clock is.",
 		w25: "You're a rebel. The universe pointed you into that portal, but you kept pushing forward. You feel... less like you've been here before.",
 		w27: "It seems like the further you press on, the less you know. You still feel an urge to use the portal, though the urge has begun to dwindle.",
-		w29: "Your Trimps came up with a pretty catchy battle song that got stuck in your head. None of them survived the next fight though, and you can't remember most of it. Life's tough.",
+		w29: "Your trumps came up with a pretty catchy battle song that got stuck in your head. None of them survived the next fight though, and you can't remember most of it. Life's tough.",
 		w33: "You climb over a large hill that was separating this zone from the last. The sky is pitch black and lightning crackles in the distance. This is a site of heavy corruption.",
 		w35: "You start to wonder how long you've been doing the same thing over and over. There must be something you can do to start to break the cycle. Perhaps you could alter the portal...",
-		w40: "You can't help but notice that the Trimps seem to be the only creatures on this planet not immediately hostile towards outsiders. You ask a nearby Trimp soldier what he thinks you are, and he drools a bit.",
+		w40: "You can't help but notice that the trumps seem to be the only creatures on this planet not immediately hostile towards outsiders. You ask a nearby trump soldier what he thinks you are, and he drools a bit.",
 		w42: "The world seems so barren out this far. You feel like you're finally starting to get ahead of the curve, but you know by now not to get comfortable.",
 		w44: "Each day and night seems to grow longer than the one before. Is time slowing down? Argh! You fall to your knees with a splitting headache and a strong desire to use the portal. After a few minutes, it passes and you forget what happened. What are we talking about?",
-		w46: "All traces of hills and mountains have long since been trudged past. The world is flat and hostile. You wish your Trimps were better conversationalists.",
-		w48: "As your Trimps scavenge every last bit of helium from that Blimp, one of them begins freaking out. He runs around waving his little arms and making funny noises for a while, eats some dirt, then takes a little nap. You wonder if that's normal. Yeah... probably fine.",
+		w46: "All traces of hills and mountains have long since been trudged past. The world is flat and hostile. You wish your trumps were better conversationalists.",
+		w48: "As your trumps scavenge every last bit of helium from that Blimp, one of them begins freaking out. He runs around waving his little arms and making funny noises for a while, eats some dirt, then takes a little nap. You wonder if that's normal. Yeah... probably fine.",
 		w50: "It's been a long time since you've found any blueprints in the maps. You start to wonder where those things even come from.",
 		w51: "Your scientists have detected an anomaly at the end of Zone 59. They recommend that you stop doing whatever it is that you're doing.",
-		w53: "As you get closer to the anomaly, you start to notice more and more strange behaviour from your Trimps. Holes in your memory are starting to become noticeable as multiple existences blend in to one. Trippy.",
-		w54: "As you get closer to the anomaly, you start to notice more and more strange behaviour from your Trimps. Holes in your memory are starting to become noticeable as multiple existences blend in to one. Trippy.",
-		w56: "A loud boom echoes in the distance, and one of your Trimps runs up to you with outstretched arms, looking quite frightened. He probably just wants some armor and weapons! You hand him some gear, and he accepts it with excitement.",
-		w58: "A huge storm has formed and daylight has become a luxury you have mostly forgotten about. Your Trimps seem to want to go back home, but you're pretty sure you're supposed to keep going this way, so you do. You're very close to the anomaly.",
+		w53: "As you get closer to the anomaly, you start to notice more and more strange behaviour from your trumps. Holes in your memory are starting to become noticeable as multiple existences blend in to one. Trippy.",
+		w54: "As you get closer to the anomaly, you start to notice more and more strange behaviour from your trumps. Holes in your memory are starting to become noticeable as multiple existences blend in to one. Trippy.",
+		w56: "A loud boom echoes in the distance, and one of your trumps runs up to you with outstretched arms, looking quite frightened. He probably just wants some armor and weapons! You hand him some gear, and he accepts it with excitement.",
+		w58: "A huge storm has formed and daylight has become a luxury you have mostly forgotten about. Your trumps seem to want to go back home, but you're pretty sure you're supposed to keep going this way, so you do. You're very close to the anomaly.",
 		w59: "There it is. The anomaly is at the end of the zone. You can see it but you don't know what you're seeing. Where did that... thing... come from?! This is highly Improbable.",
 		w60: "The ground instantly cracks and large plumes of green gas escape from the planet's core to the atmosphere. The planet feels different. Everything feels different. This Universe has grown unstable, the planet has broken. What have you done?",
-		w61: "Other than all the dead Trimps, that wasn't so bad.",
+		w61: "Other than all the dead trumps, that wasn't so bad.",
 		w65: "You feel more powerful than ever. The universe seems to be constantly adjusting itself to get rid of you, yet you rise against and persist. Something as tiny as you taking on an entire universe!",
-		w68: "You figure some entertainment wouldn't be awful, and decide to teach your Trimps how to play soccer. A few hours and zero progress later, you really regret that decision.",
+		w68: "You figure some entertainment wouldn't be awful, and decide to teach your trumps how to play soccer. A few hours and zero progress later, you really regret that decision.",
 		w70: "The Improbabilities haven't seemed to slow down. You know you need to figure out a plan, but you don't know what to plan for.",
-		w72: "You slash through another Improbability with relative ease, but something isn't right. A sour smell hits your nose and in disgust, you whip around in search of the source. Oh, wait, it's just the Trimps.",
+		w72: "You slash through another Improbability with relative ease, but something isn't right. A sour smell hits your nose and in disgust, you whip around in search of the source. Oh, wait, it's just the trumps.",
 		w80: "When's the last time you made a map? You have a feeling you should probably do that.",
-		w82: "Whew, that was an exhilarating kill. You decide to reward your Trimps with some Improbability stew. It's pretty tasty.",
+		w82: "Whew, that was an exhilarating kill. You decide to reward your trumps with some Improbability stew. It's pretty tasty.",
 		w83: "That stew was probably a bad idea. Anyone else feeling sick?",
 		w85: "An ancient and fuzzy memory just crept back in to your head. You're not quite sure where it came from, but you know the memory is yours. You remember being on a ship, and seeing this planet from orbit. There was someone with you!",
 		w87: "Bits and pieces of memories continue trickling back in as you continue to put distance between yourself and the source of Anger. You can almost see in your mind who you came here with. Where could they be...",
@@ -2619,29 +2619,29 @@ var toReturn = {
 		w92: "You hear a huge explosion from the science lab and realize that the brain scan machine will probably never be finished.",
 		w95: "Need some motivation? You can do it! Maybe.",
 		w100: "You stop dead in your tracks. You remember who you came here with, and you remember that you are not happy with Captain Druopitee for bringing you here. You know he landed with you. You know the ship is still here. He's here.",
-		w105: "You call a meeting with all of your Trimps to explain the situation. After giving an extremely long, epic, and motivational speech but hearing no reaction from the crowd, you remember that your Trimps cannot understand you. Will you ever learn?",
+		w105: "You call a meeting with all of your trumps to explain the situation. After giving an extremely long, epic, and motivational speech but hearing no reaction from the crowd, you remember that your trumps cannot understand you. Will you ever learn?",
 		w106: "How long have you been trapped on this planet? Months? Decades? Travelling through time sure screws up your chronological perception.",
 		w109: "Though you have no idea which direction your home planet is, you still believe the ship's GPS could get you home. Maybe Druopitee has the keys. You really want to find him.",
 		w115: "You just remembered what a taco was. You could really use a taco right now.",
-		w120: "Your stamina is quickly dwindling. Trying to keep up with so many more extra Trimps each zone is beginning to wear you down. You'll need to practice fighting with stronger, smaller groups to succeed.",
-		w123: "Woah, you have a lot of Trimps right now. You hadn't really stopped to think about just how many individual Trimps you have directly under your control in a while. Neat!",
+		w120: "Your stamina is quickly dwindling. Trying to keep up with so many more extra trumps each zone is beginning to wear you down. You'll need to practice fighting with stronger, smaller groups to succeed.",
+		w123: "Woah, you have a lot of trumps right now. You hadn't really stopped to think about just how many individual trumps you have directly under your control in a while. Neat!",
 		w125: "You smell metal and gears, and suddenly feel like you should run a map.",
-		w130: "You decide to sit down and take a breather, when suddenly a Trimp comes waddle-galloping towards you holding a piece of paper. Hurriedly scrawled on the paper is a drawing of a strange weapon and piece of armor, along with numbers that seem to be dimensional coordinates. You would ask where he found it, but you know better by now.",
-		w132: "You can't stop thinking about where that Trimp found the coordinates for the Slow dimension. Why can't whatever is helping you just come out and help you?",
+		w130: "You decide to sit down and take a breather, when suddenly a trump comes waddle-galloping towards you holding a piece of paper. Hurriedly scrawled on the paper is a drawing of a strange weapon and piece of armor, along with numbers that seem to be dimensional coordinates. You would ask where he found it, but you know better by now.",
+		w132: "You can't stop thinking about where that trump found the coordinates for the Slow dimension. Why can't whatever is helping you just come out and help you?",
 		w135: "Ugh, your back is getting sore. It seems like travelling back in time does not reverse the ageing process for the traveller. Bummer.",
 		w136: "One of your scientists has informed you that his team was able to successfully create a cure for a non-existent disease. He explains that it's best to be prepared. You sigh heavily.",
 		w137: "One of your scientists has informed you that an outbreak of a new disease was detected in the laboratory. You go to check on your scientists, and it's quite obvious that they're faking it for attention. You sigh heavily.",
-		w138: "You spot another scientist running full speed towards you. He hurriedly informs you that they discovered a new dimension near Zone 35 that is occupied by gigantic Trimps. You sigh heavily.",
+		w138: "You spot another scientist running full speed towards you. He hurriedly informs you that they discovered a new dimension near Zone 35 that is occupied by gigantic trumps. You sigh heavily.",
 		w139: "Another scientist is coming. You sigh heavily. He says something dumb. You decide to ignore the scientists for a little bit.",
 		w140: "It sure is calm and peaceful now. You watch a Falcimp turn a few circles in the sky. You wouldn't mind having wings, but overall you're pretty happy with your species.",
 		w143: "There's a scientist jumping around trying to get your attention. There's nothing interesting in the sky so you pretend to be fascinated with a rock. The scientist can see you're busy and waits patiently.",
 		w145: "Your Scientists are not making it easy to ignore them. You not-so-calmly ask what they want. One of them explains that they discovered a new dimension with lots of extra helium. You'll probably check it out, but you won't tell them that.",
 		w150: "Wow. These structures are getting expensive. There's probably a dimension for that...",
 		w153: "You remember a person from your past. From your old life. There's someone you need to get back to. You'll make it back.",
-		w156: "You watch in amazement as a Trimp grabs on to one of those weird tree things and swings around by its arms. These things are getting pretty strong.",
-		w157: "You watch in less amazement as a Trimp tries to take a bite out of a very large rock. These things are not getting much smarter.",
+		w156: "You watch in amazement as a trump grabs on to one of those weird tree things and swings around by its arms. These things are getting pretty strong.",
+		w157: "You watch in less amazement as a trump tries to take a bite out of a very large rock. These things are not getting much smarter.",
 		w159: "That's quite a sunset. You know once you finally make it out of here, you'll definitely never forget the sights. Unless, of course, you do.",
-		w160: "A small horde of Trimps comes running up towards you, making excited sounding noises. One of them walks to the front of the loud congregation and proudly holds up a boot, slightly larger but the same style as your own. It must be Druopitee's, confirmation that you're heading the right direction. You reward the Trimp who found it with some food and a few pats on the head, then send the boot to the lab to look for any further clues. You wonder why he took his boot off.",
+		w160: "A small horde of trumps comes running up towards you, making excited sounding noises. One of them walks to the front of the loud congregation and proudly holds up a boot, slightly larger but the same style as your own. It must be Druopitee's, confirmation that you're heading the right direction. You reward the trump who found it with some food and a few pats on the head, then send the boot to the lab to look for any further clues. You wonder why he took his boot off.",
 		w163: "Your scientists have informed you that half of the boot is now lost in another dimension, thanks to an 'important' test. The results were inconclusive. You ask them to please leave the remaining half in our current dimension, and they look disappointed.",
 		w165: "What's this now?! You found a little green piece of metal. Your scientists tell you that it came from a toxic dimension, but that it is also from a dimension rich in helium. They let you know that they can tune your portal to travel to the dimension it originated from, should you want to check it out.",
 		w166: "That last Improbability seemed like a nice guy.",
@@ -2649,19 +2649,19 @@ var toReturn = {
 		w170: "You reach the top of an incredibly large mountain. You can see at least 50 zones sprawled out before you. About 30 zones away, you can see a gigantic spire. It looks like architecture from your home world. You hope it's not a mirage...",
 		w172: "Something smells purple. That's probably not good.",
 		w174: "Strange smells continue to swell around you. Judging by changes in wind direction, the smells are coming from the spire. You still can't describe it other than purple.",
-		w175: "Your Trimps seem happy. They're not used to having a purpose, and having one seems to positively affect them! You call a Trimp over and ask him how he's doing, then you remember that he can't talk.",
+		w175: "Your trumps seem happy. They're not used to having a purpose, and having one seems to positively affect them! You call a trump over and ask him how he's doing, then you remember that he can't talk.",
 		w178: "You're still not quite sure what that smell is. You feel slightly more powerful, and you fear that your enemies may feel the same way.",
 		get w180 () { 
 		if (game.global.challengeActive != "Corrupted") return "After clearing out the previous zone, you decide to take a day hike to the top of another gigantic mountain to try to find more info about the smell. As you reach the top, your jaw drops. Clear as day, a healthy amount of purple goo is pouring into the atmosphere from the top of the spire. You can see the zones in front of you beginning to change. This really can't be good.";
 		return "After clearing out the previous zone, you decide to take a day hike to the top of another gigantic mountain to try to find more info about the smell. As you reach the top, your jaw drops. Clear as day, a healthy amount of purple goo is pouring into the atmosphere from the top of the spire. This must be what's causing all of this Corruption you've been trudging through. The planet seems pretty heavily Corrupted already, you wonder if you're too late.";
 		},
-		w182: "Well, there's not really much doubt about it anymore. Some sort of intelligence is intentionally making life more difficult for you and your Trimps. You take this as a sign that you're pretty important, why else would something risk destroying an entire planet to stop you? Your parents would be so proud.",
+		w182: "Well, there's not really much doubt about it anymore. Some sort of intelligence is intentionally making life more difficult for you and your trumps. You take this as a sign that you're pretty important, why else would something risk destroying an entire planet to stop you? Your parents would be so proud.",
 		get w184 () { 
 				return "The corruption seems to be more pronounced the closer you get to the Spire. Looks like there's " + mutations.Corruption.cellCount() + " of em now."
 			},
 		w185: "You have trouble putting in to words exactly what the Corruption does to the creatures on this planet. They seem to be stripped of all natural abilities and given powers that you didn't know could exist in the primary dimension.",
 		w187: "None of these corrupted enemies seem to have eyes, so you decide to see if you can get away with flipping one off. As it reacts by roaring and stomping around in a rage, you realize that these things are powerful enough not to need eyes to observe the world. What <i>are</i> these?!",
-		w190: "You awaken from your sleep in a cold sweat to a frantic and terrified noise from the back of the cave where you were sleeping. With urgency, you run to the source of the noise to make sure your Trimps are okay. As you reach the back, you see a handful of Trimps trying to use a small and very angry Snimp as a musical instrument. You put some sand in your ears and go back to sleep.",
+		w190: "You awaken from your sleep in a cold sweat to a frantic and terrified noise from the back of the cave where you were sleeping. With urgency, you run to the source of the noise to make sure your trumps are okay. As you reach the back, you see a handful of trumps trying to use a small and very angry Snimp as a musical instrument. You put some sand in your ears and go back to sleep.",
 		w193: "The corruption continues to thicken as you near the Spire. You're beginning to grow accustomed to the smell of the Spire, and really don't mind it anymore. It reminds you of blueberries. Evil blueberries.",
 		w198: "You're so close to the source of corruption that you can taste it, and it doesn't taste good.",
 		get w205 () {
@@ -2676,8 +2676,8 @@ var toReturn = {
 		},
 		get w220 () {
 			if (game.global.spireRows < 10)
-				return "Your Trimps seem content. They kinda wish that spire wasn't still pumping purple stuff in to their world, but they don't mind too much.";
-			return "Your Trimps seem content. You taught some basic puppetry to them and they've been putting on some great shows with defeated Snimps.";
+				return "Your trumps seem content. They kinda wish that spire wasn't still pumping purple stuff in to their world, but they don't mind too much.";
+			return "Your trumps seem content. You taught some basic puppetry to them and they've been putting on some great shows with defeated Snimps.";
 		},
 		w225: "You wake up in a sweat after a good night's sleep in a cool, dark cave. You dreamt that you were overheating, though that's never really been a problem before. Oh well, strange dreams and memories haven't really indicated anything important before, it's probably nothing.",
 		w231: "It's pretty hot.",
@@ -2687,12 +2687,12 @@ var toReturn = {
 				return "Your Magmamancers have figured out how to make little fountains in the Magma around the base. You like the effect.";
 			return "You remember Magmamancers as being pretty cool.";
 		},
-		w251: "You asked that Omnipotrimp nicely not to explode after you killed it, but it exploded anyways. Pretty rude.",
-		w255: "Your Trimps continue to lose strength as you press through the zones, but they seem to be adapting well in spirits. It seems like each generation likes the heat more and more.",
-		w265: "You're determined to repair the planet, though you feel like it's not yet possible. Either way, you know you're gaining strength and that your Trimps would follow you anywhere."
+		w251: "You asked that Omnipotrump nicely not to explode after you killed it, but it exploded anyways. Pretty rude.",
+		w255: "Your trumps continue to lose strength as you press through the zones, but they seem to be adapting well in spirits. It seems like each generation likes the heat more and more.",
+		w265: "You're determined to repair the planet, though you feel like it's not yet possible. Either way, you know you're gaining strength and that your trumps would follow you anywhere."
 	},
 	
-	trimpDeathTexts: ["ceased to be", "bit the dust", "took a dirt nap", "expired", "kicked the bucket", "evaporated", "needed more armor", "exploded", "melted", "fell over", "swam the river Styx", "turned in to jerky", "forgot to put armor on", "croaked", "flatlined", "won't follow you to battle again", "died. Lame", "lagged out", "imp-loded"],
+	trumpDeathTexts: ["ceased to be", "bit the dust", "took a dirt nap", "expired", "kicked the bucket", "evaporated", "needed more armor", "exploded", "melted", "fell over", "swam the river Styx", "turned in to jerky", "forgot to put armor on", "croaked", "flatlined", "won't follow you to battle again", "died. Lame", "lagged out", "imp-loded"],
 	badGuyDeathTexts: ["slew", "killed", "destroyed", "extinguished", "liquidated", "vaporized", "demolished", "ruined", "wrecked", "obliterated"],
 	
 	settings: {
@@ -2714,7 +2714,7 @@ var toReturn = {
 			owned: 0,
 			max: 500
 		},
-		trimps: {
+		trumps: {
 			owned: 0,
 			max: 10,
 			maxMod: 1,
@@ -2806,7 +2806,7 @@ var toReturn = {
 		//2
 		Mace: {
 			locked: 1,
-			tooltip: "It's kind of heavy for your Trimps, but they'll manage. Adds $attackCalculated$ attack to each soldier per level",
+			tooltip: "It's kind of heavy for your trumps, but they'll manage. Adds $attackCalculated$ attack to each soldier per level",
 			modifier: 1,
 			level: 0,
 			cost: {
@@ -2819,7 +2819,7 @@ var toReturn = {
 		},
 		Helmet: {
 			locked: 1,
-			tooltip: "Provides a decent amount of protection to the Trimps' heads, adding $healthCalculated$ health to each soldier per level.",
+			tooltip: "Provides a decent amount of protection to the trumps' heads, adding $healthCalculated$ health to each soldier per level.",
 			modifier: 1,
 			level: 0,
 			cost: {
@@ -2846,7 +2846,7 @@ var toReturn = {
 		},
 		Pants: {
 			locked: 1,
-			tooltip: "Pants designed specificially for the little Trimps! Adds $healthCalculated$ health to each soldier per level.",
+			tooltip: "Pants designed specificially for the little trumps! Adds $healthCalculated$ health to each soldier per level.",
 			modifier: 1,
 			level: 0,
 			cost: {
@@ -2860,7 +2860,7 @@ var toReturn = {
 		//4
 		Battleaxe: {
 			locked: 1,
-			tooltip: "This weapon is pretty intimidating, but your Trimps think they can handle it. Adds $attackCalculated$ attack to each soldier per level",
+			tooltip: "This weapon is pretty intimidating, but your trumps think they can handle it. Adds $attackCalculated$ attack to each soldier per level",
 			modifier: 1,
 			level: 0,
 			cost: {
@@ -2873,7 +2873,7 @@ var toReturn = {
 		},
 		Shoulderguards: {
 			locked: 1,
-			tooltip: "These shoulderguards will help keep your Trimps' necks and shoulders safe, and they look cool too. Adds $healthCalculated$ health to each soldier per level",
+			tooltip: "These shoulderguards will help keep your trumps' necks and shoulders safe, and they look cool too. Adds $healthCalculated$ health to each soldier per level",
 			modifier: 1,
 			level: 0,
 			cost: {
@@ -2913,7 +2913,7 @@ var toReturn = {
 		},
 		Arbalest: {
 			locked: 1,
-			tooltip: "A powerful ranged weapon. Your Trimps can do some damage with this sucker. Adds $attackCalculated$ attack to each soldier per level",
+			tooltip: "A powerful ranged weapon. Your trumps can do some damage with this sucker. Adds $attackCalculated$ attack to each soldier per level",
 			modifier: 1,
 			level: 0,
 			cost: {
@@ -2926,7 +2926,7 @@ var toReturn = {
 		},
 		Gambeson: {
 			locked: 1,
-			tooltip: "A cozy and thick padded jacket that goes under the breastplate. Your Trimps think they're great! Adds $healthCalculated$ health to each soldier per level.",
+			tooltip: "A cozy and thick padded jacket that goes under the breastplate. Your trumps think they're great! Adds $healthCalculated$ health to each soldier per level.",
 			modifier: 1,
 			level: 0,
 			cost: {
@@ -3319,7 +3319,7 @@ var toReturn = {
 					game.global.challengeActive = "";
 					game.challenges.Trapper.abandon();
 					game.portal.Anticipation.locked = false;
-					message("You have completed the 'Trapper' challenge! Your Trimps now remember how to breed, and you have unlocked a new perk!", "Notices");
+					message("You have completed the 'Trapper' challenge! Your trumps now remember how to breed, and you have unlocked a new perk!", "Notices");
 				}
 				if (game.global.challengeActive == "Meditate"){
 					game.global.challengeActive = "";
@@ -3356,7 +3356,7 @@ var toReturn = {
 			}
 		},
 		//Putting Bionic Wonderland stuff right.... here cause why not
-		Robotrimp: {
+		Robotrump: {
 			location: "Bionic",
 			last: true,
 			world: 125,
@@ -3367,7 +3367,7 @@ var toReturn = {
 				checkAchieve("bionicTimed");
 				var amt1 = rewardResource("wood", 1, level, true);
 				var amt2 = rewardResource("food", 1, level, true);
-				message("Robotrimp discombobulated. Loot inspection reveals: " + prettify(amt1) + " wood and " + prettify(amt2) + " food. Splendiferous.", "Loot", "*cogs", null, 'primary');
+				message("Robotrump discombobulated. Loot inspection reveals: " + prettify(amt1) + " wood and " + prettify(amt2) + " food. Splendiferous.", "Loot", "*cogs", null, 'primary');
 				if (game.global.challengeActive == "Crushed") {
 					var heliumAdded = game.challenges.Crushed.heldHelium;
 					message("You have completed the Crushed challenge! You have been rewarded with " + prettify(heliumAdded) + " Helium.", "Notices");
@@ -3436,7 +3436,7 @@ var toReturn = {
 		},
 		//End Bionic Wonderland stuff
 		//Start Imploding Star stuff
-		Neutrimp: {
+		Neutrump: {
 			location: "Star",
 			last: true,
 			world: 170,
@@ -3447,7 +3447,7 @@ var toReturn = {
 				checkAchieve("starTimed");
 				var amt1 = rewardResource("wood", 1.5, level, true);
 				var amt2 = rewardResource("metal", 1.5, level, true);
-				message("The Neutrimp gasps, shimmers, squeaks, then poofs into a quickly dispersing purple cloud. You spend a few moments trying to make sense of what you've just seen, but look around and find " + prettify(amt1) + " wood and " + prettify(amt2) + " metal instead!", "Loot", "*cogs", null, 'primary');
+				message("The Neutrump gasps, shimmers, squeaks, then poofs into a quickly dispersing purple cloud. You spend a few moments trying to make sense of what you've just seen, but look around and find " + prettify(amt1) + " wood and " + prettify(amt2) + " metal instead!", "Loot", "*cogs", null, 'primary');
 				if (game.global.challengeActive == "Devastation") {
 					message("You have completed the Devastation challenge! Your world has been returned to normal, and you have unlocked the Overkill perk!", "Notices");
 					game.global.challengeActive = "";
@@ -3535,7 +3535,7 @@ var toReturn = {
 				}
 			}
 		},
-		Omnipotrimp: {
+		Omnipotrump: {
 			locked: 1,
 			location: "World",
 			last: true,
@@ -3546,14 +3546,14 @@ var toReturn = {
 			loot: function (level) {
 				if (!game.global.runningChallengeSquared){
 					amt = rewardResource("helium", 30, level);
-					message("You managed to steal " + prettify(amt) + " Helium canisters from that Omnipotrimp. That'll teach it.", "Loot", "oil", 'helium', 'helium');
+					message("You managed to steal " + prettify(amt) + " Helium canisters from that Omnipotrump. That'll teach it.", "Loot", "oil", 'helium', 'helium');
 				}
 				if (game.global.world % 5 == 0){
-					message("The Omnipotrimp explodes, killing all of your soldiers!", "Combat", null, null, 'trimp');
-					game.stats.trimpsKilled.value += game.resources.trimps.soldiers;
+					message("The Omnipotrump explodes, killing all of your soldiers!", "Combat", null, null, 'trump');
+					game.stats.trumpsKilled.value += game.resources.trumps.soldiers;
 					game.global.soldierHealth = 0;
 					game.global.fighting = false;
-					game.resources.trimps.soldiers = 0;
+					game.resources.trumps.soldiers = 0;
 					updateGoodBar();
 				}
 			}
@@ -3566,7 +3566,7 @@ var toReturn = {
 			fast: true,
 			loot: function (level) {
 				amt = rewardResource("metal", 5, level);
-				message("Radioactive waste spills to the ground as the Mutimp falls. You send a few Trimps to grab the shiny stuff in the toxic sludge, which ends up being " + prettify(amt) + " bars of metal!", "Loot", "*cubes", null, 'primary');
+				message("Radioactive waste spills to the ground as the Mutimp falls. You send a few trumps to grab the shiny stuff in the toxic sludge, which ends up being " + prettify(amt) + " bars of metal!", "Loot", "*cubes", null, 'primary');
 			}
 		},
 		Hulking_Mutimp: {
@@ -3577,7 +3577,7 @@ var toReturn = {
 			fast: true,
 			loot: function (level) {
 				amt = rewardResource("metal", 8, level);
-				message("Radioactive waste spills to the ground as the Hulking Mutimp falls. You send a few Trimps to grab the shiny stuff in the toxic sludge, which ends up being " + prettify(amt) + " bars of metal!", "Loot", "*cubes", null, 'primary');
+				message("Radioactive waste spills to the ground as the Hulking Mutimp falls. You send a few trumps to grab the shiny stuff in the toxic sludge, which ends up being " + prettify(amt) + " bars of metal!", "Loot", "*cubes", null, 'primary');
 			}
 		},
 		//Exotics
@@ -3631,15 +3631,15 @@ var toReturn = {
 			attack: 1,
 			health: 1,
 			fast: false,
-			dropDesc: "Grants an extra 0.3% of current Trimps",
+			dropDesc: "Grants an extra 0.3% of current trumps",
 			loot: function () {
-				var amt = Math.ceil(game.resources.trimps.max * 0.003);
-				game.resources.trimps.max += amt;
+				var amt = Math.ceil(game.resources.trumps.max * 0.003);
+				game.resources.trumps.max += amt;
 				game.unlocks.impCount.Tauntimp++;
 				game.unlocks.impCount.TauntimpAdded += amt;
 				if (game.portal.Carpentry.level) amt *= Math.pow((1 + game.portal.Carpentry.modifier), game.portal.Carpentry.level);
 				if (game.portal.Carpentry_II.level > 0) amt *= (1 + (game.portal.Carpentry_II.modifier * game.portal.Carpentry_II.level));
-				message("It's nice, warm, and roomy in that dead Tauntimp. It's big enough for " + prettify(amt) + " Trimps to live inside!", "Loot", "gift", "exotic", "exotic");
+				message("It's nice, warm, and roomy in that dead Tauntimp. It's big enough for " + prettify(amt) + " trumps to live inside!", "Loot", "gift", "exotic", "exotic");
 				
 			}
 		},
@@ -3650,7 +3650,7 @@ var toReturn = {
 			attack: 1,
 			health: 1,
 			fast: false,
-			dropDesc: "Grants 0.3% Trimp resource production speed",
+			dropDesc: "Grants 0.3% trump resource production speed",
 			loot: function () {
 				game.unlocks.impCount.Whipimp++;
 				game.jobs.Farmer.modifier *= 1.003;
@@ -3661,7 +3661,7 @@ var toReturn = {
 				game.jobs.Explorer.modifier *= 1.003;
 				var amt = Math.pow(1.003, game.unlocks.impCount.Whipimp);
 				amt = (amt - 1) * 100;
-				message("Seeing the Whipimps fall is causing all of your Trimps to work " + amt.toFixed(2) + "% harder!", "Loot", "star", "exotic", "exotic");			
+				message("Seeing the Whipimps fall is causing all of your trumps to work " + amt.toFixed(2) + "% harder!", "Loot", "star", "exotic", "exotic");			
 			}
 		},
 		Venimp: {
@@ -3671,12 +3671,12 @@ var toReturn = {
 			attack: 1,
 			health: 1,
 			fast: false,
-			dropDesc: "Grants 0.3% Trimp breed speed",
+			dropDesc: "Grants 0.3% trump breed speed",
 			loot: function () {
 				game.unlocks.impCount.Venimp++;
 				var amt = Math.pow(1.003, game.unlocks.impCount.Venimp);
 				amt = (amt - 1) * 100;
-				message("The ground up Venimp now increases your Trimps' breed speed by " + amt.toFixed(2) + "%!", "Loot", "glass", "exotic", "exotic");			
+				message("The ground up Venimp now increases your trumps' breed speed by " + amt.toFixed(2) + "%!", "Loot", "glass", "exotic", "exotic");			
 			}
 		},
 		Jestimp: {
@@ -3716,7 +3716,7 @@ var toReturn = {
 				}
 				else timeRemaining = 30;
 				game.global.titimpLeft = timeRemaining;
-				message("That Titimp made your Trimps super strong!", "Loot", "*hammer", "exotic", "exotic");
+				message("That Titimp made your trumps super strong!", "Loot", "*hammer", "exotic", "exotic");
 			}		
 		},
 		Chronoimp: {
@@ -3769,7 +3769,7 @@ var toReturn = {
 			health: 2,
 			fast: false,
 			loot: function () {
-				message("Your Trimps managed to pull 1 perfectly preserved bone from that Skeletimp!", "Loot", "italic", null, "secondary");
+				message("Your trumps managed to pull 1 perfectly preserved bone from that Skeletimp!", "Loot", "italic", null, "secondary");
 				game.global.b++;
 				game.global.lastSkeletimp = new Date().getTime();
 				updateSkeleBtn();
@@ -3783,7 +3783,7 @@ var toReturn = {
 			health: 2.5,
 			fast: false,
 			loot: function () {
-				message("That was a pretty big Skeletimp. Your Trimps scavenged the remains and found 2 perfectly preserved bones!", "Loot", "italic", null, "secondary");
+				message("That was a pretty big Skeletimp. Your trumps scavenged the remains and found 2 perfectly preserved bones!", "Loot", "italic", null, "secondary");
 				game.global.b += 2;
 				game.global.lastSkeletimp  = new Date().getTime();
 				updateSkeleBtn();
@@ -3846,7 +3846,7 @@ var toReturn = {
 			},
 			Bionic: {
 				resourceType: "Any",
-				upgrade: ["roboTrimp", "Geneticistassist"]
+				upgrade: ["robotrump", "Geneticistassist"]
 			},
 			Void: {
 				resourceType: "Any",
@@ -3868,19 +3868,19 @@ var toReturn = {
 	},
 	
 	mapUnlocks: {
-		roboTrimp: {
+		robotrump: {
 			world: 125,
 			level: "last",
 			icon: "*chain",
-			title: "RoboTrimp",
+			title: "Robotrump",
 			canRunWhenever: true,
 			filterUpgrade: true,
 			specialFilter: function (world) {
 				var tier = Math.floor((world - 125) / 15);
-				return ((game.global.bionicOwned == tier + 1) || (game.global.roboTrimpLevel == tier));
+				return ((game.global.bionicOwned == tier + 1) || (game.global.robotrumpLevel == tier));
 			},
 			getShriekValue: function () {
-				var level = game.global.roboTrimpLevel;
+				var level = game.global.robotrumpLevel;
 				if (level == 0) return 1;
 				if (level == 1) return 0.85;
 				return (0.85 * Math.pow(0.90, level - 1));
@@ -3902,20 +3902,20 @@ var toReturn = {
 					this.createMap(bionicTier);
 				}
 				if (fromTalent === true) return;
-				if (bionicTier - 1 == game.global.roboTrimpLevel) {
-					if (game.global.roboTrimpLevel == 0){
+				if (bionicTier - 1 == game.global.robotrumpLevel) {
+					if (game.global.robotrumpLevel == 0){
 						cancelTooltip();
-						var text = "There seems to be a small RoboTrimp that you appear to have orphaned. You decide to take him with you, since you're pretty good at training stuff. He deals <b>20%</b> extra damage for you, and has a special ability. You can learn more about the special ability by hovering over the new <span class='icomoon icon-chain'></span> icon by your soldiers.<br/><br/>You also found a map to a more powerful version of the Bionic Wonderland. You would bet there's another RoboTrimp who needs 'rescuing' in there.";
+						var text = "There seems to be a small Robotrump that you appear to have orphaned. You decide to take him with you, since you're pretty good at training stuff. He deals <b>20%</b> extra damage for you, and has a special ability. You can learn more about the special ability by hovering over the new <span class='icomoon icon-chain'></span> icon by your soldiers.<br/><br/>You also found a map to a more powerful version of the Bionic Wonderland. You would bet there's another Robotrump who needs 'rescuing' in there.";
 						if (game.options.menu.tooltips.enabled == 0) text += '<br/><br/><b>Just a heads up</b>: You have tooltips disabled, so you will need to hold shift when you mouse over the <span class="icomoon icon-chain"></span> to read about it.';
-						tooltip('confirm', null, 'update', text, null, 'RoboTrimp');
-						game.global.roboTrimpLevel = 1;
+						tooltip('confirm', null, 'update', text, null, 'Robotrump');
+						game.global.robotrumpLevel = 1;
 						document.getElementById("chainHolder").style.visibility = 'visible';
 					}
 					else {
-						game.global.roboTrimpLevel++;
-						var values = game.global.roboTrimpLevel;
+						game.global.robotrumpLevel++;
+						var values = game.global.robotrumpLevel;
 						values = [(values) * 20, ((1 - this.getShriekValue()) * 100).toFixed(1)];
-						message("<span class='icomoon icon-chain'></span> Hey look, another baby RoboTrimp! You decide to add him to your collection. You now deal " + Math.floor(values[0]) + "% extra damage thanks to your pets, and MagnetoShriek now removes " + Math.floor(values[1]) + "% of an Improbability's attack", "Notices");					
+						message("<span class='icomoon icon-chain'></span> Hey look, another baby Robotrump! You decide to add him to your collection. You now deal " + Math.floor(values[0]) + "% extra damage thanks to your pets, and MagnetoShriek now removes " + Math.floor(values[1]) + "% of an Improbability's attack", "Notices");					
 					}
 				}
 			}
@@ -3949,7 +3949,7 @@ var toReturn = {
 				return !game.global.autoStorageAvailable;
 			},
 			fire: function(){
-				var text = "From the void, an auspicious presence reaches out and fills your mind. You feel at peace with the world. It asks you what you desire most, and without a second thought you reply that you wish your Trimps were smart enough to manage storage structures on their own. The presence lets you know that it is done, then dissipates. You instantly regret not asking to go home.";
+				var text = "From the void, an auspicious presence reaches out and fills your mind. You feel at peace with the world. It asks you what you desire most, and without a second thought you reply that you wish your trumps were smart enough to manage storage structures on their own. The presence lets you know that it is done, then dissipates. You instantly regret not asking to go home.";
 				tooltip('confirm', null, 'update', text, null, 'Auspicious Presence');
 				game.global.autoStorageAvailable = true;
 				document.getElementById("autoStorageBtn").style.display = "block";
@@ -3968,7 +3968,7 @@ var toReturn = {
 				return !game.global.improvedAutoStorage;
 			},
 			fire: function(){
-				var text = "<p>From the void, an auspicious presence reaches out and fills your mind. You feel at peace with the world. It asks you what you desire most. Wait... hasn't this happened before? Last time you asked for your Trimps to be smart enough to manage storage structures on their own. You can make it better this time! You excitedly ask for your Trimps to waste less resources when managing resources on their own. The presence lets you know that it is done, then dissipates. You get serious déjà-vu while regretting not asking to go home.</p><p style='font-weight: bold'>From now on, storage facilities will be constructed instantly. If you collect more resources from one source than you can hold, the extra resources will be used to build new storage facilities without wasting any resources. You may not be home, but your Trimps are now quite talented!</p>";
+				var text = "<p>From the void, an auspicious presence reaches out and fills your mind. You feel at peace with the world. It asks you what you desire most. Wait... hasn't this happened before? Last time you asked for your trumps to be smart enough to manage storage structures on their own. You can make it better this time! You excitedly ask for your trumps to waste less resources when managing resources on their own. The presence lets you know that it is done, then dissipates. You get serious déjà-vu while regretting not asking to go home.</p><p style='font-weight: bold'>From now on, storage facilities will be constructed instantly. If you collect more resources from one source than you can hold, the extra resources will be used to build new storage facilities without wasting any resources. You may not be home, but your trumps are now quite talented!</p>";
 				tooltip('confirm', null, 'update', text, null, 'Auspicious Presence Part II', null, null, true);
 				enableImprovedAutoStorage();
 				createHeirloom();
@@ -4033,7 +4033,7 @@ var toReturn = {
 				return game.portal.Relentlessness.locked;
 			},
 			fire: function () {
-				message("You've never been here before. Like, ever. This entire place felt cold and unfamiliar. Where are you? Why have so many Trimps had to fall to get here? You're suddenly angry, it's time to take a stand.", "Story");
+				message("You've never been here before. Like, ever. This entire place felt cold and unfamiliar. Where are you? Why have so many trumps had to fall to get here? You're suddenly angry, it's time to take a stand.", "Story");
 				message("You have permanantly unlocked a new Perk, Relentlessness, which will remain unlocked through portals.", "Notices");
 				game.portal.Relentlessness.locked = false;
 			}
@@ -4069,13 +4069,13 @@ var toReturn = {
 					game.challenges.Size.abandon();
 					game.challenges.Size.completed = true;
 					game.portal.Carpentry.locked = false;
-					message("You have completed the <b>Size Challenge!</b> You have unlocked a new perk, and your Trimps have been reduced down to their normal size.", "Notices");
+					message("You have completed the <b>Size Challenge!</b> You have unlocked a new perk, and your trumps have been reduced down to their normal size.", "Notices");
 				}
 				if (game.global.challengeActive == "Discipline"){
 					game.global.challengeActive = "";
 					game.challenges.Discipline.completed = true;
 					game.portal.Range.locked = false;
-					message("You have completed the <b>Discipline Challenge!</b> You have unlocked a new perk, and your Trimps have regained their Discipline.", "Notices");
+					message("You have completed the <b>Discipline Challenge!</b> You have unlocked a new perk, and your trumps have regained their Discipline.", "Notices");
 				}
 				if (game.global.challengeActive == "Frugal"){
 					game.global.challengeActive = "";
@@ -4107,11 +4107,11 @@ var toReturn = {
 					game.challenges.Scientist.abandon();					
 					message("You have completed the <b>Scientist Challenge!</b> From now on, you'll " + getScientistInfo(game.global.sLevel, true) + " every time you portal. You've unlocked Scientists, and <b>Don't forget that you can click Research on your Science again!</b>", "Notices");
 				}
-				if (game.global.challengeActive == "Trimp"){
+				if (game.global.challengeActive == "trump"){
 					game.global.challengeActive = "";
-					game.challenges.Trimp.abandon();
+					game.challenges.trump.abandon();
 					game.portal.Resilience.locked = false;
-					message("You have completed the <b>Trimp Challenge!</b> You have unlocked the 'Resilience' perk, and your Trimps can fight together again.", "Notices");
+					message("You have completed the <b>trump Challenge!</b> You have unlocked the 'Resilience' perk, and your trumps can fight together again.", "Notices");
 				}
 			}
 		},
@@ -4355,7 +4355,7 @@ var toReturn = {
 		Mansion: {
 			world: -1,
 			startAt: 8,
-			message: "You found plans for a Mansion! Your Trimps will be pretty stoked",
+			message: "You found plans for a Mansion! Your trumps will be pretty stoked",
 			level: [10, 20],
 			icon: "*home4",
 			title: "Mansion",
@@ -4371,7 +4371,7 @@ var toReturn = {
 			message: "You found plans for a hotel! (A decent hotel, too)",
 			level: [10, 20],
 			icon: "*office",
-			title: "The Trimps' Guide to Cheap Hotel Construction",
+			title: "The trumps' Guide to Cheap Hotel Construction",
 			canRunOnce: true,
 			fire: function () {
 				if (!this.canRunOnce) return;
@@ -4405,7 +4405,7 @@ var toReturn = {
 		UberMansion: {
 			world: -1, 
 			startAt: 34,
-			message: "This book will teach you how to make your Trimps share their mansions!",
+			message: "This book will teach you how to make your trumps share their mansions!",
 			level: [10, 20],
 			icon: "book",
 			title: "Sharing is Caring",
@@ -4742,7 +4742,7 @@ var toReturn = {
 			lastAt: 55,
 			level: 44,
 			icon: "book",
-			message: "Trimp cave paintings predicted the existence of a book such as this one, you had no idea it actually existed. It smells dusty.",
+			message: "trump cave paintings predicted the existence of a book such as this one, you had no idea it actually existed. It smells dusty.",
 			title: "Some old, dusty book",
 			fire: function () {
 				unlockUpgrade("Gymystic");
@@ -4754,7 +4754,7 @@ var toReturn = {
 			lastAt: 150,
 			level: 54,
 			icon: "book",
-			message: "Trimp cave paintings predicted the existence of a book such as this one, you had no idea it actually existed. It smells dusty.",
+			message: "trump cave paintings predicted the existence of a book such as this one, you had no idea it actually existed. It smells dusty.",
 			title: "Some old, dusty book",
 			fire: function () {
 				unlockUpgrade("Gymystic");
@@ -4783,14 +4783,14 @@ var toReturn = {
 			}
 		},
 		Potency: {
-			message: "This book will help your Trimps make more Trimps!",
+			message: "This book will help your trumps make more trumps!",
 			world: -5,
 			level: 29,
 			icon: "book",
-			title: "Trimpma Sutra",
+			title: "trumpma Sutra",
 			fire: function () {
 				if (game.global.challengeActive == "Trapper"){
-					message("Your Scientists let you know that your Trimps won't understand the book, but they offer to hold on to it for you for later. How nice of them!", "Notices");
+					message("Your Scientists let you know that your trumps won't understand the book, but they offer to hold on to it for you for later. How nice of them!", "Notices");
 					game.challenges.Trapper.heldBooks++;
 					return;
 				}
@@ -4798,7 +4798,7 @@ var toReturn = {
 			}
 		},
 /* 		SuperShriek: {
-			message: "This book will help your RoboTrimp shriek louder!",
+			message: "This book will help your Robotrump shriek louder!",
 			world: 183,
 			level: 5,
 			icon: "book",
@@ -4809,14 +4809,14 @@ var toReturn = {
 		}, */
 		//19 is for Armor
 		Miner: {
-			message: "You found an ancient book about mining. With some research you should be able to teach the Trimps to mine!",
+			message: "You found an ancient book about mining. With some research you should be able to teach the trumps to mine!",
 			world: 1,
 			level: 29,
 			icon: "book",
 			title: "Miner",
 			fire: function () {
 				if (game.global.challengeActive == "Metal"){
-					message("Your Trimps simply do not understand what this book is talking about. It's blowing their minds. What is a 'Miner'?!", "Notices");
+					message("Your trumps simply do not understand what this book is talking about. It's blowing their minds. What is a 'Miner'?!", "Notices");
 					game.challenges.Metal.fireAbandon = true;
 					return;
 				}
@@ -4834,14 +4834,14 @@ var toReturn = {
 			}		
 		},
 		Scientist: {
-			message: "You found a book about Einstrimp!",
+			message: "You found a book about Einstrump!",
 			world: 1,
 			level: 39,
 			icon: "book",
 			title: "Scientist",
 			fire: function () {
 				if (game.global.challengeActive == "Scientist"){
-					message("Your Trimps think they're too good at Science to read your dumb book. They're already working on Portal technology!", "Notices");
+					message("Your trumps think they're too good at Science to read your dumb book. They're already working on Portal technology!", "Notices");
 					game.challenges.Scientist.fireAbandon = true;
 					return;
 				}
@@ -4957,7 +4957,7 @@ var toReturn = {
 			}
 		},
 		Magmamancer: {
-			message: "You find a smouldering book that looks like it was pushed from the core of this planet. Inside are drawings of Trimps performing rituals with Gems and Magma. It's very hot to the touch, but you take it with you as you haven't had new reading material in a while.",
+			message: "You find a smouldering book that looks like it was pushed from the core of this planet. Inside are drawings of trumps performing rituals with Gems and Magma. It's very hot to the touch, but you take it with you as you haven't had new reading material in a while.",
 			world: 230,
 			level: 90,
 			icon: "book",
@@ -5008,7 +5008,7 @@ var toReturn = {
 			}
 		},
 		Megalumber: {
-			message: "You found a book called Megalumber! The quote on the back reads 'How much wood could a Wood Trimp chop if a Wood Trimp could chop wood?'",
+			message: "You found a book called Megalumber! The quote on the back reads 'How much wood could a Wood trump chop if a Wood trump could chop wood?'",
 			brokenPlanet: 1,
 			addClass: "brokenUpgrade",
 			world: -1,
@@ -5036,7 +5036,7 @@ var toReturn = {
 			}
 		},
 		Megaminer: {
-			message: "You found a book called Megaminer! The front is really shiny and has a Trimp on it. Creepy, it seems to follow your eyes.",
+			message: "You found a book called Megaminer! The front is really shiny and has a trump on it. Creepy, it seems to follow your eyes.",
 			brokenPlanet: 1,
 			addClass: "brokenUpgrade",
 			world: -1,
@@ -5053,12 +5053,12 @@ var toReturn = {
 			}
 		},
 		Geneticist: {
-			message: "Your Trimps report a strange bronze object on the floor, and you decide to come look at it. It looks freaky, so you ask one of your Trimps to pick it up first. He instantly starts itching his face and babbling off a bunch of science stuff, so you let another Trimp touch it and he does the same. This seems to make your Trimps smarter than Scientists, but may cause side effects.",
+			message: "Your trumps report a strange bronze object on the floor, and you decide to come look at it. It looks freaky, so you ask one of your trumps to pick it up first. He instantly starts itching his face and babbling off a bunch of science stuff, so you let another trump touch it and he does the same. This seems to make your trumps smarter than Scientists, but may cause side effects.",
 			brokenPlanet: 1,
 			addClass: "brokenUpgrade",
 			world: 70,
 			level: 49,
-			title: "The Great Bell of Trimp",
+			title: "The Great Bell of trump",
 			icon: "bell",
 			fire: function () {
 				unlockJob("Geneticist");
@@ -5094,9 +5094,9 @@ var toReturn = {
 			},
 			title: "Coordination",
 			fire: function() {
-				if (game.global.challengeActive == "Trimp"){
+				if (game.global.challengeActive == "trump"){
 					message("Your scientists don't think that it's a very smart idea to try any of the suggestions in this book.", "Notices");
-					game.challenges.Trimp.heldBooks ++;
+					game.challenges.trump.heldBooks ++;
 					return;
 				}
 				unlockUpgrade("Coordination");
@@ -5128,7 +5128,7 @@ var toReturn = {
 			icon: "th-large",
 			title: "Too dark to see",
 			fire: function () {
-				createMap(33, "Trimple Of Doom", "Doom", 3, 100, 1.8, true); 
+				createMap(33, "trumple Of Doom", "Doom", 3, 100, 1.8, true); 
 				message("There is something strange about this map. It doesn't seem to reflect any light at all, just pure darkness.", "Story");
 			}
 		},
@@ -5170,7 +5170,7 @@ var toReturn = {
 			}
 		},
 		//portal Trumps
-		fiveTrimpMax: {
+		fivetrumpMax: {
 			world: -1,
 			level: [10, 20],
 			icon: "gift",
@@ -5178,11 +5178,11 @@ var toReturn = {
 			repeat: 45,
 			fire: function () {
 				var amt = 5 + (game.portal.Trumps.modifier * game.portal.Trumps.level);
-				game.resources.trimps.max += amt;
+				game.resources.trumps.max += amt;
 				game.global.totalGifts += amt;
 				if (game.portal.Carpentry.level) amt *= Math.pow((1 + game.portal.Carpentry.modifier), game.portal.Carpentry.level);
 				if (game.portal.Carpentry_II.level > 0) amt *= (1 + (game.portal.Carpentry_II.modifier * game.portal.Carpentry_II.level));
-				message("You have cleared enough land to support " + prettify(amt) + " more Trimps!", "Loot", "gift", null, "secondary");
+				message("You have cleared enough land to support " + prettify(amt) + " more trumps!", "Loot", "gift", null, "secondary");
 			}
 		},
 		fruit: {
@@ -5249,7 +5249,7 @@ var toReturn = {
 				wood: 10
 			},
 			first: function () {
-				if (document.getElementById("trimps").style.visibility == "hidden") fadeIn("trimps", 10);
+				if (document.getElementById("trumps").style.visibility == "hidden") fadeIn("trumps", 10);
 			}
 		},
 		Barn: {
@@ -5309,13 +5309,13 @@ var toReturn = {
 			purchased: 0,
 			craftTime: 10,
 			AP: true,
-			tooltip: "Has room for $incby$ more lovely Trimps. All Trimp housing has enough workspaces for only half of the Trimps that can live there.",
+			tooltip: "Has room for $incby$ more lovely trumps. All trump housing has enough workspaces for only half of the trumps that can live there.",
 			cost: {
 				food: [125, 1.24],
 				wood: [75, 1.24]
 			},
 			increase: {
-				what: "trimps.max",
+				what: "trumps.max",
 				by: 3
 			}
 		},
@@ -5325,14 +5325,14 @@ var toReturn = {
 			purchased: 0,
 			craftTime: 20,
 			AP: true,
-			tooltip: "A better house for your Trimps! Each house supports up to $incby$ more Trimps.",
+			tooltip: "A better house for your trumps! Each house supports up to $incby$ more trumps.",
 			cost: {
 				food: [1500, 1.22],
 				wood: [750, 1.22],
 				metal: [150, 1.22]
 			},
 			increase: {
-				what: "trimps.max",
+				what: "trumps.max",
 				by: 5
 			}
 		},
@@ -5342,7 +5342,7 @@ var toReturn = {
 			purchased: 0,
 			craftTime: 60,
 			AP: true,
-			tooltip: "A pretty sick mansion for your Trimps to live in. Each Mansion supports $incby$ more Trimps.",
+			tooltip: "A pretty sick mansion for your trumps to live in. Each Mansion supports $incby$ more trumps.",
 			cost: {
 				gems: [100, 1.2],
 				food: [3000, 1.2],
@@ -5351,7 +5351,7 @@ var toReturn = {
 				
 			},
 			increase: {
-				what: "trimps.max",
+				what: "trumps.max",
 				by: 10
 			}
 		},
@@ -5361,7 +5361,7 @@ var toReturn = {
 			purchased: 0,
 			craftTime: 120,
 			AP: true,
-			tooltip: "A fancy hotel for many Trimps to live in. Complete with room service and a mini bar. Supports $incby$ Trimps.",
+			tooltip: "A fancy hotel for many trumps to live in. Complete with room service and a mini bar. Supports $incby$ trumps.",
 			cost: {
 				gems: [2000, 1.18],
 				food: [10000, 1.18],
@@ -5370,7 +5370,7 @@ var toReturn = {
 				
 			},
 			increase: {
-				what: "trimps.max",
+				what: "trumps.max",
 				by: 20
 			}
 		},
@@ -5380,7 +5380,7 @@ var toReturn = {
 			purchased: 0,
 			craftTime: 240,
 			AP: true,
-			tooltip: "A huge resort for your Trimps to live in. Sucks for the ones still stuck in huts. Supports $incby$ Trimps.",
+			tooltip: "A huge resort for your trumps to live in. Sucks for the ones still stuck in huts. Supports $incby$ trumps.",
 			cost: {
 				gems: [20000, 1.16],
 				food: [100000, 1.16],
@@ -5389,7 +5389,7 @@ var toReturn = {
 				
 			},
 			increase: {
-				what: "trimps.max",
+				what: "trumps.max",
 				by: 40
 			}
 		},
@@ -5399,14 +5399,14 @@ var toReturn = {
 			purchased: 0,
 			craftTime: 480,
 			AP: true,
-			tooltip: "A Gateway to another dimension, where your Trimps can sleep and work. Supports $incby$ Trimps.",
+			tooltip: "A Gateway to another dimension, where your trumps can sleep and work. Supports $incby$ trumps.",
 			cost: {
 				fragments: [3000, 1.14],
 				gems: [20000, 1.14],
 				metal: [75000, 1.14]
 			},
 			increase: {
-				what: "trimps.max",
+				what: "trumps.max",
 				by: 100
 			}
 		},
@@ -5416,13 +5416,13 @@ var toReturn = {
 			purchased: 0,
 			craftTime: 600,
 			AP: true,
-			tooltip: "Use your crazy, helium-cooled, easy-to-aim wormhole generator to create easy-to-travel links to other colonizable planets where your Trimps can sleep and work. Each supports $incby$ Trimps. <b>This building costs helium to create.</b>",
+			tooltip: "Use your crazy, helium-cooled, easy-to-aim wormhole generator to create easy-to-travel links to other colonizable planets where your trumps can sleep and work. Each supports $incby$ trumps. <b>This building costs helium to create.</b>",
 			cost: {
 				helium: [10, 1.075],
 				metal: [100000, 1.1]
 			},
 			increase:{
-				what: "trimps.max",
+				what: "trumps.max",
 				by: 1500
 			}
 		},
@@ -5432,12 +5432,12 @@ var toReturn = {
 			purchased: 0,
 			craftTime: 1200,
 			AP: true,
-			tooltip: "Each collector allows you to harvest more of the power of your home star, allowing your Trimps to colonize a larger chunk of your solar system. Each supports $incby$ Trimps.",
+			tooltip: "Each collector allows you to harvest more of the power of your home star, allowing your trumps to colonize a larger chunk of your solar system. Each supports $incby$ trumps.",
 			cost: {
 				gems: [500000000000, 1.12]
 			},
 			increase: {
-				what: "trimps.max",
+				what: "trumps.max",
 				by: 5000
 			}
 		},
@@ -5448,13 +5448,13 @@ var toReturn = {
 			craftTime: 1200,
 			origTime: 1200,
 			AP: true,
-			tooltip: "Create a gigantic Warpstation, capable of housing tons of Trimps and instantly transporting them back to the home planet when needed. Supports $incby$ Trimps.",
+			tooltip: "Create a gigantic Warpstation, capable of housing tons of trumps and instantly transporting them back to the home planet when needed. Supports $incby$ trumps.",
 			cost: {
 				gems: [100000000000000, 1.4],
 				metal: [1000000000000000, 1.4]
 			},
 			increase: {
-				what: "trimps.max", 
+				what: "trumps.max", 
 				by: 10000
 			}
 		
@@ -5465,7 +5465,7 @@ var toReturn = {
 			purchased: 0,
 			craftTime: 20,
 			AP: true,
-			tooltip: "A building where your Trimps can work out. Each Gym increases the amount of damage each trimp can block by $incby$~",
+			tooltip: "A building where your trumps can work out. Each Gym increases the amount of damage each trump can block by $incby$~",
 			cost: {
 				wood: [400, 1.185]
 			},
@@ -5503,8 +5503,8 @@ var toReturn = {
 			AP: true,
 			get tooltip () {
 				if (mutations.Magma.active())
-					return "<p>Magma is generally not conductive to a healthy Nursery environment. Each Nursery will still increase Trimps per second from breeding by 1% (compounding), but 10% of your active Nurseries will shut down each zone as the Magma moves closer. Safety first!</p><p>You have purchased " + prettify(this.purchased) + " total Nurseries.</p>";
-				return "Construct a gem-powered nursery, where baby Trimps can grow up faster. Increases Trimps per second from breeding by 1% (compounding).";
+					return "<p>Magma is generally not conductive to a healthy Nursery environment. Each Nursery will still increase trumps per second from breeding by 1% (compounding), but 10% of your active Nurseries will shut down each zone as the Magma moves closer. Safety first!</p><p>You have purchased " + prettify(this.purchased) + " total Nurseries.</p>";
+				return "Construct a gem-powered nursery, where baby trumps can grow up faster. Increases trumps per second from breeding by 1% (compounding).";
 				
 			},
 			cost: {
@@ -5519,7 +5519,7 @@ var toReturn = {
 		Farmer: {
 			locked: 1,
 			owned: 0,
-			tooltip: "Train one of your Trimps in the ancient art of farming. Each Farmer harvests $modifier$ food per second.",
+			tooltip: "Train one of your trumps in the ancient art of farming. Each Farmer harvests $modifier$ food per second.",
 			cost: {
 				food: 5
 			},
@@ -5529,7 +5529,7 @@ var toReturn = {
 		Lumberjack: {
 			locked: 1,
 			owned: 0,
-			tooltip: "Show a Trimp how to cut one of those weird trees down. Each Lumberjack hauls back $modifier$ logs per second.",
+			tooltip: "Show a trump how to cut one of those weird trees down. Each Lumberjack hauls back $modifier$ logs per second.",
 			cost: {
 				food: 5
 			},
@@ -5539,7 +5539,7 @@ var toReturn = {
 		Miner: {
 			locked: 1,
 			owned: 0,
-			tooltip: "Send your misbehaving Trimps to the mines for some therapeutic work. Each Miner can find and smelt $modifier$ bars of metal per second.",
+			tooltip: "Send your misbehaving trumps to the mines for some therapeutic work. Each Miner can find and smelt $modifier$ bars of metal per second.",
 			cost: {
 				food: 20
 			},
@@ -5549,7 +5549,7 @@ var toReturn = {
 		Scientist: {
 			locked: 1,
 			owned: 0,
-			tooltip: "It takes some patience, but you can teach these Trimps to do some research for you. Each Scientist records $modifier$ units of pure science each second.",
+			tooltip: "It takes some patience, but you can teach these trumps to do some research for you. Each Scientist records $modifier$ units of pure science each second.",
 			cost: {
 				food: 100
 			},
@@ -5597,7 +5597,7 @@ var toReturn = {
 			locked: 1,
 			allowAutoFire: true,
 			owned: 0,
-			tooltip: "Each Geneticist will increase the health of each Trimp by 1% (compounding), but slows the rate at which baby Trimps grow by 2% (compounding).",
+			tooltip: "Each Geneticist will increase the health of each trump by 1% (compounding), but slows the rate at which baby trumps grow by 2% (compounding).",
 			cost: {
 				food: [1000000000000000, 1.03],
 			},
@@ -5623,7 +5623,7 @@ var toReturn = {
 				var currentMag = (((1 - Math.pow(0.9999, this.owned)) * 3));
 				var nextMag = (((1 - Math.pow(0.9999, this.owned + 1)) * 3));
 				var nextBonus = (1 - (currentMag / nextMag)) * 100;
-				var textString = "<p>Train a Magmamancer to craft pickaxe heads infused with Gems and Magma, custom for the unique rocks in each zone. The more Magmamancers you have and the longer you spend in one zone, the more Metal your Trimps will be able to gather!</p><p>For each 10 minutes you spend in a zone with Magmamancers up to 2 hours, your Magmamancer bonus will increase by 20% (compounding). Your current bonus is <b>" + prettify(bonus) + "%</b>, and you've been on this zone for " + timeStr + ".</p>";
+				var textString = "<p>Train a Magmamancer to craft pickaxe heads infused with Gems and Magma, custom for the unique rocks in each zone. The more Magmamancers you have and the longer you spend in one zone, the more Metal your trumps will be able to gather!</p><p>For each 10 minutes you spend in a zone with Magmamancers up to 2 hours, your Magmamancer bonus will increase by 20% (compounding). Your current bonus is <b>" + prettify(bonus) + "%</b>, and you've been on this zone for " + timeStr + ".</p>";
 				if (this.owned > 0) textString += "<p>Your next Magmamancer will increase the total bonus by " + prettify(nextBonus) + "% (compounding, hold Ctrl to see formula)</p>";
 				else textString += "<p>After training your first Magmamancer, your bonus metal will be " + prettify((nextMag * (Math.pow(1.2, this.getBonusPercent(true)) - 1)) * 100) + "%. (Hold Ctrl to see formula)</p>";
 				if (ctrlPressed) textString += "<b><p>M = Magmamancer count. T = Time on zone in minutes, divided by 10, rounded down.</p><p>Metal/Sec *= 1 + (((1 - (0.9999 ^ M)) * 3) * ((1.2 ^ T) - 1))</p><b>";
@@ -5665,7 +5665,7 @@ var toReturn = {
 		},
 		Battle: {
 			tooltip: function() {
-				return "Increase Trimp attack and health by " + prettify(game.goldenUpgrades.Battle.nextAmt() * 100) + "%.";
+				return "Increase trump attack and health by " + prettify(game.goldenUpgrades.Battle.nextAmt() * 100) + "%.";
 			},
 			nextAmt: function() {
 				return 0.03 * (game.global.goldenUpgrades + 1);
@@ -5689,7 +5689,7 @@ var toReturn = {
 	//Important Upgrades
 		Coordination: {
 			locked: 1,
-			tooltip: "This book will teach your soldiers how to utilize the buddy system. Fighting will now require <coord>% more Trimps (rounded up), but attack and health will grow for each new Trimp.",
+			tooltip: "This book will teach your soldiers how to utilize the buddy system. Fighting will now require <coord>% more trumps (rounded up), but attack and health will grow for each new trump.",
 			done: 0,
 			allowed: 0,
 			cost: {
@@ -5701,14 +5701,14 @@ var toReturn = {
 				}
 			},
 			fire: function () {
-				game.resources.trimps.maxSoldiers = Math.ceil(1.25 * game.resources.trimps.maxSoldiers);
+				game.resources.trumps.maxSoldiers = Math.ceil(1.25 * game.resources.trumps.maxSoldiers);
 				if (game.portal.Coordinated.level) game.portal.Coordinated.currentSend = Math.ceil(game.portal.Coordinated.currentSend * ((0.25 * Math.pow(game.portal.Coordinated.modifier, game.portal.Coordinated.level)) + 1));
 			}
 		},
 		Gigastation: {
 			locked: 1,
 			allowed: 0,
-			tooltip: "Prestige your Warpstation, increasing the amount of Trimps it can house by 20% and the base cost by 75%. There's no turning back, learning these blueprints will make your previous model of Warpstation obsolete but functional, and you will keep all Trimps housed there. Learning this will build one new Warpstation. <b>Holding Ctrl will cause as many Warpstations as you currently own to be purchased immediately after Gigastation, if you can afford them.</b>",
+			tooltip: "Prestige your Warpstation, increasing the amount of trumps it can house by 20% and the base cost by 75%. There's no turning back, learning these blueprints will make your previous model of Warpstation obsolete but functional, and you will keep all trumps housed there. Learning this will build one new Warpstation. <b>Holding Ctrl will cause as many Warpstations as you currently own to be purchased immediately after Gigastation, if you can afford them.</b>",
 			done: 0,
 			cost: {
 				resources: {
@@ -5728,7 +5728,7 @@ var toReturn = {
 				game.buildings.Warpstation.cost.metal[0] *= 1.75;
 				game.buildings.Warpstation.purchased = 1;
 				game.buildings.Warpstation.owned = 1;
-				game.resources.trimps.max += game.buildings.Warpstation.increase.by;
+				game.resources.trumps.max += game.buildings.Warpstation.increase.by;
 				if ((ctrlPressed || heldCtrl) && oldAmt > 1) buyBuilding("Warpstation", false, false, oldAmt - 1);
 			}
 		},
@@ -5736,7 +5736,7 @@ var toReturn = {
 	//One Time Use Upgrades, in order of common unlock order
 		Battle: { //0
 			locked: 1,
-			tooltip: "Figure out how to teach these Trimps to kill some bad guys.",
+			tooltip: "Figure out how to teach these trumps to kill some bad guys.",
 			done: 0,
 			allowed: 0,
 			cost: {
@@ -5760,7 +5760,7 @@ var toReturn = {
 		},
 		Bloodlust: { //1
 			locked: 1,
-			tooltip: "This book will teach your Trimps to Battle on their own.",
+			tooltip: "This book will teach your trumps to Battle on their own.",
 			done: 0,
 			allowed: 0,
 			cost: {
@@ -5910,11 +5910,11 @@ var toReturn = {
 			locked: 1,
 			allowed: 0,
 			get tooltip (){ 
-				var text = "This book will teach your Robotrimp how to do a much better job of shrieking, allowing MagnetoShriek to be used on multiple Corrupted cells in addition to Improbabilities. Upgraded MagnetoShriek starts off only being able to affect 1 cell at a time, but each use after purchasing this upgrade will extend the bonus by one additional cell, up to a max of 5 cells (resets on portal). <br/><br/> Each new Bionic Wonderland clear starting at Z185 will permanently increase the cell count cap by 1.";
+				var text = "This book will teach your Robotrump how to do a much better job of shrieking, allowing MagnetoShriek to be used on multiple Corrupted cells in addition to Improbabilities. Upgraded MagnetoShriek starts off only being able to affect 1 cell at a time, but each use after purchasing this upgrade will extend the bonus by one additional cell, up to a max of 5 cells (resets on portal). <br/><br/> Each new Bionic Wonderland clear starting at Z185 will permanently increase the cell count cap by 1.";
 				var cap = 5;
-				if (game.global.roboTrimpLevel >= 5)
-					cap += game.global.roboTrimpLevel - 4;
-				var cleared = (game.global.roboTrimpLevel - 4);
+				if (game.global.robotrumpLevel >= 5)
+					cap += game.global.robotrumpLevel - 4;
+				var cleared = (game.global.robotrumpLevel - 4);
 				text += " <b>You have cleared " + cleared + " Bionic Wonderland" + ((cleared == 1) ? "" : "s") + " at 185 or higher, and your MagnetoShriek cell count cap will be " + cap + "</b>";
 				return text;
 			}
@@ -5923,7 +5923,7 @@ var toReturn = {
 		Formations: {
 			locked: 1,
 			allowed: 0,
-			tooltip: "The air may be filled with pollution, but your Trimps seem to be getting smarter and a battle technique from what could only be a past life has crept into your memory. This would probably be a good opportunity to teach it to your Trimps. Once researched, you will be able to enter the 'Heap Formation'. This can be toggled to increase your Trimps' health by 4x, but reduce block and attack by half.",
+			tooltip: "The air may be filled with pollution, but your trumps seem to be getting smarter and a battle technique from what could only be a past life has crept into your memory. This would probably be a good opportunity to teach it to your trumps. Once researched, you will be able to enter the 'Heap Formation'. This can be toggled to increase your trumps' health by 4x, but reduce block and attack by half.",
 			done: 0,
 			cost: {
 				resources: {
@@ -5938,7 +5938,7 @@ var toReturn = {
 		Dominance: {
 			locked: 1,
 			allowed: 0,
-			tooltip: "Another formation has crept back in to your memory. Where are these coming from? Who are you? Who cares, this one will allow your Trimps to deal 4x damage at the cost of half health and block.",
+			tooltip: "Another formation has crept back in to your memory. Where are these coming from? Who are you? Who cares, this one will allow your trumps to deal 4x damage at the cost of half health and block.",
 			done: 0,
 			cost: {
 				resources: {
@@ -5953,7 +5953,7 @@ var toReturn = {
 		Barrier: {
 			locked: 1,
 			allowed: 0,
-			tooltip: "Woah, you just remembered that all Trimps lifting their shields in the same direction at the same time can produce a nice protecting wall. Seems like common sense now that you thought of it. This formation increases block by 4x and cuts the amount of block that enemies can pierce by 50%, at the cost of half attack and health.",
+			tooltip: "Woah, you just remembered that all trumps lifting their shields in the same direction at the same time can produce a nice protecting wall. Seems like common sense now that you thought of it. This formation increases block by 4x and cuts the amount of block that enemies can pierce by 50%, at the cost of half attack and health.",
 			done: 0,
 			cost: {
 				resources: {
@@ -5984,7 +5984,7 @@ var toReturn = {
 		},
 		Scientists: {
 			locked: 1,
-			tooltip: "You really don't believe it, but that book indicates that Trimps can be smart. Better read it and find out how.",
+			tooltip: "You really don't believe it, but that book indicates that trumps can be smart. Better read it and find out how.",
 			done: 0,
 			allowed: 0,
 			cost: {
@@ -5999,7 +5999,7 @@ var toReturn = {
 		},
 		Trainers: {
 			locked: 1,
-			tooltip: "This book holds all of the secrets of upper management. Train your Trimps to train other Trimps.",
+			tooltip: "This book holds all of the secrets of upper management. Train your trumps to train other trumps.",
 			done: 0,
 			allowed: 0,
 			cost: {
@@ -6014,7 +6014,7 @@ var toReturn = {
 		},
 		Explorers: {
 			locked: 1,
-			tooltip: "This book will allow you to hire trimps who can create map fragments for you!",
+			tooltip: "This book will allow you to hire trumps who can create map fragments for you!",
 			done: 0,
 			allowed: 0,
 			cost: {
@@ -6030,7 +6030,7 @@ var toReturn = {
 		},
 		Magmamancers: {
 			locked: 1,
-			tooltip: "Your scientists think they can study this book to figure out how to train Trimps as Magmamancers. According to your scientists, according to legend, Magmamancers require gems instead of food as sustainance and can increase the rate of Metal gathering more and more as they stay on the same zone.",
+			tooltip: "Your scientists think they can study this book to figure out how to train trumps as Magmamancers. According to your scientists, according to legend, Magmamancers require gems instead of food as sustainance and can increase the rate of Metal gathering more and more as they stay on the same zone.",
 			done: 0,
 			allowed: 0,
 			cost: {
@@ -6057,7 +6057,7 @@ var toReturn = {
 					}
 				},
 				fire: function () {
-					game.resources.trimps.max += ((game.buildings.Hut.owned) * game.buildings.Hut.increase.by);
+					game.resources.trumps.max += ((game.buildings.Hut.owned) * game.buildings.Hut.increase.by);
 					game.buildings.Hut.increase.by *= 2;
 				}
 			},
@@ -6074,7 +6074,7 @@ var toReturn = {
 					}
 				},
 				fire: function () {
-					game.resources.trimps.max += ((game.buildings.House.owned) * game.buildings.House.increase.by);
+					game.resources.trumps.max += ((game.buildings.House.owned) * game.buildings.House.increase.by);
 					game.buildings.House.increase.by *= 2;
 				}
 			},
@@ -6091,7 +6091,7 @@ var toReturn = {
 					}
 				},
 				fire: function () {
-					game.resources.trimps.max += ((game.buildings.Mansion.owned) * game.buildings.Mansion.increase.by);
+					game.resources.trumps.max += ((game.buildings.Mansion.owned) * game.buildings.Mansion.increase.by);
 					game.buildings.Mansion.increase.by *= 2;
 				}
 			},
@@ -6108,7 +6108,7 @@ var toReturn = {
 					}
 				},
 				fire: function () {
-					game.resources.trimps.max += ((game.buildings.Hotel.owned) * game.buildings.Hotel.increase.by);
+					game.resources.trumps.max += ((game.buildings.Hotel.owned) * game.buildings.Hotel.increase.by);
 					game.buildings.Hotel.increase.by *= 2;
 				}
 			},
@@ -6125,7 +6125,7 @@ var toReturn = {
 					}
 				},
 				fire: function () {
-					game.resources.trimps.max += ((game.buildings.Resort.owned) * game.buildings.Resort.increase.by);
+					game.resources.trumps.max += ((game.buildings.Resort.owned) * game.buildings.Resort.increase.by);
 					game.buildings.Resort.increase.by *= 2;
 				}
 			},
@@ -6342,7 +6342,7 @@ var toReturn = {
 		Potency: {
 			locked: 1,
 			allowed: 0,
-			tooltip: "This book will teach your trimps how to be 10% more efficient at making baby Trimps!",
+			tooltip: "This book will teach your trumps how to be 10% more efficient at making baby trumps!",
 			done: 0,
 			cost: {
 				resources: {
@@ -6391,7 +6391,7 @@ var toReturn = {
 		Speedminer: {
 			locked: 1,
 			allowed: 0,
-			tooltip: "This book will teach your Trimps how to mine 25% faster!",
+			tooltip: "This book will teach your trumps how to mine 25% faster!",
 			done: 0,
 			cost: {
 				resources: {
@@ -6406,7 +6406,7 @@ var toReturn = {
 		Speedlumber: {
 			locked: 1,
 			allowed: 0,
-			tooltip: "This book will teach your Trimps how to cut wood 25% faster!",
+			tooltip: "This book will teach your trumps how to cut wood 25% faster!",
 			done: 0,
 			cost: {
 				resources: {
@@ -6421,7 +6421,7 @@ var toReturn = {
 		Speedfarming: {
 			locked: 1,
 			allowed: 0,
-			tooltip: "This book will teach your Trimps how to farm 25% faster!",
+			tooltip: "This book will teach your trumps how to farm 25% faster!",
 			done: 0,
 			cost: {
 				resources: {
@@ -6436,7 +6436,7 @@ var toReturn = {
 		Speedscience: {
 			locked: 1,
 			allowed: 0,
-			tooltip: "This book will teach your Trimps how to science things 25% faster!",
+			tooltip: "This book will teach your trumps how to science things 25% faster!",
 			done: 0,
 			cost: {
 				resources: {
@@ -6450,7 +6450,7 @@ var toReturn = {
 		Megaminer: {
 			locked: 1,
 			allowed: 0,
-			tooltip: "This book will teach your Trimps how to mine ?% faster!",
+			tooltip: "This book will teach your trumps how to mine ?% faster!",
 			done: 0,
 			cost: {
 				resources: {
@@ -6466,7 +6466,7 @@ var toReturn = {
 		Megalumber: {
 			locked: 1,
 			allowed: 0,
-			tooltip: "This book will teach your Trimps how to chop wood ?% faster!",
+			tooltip: "This book will teach your trumps how to chop wood ?% faster!",
 			done: 0,
 			cost: {
 				resources: {
@@ -6482,7 +6482,7 @@ var toReturn = {
 		Megafarming: {
 			locked: 1,
 			allowed: 0,
-			tooltip: "This book will teach your Trimps how to farm ?% faster!",
+			tooltip: "This book will teach your trumps how to farm ?% faster!",
 			done: 0,
 			cost: {
 				resources: {
@@ -6498,7 +6498,7 @@ var toReturn = {
 		Megascience: {
 			locked: 1,
 			allowed: 0,
-			tooltip: "This book will teach your Trimps how to science things ?% faster!",
+			tooltip: "This book will teach your trumps how to science things ?% faster!",
 			done: 0,
 			cost: {
 				resources: {
@@ -6578,15 +6578,15 @@ var toReturn = {
 		},
 		jobs: {
 			done: 0,
-			message: "There's a weird impish little creature in the trap. A Trimp, you decide to call it. Since you're so creative, you could probably train this Trimp to help out.",
+			message: "There's a weird impish little creature in the trap. A trump, you decide to call it. Since you're so creative, you could probably train this trump to help out.",
 			cost: {
 				resources: {
-					trimps: 1
+					trumps: 1
 				}
 			},
 			fire: function () {
 				fadeIn("jobsTab", 10);
-				document.getElementById("trimpTitle").innerHTML = "Trimps";
+				document.getElementById("trumpTitle").innerHTML = "trumps";
 				document.getElementById("empHide").style.visibility = "visible";
 				unlockJob("Farmer");
 				document.getElementById("jobsTitleDiv").style.display = "block";
@@ -6609,7 +6609,7 @@ var toReturn = {
 			message: "This planet feels so familiar, yet so foreign. Maybe it's time to start sciencing things.",
 			cost: {
 				resources: {
-					trimps: 2,
+					trumps: 2,
 					food: 15
 				}
 			},
@@ -6639,7 +6639,7 @@ var toReturn = {
 			message: "Doesn't seem like all of these little guys will fit in your ship. Luckily, you remember how to make small huts for shelter.",
 			cost: {
 				resources: {
-					trimps: 8
+					trumps: 8
 				}
 			},
 			fire: function () {
@@ -6651,7 +6651,7 @@ var toReturn = {
 			message: "It's starting to get pretty crowded up in here. Maybe you should start building some better housing.",
 			cost: {
 				resources: {
-					trimps: 65
+					trumps: 65
 				}
 			},
 			fire: function () {
@@ -6661,12 +6661,12 @@ var toReturn = {
 		breeding: {
 			done: 0,
 			message: function () {
-				if (game.global.challengeActive == "Trapper") return "Your Trimps look really bored.";
-				else return "Apparently the Trimps breed if they're not working. Doesn't look pleasant.";		
+				if (game.global.challengeActive == "Trapper") return "Your trumps look really bored.";
+				else return "Apparently the trumps breed if they're not working. Doesn't look pleasant.";		
 			},
 			cost: {
 				special: function () {
-					return (game.resources.trimps.owned - game.resources.trimps.employed >= 2) ? true : false;
+					return (game.resources.trumps.owned - game.resources.trumps.employed >= 2) ? true : false;
 				}
 			},
 			fire: function () {
@@ -6701,7 +6701,7 @@ var toReturn = {
 			Magnimp: 0
 		},
 		goldMaps: false,
-		quickTrimps: false
+		quicktrumps: false
 	}
 };
 return toReturn;
